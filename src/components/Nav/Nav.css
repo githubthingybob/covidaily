@@ -1,13 +1,13 @@
 .nav-title {
     position: absolute;
-    width: 475px;
-    height: 75px;
+    width: 400px;
+    height: 50px;
     left: 30px;
-    top: 0px;
+    top: 10px;
     font-family: Poppins;
     font-style: normal;
     font-weight: 900;
-    font-size: 72px;
+    font-size: 60px;
     line-height: 40px;
     color: #09E69B;
 
@@ -18,15 +18,13 @@
   width: 95%;
   height: 10px;
   left: 30px;
-  top: 185px;
+  top: 160px;
 
   background: radial-gradient(57.95% 662245.53% at 91.91% 100.02%, #02FFA9 0%, #C9FFED 76.7%);
 }
 
 .nav-list {
 position: absolute;
-width: 100px;
-height: 20px;
 left: 45px;
 top: 130px;
 list-style: none;
@@ -35,13 +33,14 @@ padding: 0;
 font-family: Poppins;
 font-style: normal;
 font-weight: bold;
-font-size: 45px;
-line-height: 50px;
+font-size: 30px;
+line-height: 30px;
 }
 
 .nav-div {
   background-color: #09E69B;
 }
+
 .nav-link-li{
   margin: 0px;
   padding-right: 10px;

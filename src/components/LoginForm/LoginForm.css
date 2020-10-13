@@ -1,9 +1,9 @@
 .login-div{
     position: absolute;
-    width: 420px;
-    height: 375px;
-    left: 75%;
-    top: 250px;
+    width: 350px;
+    height: 320px;
+    left: 70%;
+    top: 180px;
 
     background: #BAECD7;
     box-shadow: 7px 7px 5.19372px rgba(0, 0, 0, 0.25);
@@ -14,8 +14,8 @@
     font-style: normal;
     margin-left: 30px;
     font-weight: bold;
-    font-size: 45;
-    line-height: 45px;
+    font-size: 25;
+    line-height: 25px;
     letter-spacing: 0.01em;
 
     color: #737373;
@@ -24,8 +24,8 @@
 .username-login {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 10px;
     background-color: white;
+    border-radius: 5px;
 }
 
 .password-login {
@@ -33,4 +33,34 @@
     margin-right: 10%;
     margin-top: 20px;
     background-color: white;
+    border-radius: 5px;
+}
+
+.registration-link {
+    text-decoration: none;
+}
+
+
+#login-form-buttons{
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+#register-btn {
+    background: #5A0ABF;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    color: white;
+    margin-right: 10px;
+    padding-right: 15px;
+}
+
+#login-btn {
+    background: #22D196;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    color: white;
+    margin-left: 10px;
+    padding-left: 15px;
 }

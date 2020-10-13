@@ -9,7 +9,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import "./LoginForm.css";
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 
 class LoginForm extends Component {
@@ -78,8 +79,23 @@ class LoginForm extends Component {
                             onChange={this.handleInputChangeFor('password')}
                           />
                   </div>
-              <Link to="/registration"><Button>Register</Button></Link>
-              <Button onClick={this.login}>Login</Button>
+                <div id="login-form-buttons">
+                  <Link to="/registration" className="registration-link">
+                    <Button
+                        id="register-btn"
+                        startIcon ={<ArrowBackIcon/>}
+                        >Register
+                    </Button>
+                  </Link>
+
+
+                  <Button 
+                        id="login-btn"
+                        endIcon ={<ArrowForwardIcon/>}
+                        onClick={this.login}>
+                        Login
+                  </Button>
+                </div>
               </form>
             </div>    
       </HashRouter>
