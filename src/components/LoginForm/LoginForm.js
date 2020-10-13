@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {HashRouter, Link} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class LoginForm extends Component {
@@ -32,6 +33,7 @@ class LoginForm extends Component {
 
   render() {
     return (
+      <HashRouter>
       <form className="formPanel" onSubmit={this.login}>
         <h2>Login</h2>
         {this.props.store.errors.loginMessage && (
@@ -42,31 +44,34 @@ class LoginForm extends Component {
         <div>
           <label htmlFor="username">
             Username:
-            <input
-              type="text"
-              name="username"
-              required
-              value={this.state.username}
-              onChange={this.handleInputChangeFor('username')}
-            />
+                <input
+                  type="text"
+                  name="username"
+                  required
+                  value={this.state.username}
+                  onChange={this.handleInputChangeFor('username')}
+                />
           </label>
         </div>
         <div>
           <label htmlFor="password">
             Password:
-            <input
-              type="password"
-              name="password"
-              required
-              value={this.state.password}
-              onChange={this.handleInputChangeFor('password')}
-            />
+                <input
+                  type="password"
+                  name="password"
+                  required
+                  value={this.state.password}
+                  onChange={this.handleInputChangeFor('password')}
+                />
           </label>
         </div>
         <div>
           <input className="btn" type="submit" name="submit" value="Log In" />
+          <Link to="/registration"><input className="btn" type="submit" name="submit" value="Register" /></Link>
         </div>
       </form>
+
+      </HashRouter>
     );
   }
 }

@@ -17,7 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
+import LoginForm from '../LoginForm/LoginForm';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
@@ -71,7 +71,7 @@ class App extends Component {
               // - else shows LoginPage at /login
               exact
               path="/login"
-              component={LoginPage}
+              component={LoginForm}
               authRedirect="/user"
             />
             <ProtectedRoute

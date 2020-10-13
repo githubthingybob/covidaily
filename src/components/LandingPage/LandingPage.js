@@ -5,7 +5,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
-import LoginForm from '../LoginForm/LoginForm'
+import LoginForm from '../LoginForm/LoginForm';
 
 class LandingPage extends Component {
 
@@ -51,7 +51,7 @@ class LandingPage extends Component {
                 </div> 
           </div>
           <div className="grid-col grid-col_4">
-            <LoginForm />
+            <LoginForm/>
 
 
           </div>
