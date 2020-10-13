@@ -11,6 +11,7 @@ class Nav extends Component {
   return (
     <>
       <Link to="/home"><h2 className="nav-title">COVIDaily</h2></Link>
+
       <div className="nav-div">
           <ul className="nav-list">
             <li className ="inline-li"><Link className="nav-link-li" to="/home">Home</Link></li>
@@ -18,8 +19,8 @@ class Nav extends Component {
             <li className ="inline-li"><Link className="nav-link-li" to="/about">About</Link></li>
           </ul>
       </div>
-      <div className="nav-line">
-      </div>
+
+      <div className="nav-line"></div> 
     </>
   );
 }

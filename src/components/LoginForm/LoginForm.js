@@ -3,19 +3,24 @@ import { connect } from 'react-redux';
 import {HashRouter, Link} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+
+
 //materialUI
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class LoginForm extends Component {
   state = {
         username: '',
         password: '',
+        helperText: '',
+        error: false
   }; //end state
 
   login = (event) => {
             event.preventDefault();
 
-            if (this.state.username && this.state.password) {
+            if (this.state.username.length>2 && this.state.password.length>2) {
                   this.props.dispatch({
                     type: 'LOGIN',
                     payload: {
@@ -24,6 +29,10 @@ class LoginForm extends Component {
                     },
                   });
             } else {
+                  this.setState({
+                    helperText: 'Required',
+                    error: true
+                  })
                   this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
             }
   }; // end login
@@ -37,24 +46,19 @@ class LoginForm extends Component {
   render() {
     return (
       <HashRouter>
-      <form className="formPanel" onSubmit={this.login}>
+      <div>
+        <form>
         <h2>Login</h2>
-        {this.props.store.errors.loginMessage && (
-          <h3 className="alert" role="alert">
-            {this.props.store.errors.loginMessage}
-          </h3>
-        )}
         <div>
-          <label htmlFor="username">
-            Username:
-                <input
-                  type="text"
+          <TextField 
+                  error={this.state.error}
+                  helperText={this.state.helperText}
                   name="username"
                   required
+                  variant="outlined"
                   value={this.state.username}
                   onChange={this.handleInputChangeFor('username')}
                 />
-          </label>
         </div>
         <div>
           <label htmlFor="password">
@@ -68,15 +72,16 @@ class LoginForm extends Component {
                 />
           </label>
         </div>
-        <div>
           <Link to="/registration"><Button>Register</Button></Link>
           <Button onClick={this.login}>Login</Button>
-        </div>
-      </form>
-
+          </form>
+      </div>    
       </HashRouter>
     );
   }
 } //end render
 
 export default connect(mapStoreToProps)(LoginForm);
+
+
+//sources: https://stackoverflow.com/questions/49421792/how-to-use-material-uinext-textfield-error-props

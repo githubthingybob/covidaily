@@ -18,7 +18,7 @@
   width: 95%;
   height: 10px;
   left: 30px;
-  top: 130px;
+  top: 185px;
 
   background: radial-gradient(57.95% 662245.53% at 91.91% 100.02%, #02FFA9 0%, #C9FFED 76.7%);
 }
@@ -26,9 +26,9 @@
 .nav-list {
 position: absolute;
 width: 100px;
-height: 32px;
+height: 20px;
 left: 45px;
-top: 145px;
+top: 130px;
 list-style: none;
 margin: 0;
 padding: 0;
@@ -43,8 +43,12 @@ line-height: 50px;
   background-color: #09E69B;
 }
 .nav-link-li{
-  margin: 20px;
-  padding: 5px;
+  margin: 0px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top:5px;
+  padding-bottom:0px;
+  border-bottom: 0px;
   text-decoration: none;
 }
 
