@@ -1,0 +1,36 @@
+.login-div{
+    position: absolute;
+    width: 420px;
+    height: 375px;
+    left: 75%;
+    top: 250px;
+
+    background: #BAECD7;
+    box-shadow: 7px 7px 5.19372px rgba(0, 0, 0, 0.25);
+}
+
+#login-title{
+    font-family: Poppins;
+    font-style: normal;
+    margin-left: 30px;
+    font-weight: bold;
+    font-size: 45;
+    line-height: 45px;
+    letter-spacing: 0.01em;
+
+    color: #737373;
+}
+
+.username-login {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.password-login {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+    background-color: white;
+}
