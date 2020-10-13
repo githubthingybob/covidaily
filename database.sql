@@ -1,10 +1,42 @@
-
--- USER is a reserved keyword with Postgres
--- You must use double quotes in every query that user is in:
--- ex. SELECT * FROM "user";
--- Otherwise you will have errors!
 CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+  "id" serial primary key,
+  "username" VARCHAR (200) UNIQUE, 
+  "password" VARCHAR (1000) NOT NULL,
+  "covid_positive" boolean DEFAULT FALSE,
+  "current_covid_symptoms" boolean DEFAULT FALSE,
+  "smoke_exposed" boolean DEFAULT FALSE,
+  "daily_vitamins" boolean DEFAULT FALSE,
+  "insurance" boolean DEFAULT FALSE,
+  "public_exposed_children" boolean DEFAULT FALSE,
+  "negative_effects" boolean DEFAULT FALSE,
+  "personality" varchar (50),
+  "AC" varchar (50),
+  "dwelling" varchar (100),
+  "water" varchar (100),
+  "race" varchar (100),
+  "development" varchar (100),
+  "hospital_visits" varchar (50),
+  "sex" varchar (20),
+  "age_range" varchar (20),
+  "income_range" varchar (100),
+  "avg_social_gatherings" varchar (50),
+  "weight_range" varchar (50)
+ );
+ 
+CREATE TABLE "daily_logs" (
+"id" SERIAL PRIMARY KEY,
+"date" DATE,
+"user_id" INT REFERENCES "user",
+"oximeter" INT,
+"temperature" INT,
+"bp_systolic" INT,
+"bp_diastolic" INT,
+"treatment" TEXT [],
+"treatment_not_listed" text,
+"feeling" varchar (20),
+"other_feelings" text,
+"medical_reactions" TEXT [],
+"reactions_not_listed" text,
+"symptoms" text [],
+"other_symptoms" text
 );
