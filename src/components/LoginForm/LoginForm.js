@@ -3,33 +3,36 @@ import { connect } from 'react-redux';
 import {HashRouter, Link} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+//materialUI
+import Button from '@material-ui/core/Button';
+
 class LoginForm extends Component {
   state = {
-    username: '',
-    password: '',
-  };
+        username: '',
+        password: '',
+  }; //end state
 
   login = (event) => {
-    event.preventDefault();
+            event.preventDefault();
 
-    if (this.state.username && this.state.password) {
-      this.props.dispatch({
-        type: 'LOGIN',
-        payload: {
-          username: this.state.username,
-          password: this.state.password,
-        },
-      });
-    } else {
-      this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
-    }
+            if (this.state.username && this.state.password) {
+                  this.props.dispatch({
+                    type: 'LOGIN',
+                    payload: {
+                      username: this.state.username,
+                      password: this.state.password,
+                    },
+                  });
+            } else {
+                  this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
+            }
   }; // end login
 
   handleInputChangeFor = (propertyName) => (event) => {
     this.setState({
       [propertyName]: event.target.value,
     });
-  };
+  }; //end handleInputChange
 
   render() {
     return (
@@ -66,14 +69,14 @@ class LoginForm extends Component {
           </label>
         </div>
         <div>
-          <input className="btn" type="submit" name="submit" value="Log In" />
-          <Link to="/registration"><input className="btn" type="submit" name="submit" value="Register" /></Link>
+          <Link to="/registration"><Button>Register</Button></Link>
+          <Button onClick={this.login}>Login</Button>
         </div>
       </form>
 
       </HashRouter>
     );
   }
-}
+} //end render
 
 export default connect(mapStoreToProps)(LoginForm);
