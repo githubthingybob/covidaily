@@ -57,20 +57,21 @@ class LoginForm extends Component {
                   required
                   variant="outlined"
                   value={this.state.username}
+                  label="Username"
                   onChange={this.handleInputChangeFor('username')}
                 />
         </div>
         <div>
-          <label htmlFor="password">
-            Password:
-                <input
-                  type="password"
+          <TextField
+                  error={this.state.error}
+                  helperText={this.state.helperText}
                   name="password"
                   required
+                  variant="outlined"
                   value={this.state.password}
+                  label="Password"
                   onChange={this.handleInputChangeFor('password')}
                 />
-          </label>
         </div>
           <Link to="/registration"><Button>Register</Button></Link>
           <Button onClick={this.login}>Login</Button>
@@ -85,3 +86,4 @@ export default connect(mapStoreToProps)(LoginForm);
 
 
 //sources: https://stackoverflow.com/questions/49421792/how-to-use-material-uinext-textfield-error-props
+//sources: https://stackoverflow.com/questions/35901440/how-to-invalidate-a-textfield-in-material-ui
