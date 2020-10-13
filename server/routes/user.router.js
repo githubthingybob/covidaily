@@ -37,24 +37,24 @@ router.post('/profile', (req, res) => {
       "covid_positive", "current_covid_symptoms", "smoke_exposed", "daily_vitamins", "insurance", 
       "public_exposed_children", "negative_effects", "personality", "AC", "dwelling", "water", "race", "development", "hospital_visits", 
       "sex", "age_range", "income_range", "avg_social_gatherings", "weight_range"
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19);`
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) WHERE "id" = $20;`
   pool
     .query(queryText, [profile.covid_positive, profile.current_covid_symptoms, profile.smoke_exposed, profile.daily_vitamins, 
             profile.insurance, profile.public_exposed_children, profile.negative_effects, profile.personality, profile.AC, profile.dwelling, 
             profile.water, profile.race, profile.development, profile.hospital_visits, profile.sex, profile.age_range, profile.income_range, 
-            profile.avg_social_gatherings, profile.weight_range])
+            profile.avg_social_gatherings, profile.weight_range, profile.id])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });//end router.post profile UPDATE
 
 
-//update Email Address for users
+//update Username for users
 router.put('/profile', (req, res) => {
   const profile= req.body;
 
-  const queryText = `UPDATE "user" SET "email" = $1 WHERE "id" = $2;`;
+  const queryText = `UPDATE "user" SET "username" = $1 WHERE "id" = $2;`;
 pool
-    .query(queryText, [profile.newEmail, profile.id])
+    .query(queryText, [profile.newUsername, profile.id])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });

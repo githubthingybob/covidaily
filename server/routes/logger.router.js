@@ -1,25 +1,18 @@
 const express = require('express');
-const pool = require('../../../solo_draft/server/modules/pool');
+const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * Get all of the items on the shelf
+ * GET route template
  */
-// router.get('/', (req, res) => {
-//   const queryText = ``;
-
-//   pool.query(queryText)
-//     .then((result) => { res.send(result.rows); })
-//     .catch((err) => {
-//       console.error('Error completing GET ITEM query', err);
-//       res.sendStatus(500);
-//     });
-// });
+router.get('/', (req, res) => {
+  // GET route code here
+});
 
 /**
- * Add an item for the logged in user to the shelf
+ * POST route template
  */
-router.post('/dailylogger', (req, res) => {
+router.post('/', (req, res) => {
   const dailyLog = req.body;
   const queryText = `
   INSERT INTO "daily_logs" ("date", "user_id", "oximeter", "temperature", "bp_systolic", "bp_diastolic", "treatment", "treatment_not_listed",
@@ -35,7 +28,6 @@ router.post('/dailylogger', (req, res) => {
       res.sendStatus(500);
     });
 });
-
 
 
 module.exports = router;
