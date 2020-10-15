@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import {HashRouter, Link} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+//styling
+import './RegistrationInfo.css'
+
 class RegistrationInfo extends Component {
 
   render() {
@@ -28,7 +31,7 @@ class RegistrationInfo extends Component {
                 Remember to stay safe! 
               </p>
         </div>
-        <Link to="/registration"><button>Continue Registration</button></Link>
+        <Link to="/registration"><button id="continue-registration">Continue Registration</button></Link>
       </div>
       </HashRouter>
     );
