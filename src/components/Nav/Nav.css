@@ -6,8 +6,8 @@
     top: 10px;
     font-family: Poppins;
     font-style: normal;
-    font-weight: 900;
-    font-size: 40px;
+    font-weight: 1900;
+    font-size: 45px;
     line-height: 40px;
     color: #09E69B;
 
@@ -18,7 +18,7 @@
   width: 95%;
   height: 10px;
   left: 30px;
-  top: 130px;
+  top: 135px;
 
   background: radial-gradient(57.95% 662245.53% at 91.91% 100.02%, #02FFA9 0%, #C9FFED 76.7%);
 }
@@ -26,7 +26,7 @@
 .nav-list {
 position: absolute;
 left: 45px;
-top: 100px;
+top: 105px;
 list-style: none;
 margin: 0;
 padding: 0;

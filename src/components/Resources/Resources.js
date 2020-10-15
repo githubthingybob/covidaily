@@ -9,7 +9,7 @@ class Resources extends Component {
   render() {
     return (
       <div>
-        <h2>TESTING RESOURCES</h2>
+        <h2>Resources</h2>
       </div>
     );
   }
