@@ -1,0 +1,35 @@
+.register-div {
+    width: 330px;
+    height: 350px;
+    margin: 0 auto;
+    margin-top: 200px;
+    background: #BAECD7;
+    box-shadow: 7px 7px 5.19372px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+#register-title {
+    font-family: Poppins;
+    font-style: normal;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25;
+    line-height: 25px;
+    letter-spacing: 0.01em;
+    padding-top: 30px;
+    color: #737373;
+}
+
+#registration-btn{
+    background: #5A0ABF;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+}
+
+#registration-div {
+    text-align: center;
+    margin-top: 30px;
+
+}

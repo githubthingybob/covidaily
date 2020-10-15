@@ -14,12 +14,12 @@ import Nav from '../Nav/Nav';
 import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../RegistrationInfo/RegistrationInfo';
 import Resources from '../Resources/Resources';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginForm from '../LoginForm/LoginForm';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import RegistrationInfo from '../RegistrationInfo/RegistrationInfo'
+import DailyLogger from '../DailyLogger/DailyLogger';
 
 import './App.css';
 
@@ -52,8 +52,8 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows UserPage else shows LoginPage
               exact
-              path="/user"
-              component={UserPage}
+              path="/dailylogger"
+              component={DailyLogger}
             />
 
             <Route
@@ -73,30 +73,30 @@ class App extends Component {
             be taken to the component and path supplied. */}
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/dailylogger"
               // - else shows LoginPage at /login
               exact
               path="/login"
               component={LoginForm}
-              authRedirect="/user"
+              authRedirect="/dailylogger"
             />
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/dailylogger"
               // - else shows RegisterPage at "/registration"
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/user"
+              authRedirect="/dailylogger"
             />
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/account"
               // - else shows LandingPage at "/home"
               exact
               path="/home"
               component={LandingPage}
-              authRedirect="/user"
+              authRedirect="/account"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

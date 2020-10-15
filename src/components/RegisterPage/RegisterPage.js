@@ -11,9 +11,6 @@ class RegisterPage extends Component {
     return (
       <div>
         <RegisterForm />
-
-
-        
       </div>
     );
   }

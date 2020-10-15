@@ -8,8 +8,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 //materialUI & styling
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import './RegisterForm.css'
 
 
 class RegisterForm extends Component {
@@ -51,9 +51,9 @@ class RegisterForm extends Component {
   render() {
     return (
       <HashRouter>
-            <div className="login-div">
+            <div className="register-div">
             <form>
-            <h2 id="login-title">Login</h2>
+            <h2 id="register-title">Register</h2>
                   <div className="username-login">
                     <TextField 
                             error={this.state.error}
@@ -80,12 +80,12 @@ class RegisterForm extends Component {
                             onChange={this.handleInputChangeFor('password')}
                           />
                   </div>
-                <div id="register-button">
+                <div id="registration-div">
                   <Button 
-                        id="register-btn"
+                        id="registration-btn"
                         endIcon ={<ArrowForwardIcon/>}
                         onClick={this.registerUser}>
-                        Login
+                        Register
                   </Button>
                 </div>
               </form>
