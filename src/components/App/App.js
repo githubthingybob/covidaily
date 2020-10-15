@@ -11,14 +11,15 @@ import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
 
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+import UserPage from '../RegistrationInfo/RegistrationInfo';
 import Resources from '../Resources/Resources';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginForm from '../LoginForm/LoginForm';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import RegistrationInfo from '../RegistrationInfo/RegistrationInfo'
 
 import './App.css';
 
@@ -59,6 +60,12 @@ class App extends Component {
               exact
               path="/resources"
               component={Resources}
+            />
+
+            <Route
+              exact
+              path="/registrationinfo"
+              component={RegistrationInfo}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

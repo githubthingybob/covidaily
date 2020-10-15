@@ -80,7 +80,7 @@ class LoginForm extends Component {
                           />
                   </div>
                 <div id="login-form-buttons">
-                  <Link to="/registration" className="registration-link">
+                  <Link to="/registrationinfo" className="registration-link">
                     <Button
                         id="register-btn"
                         startIcon ={<ArrowBackIcon/>}
