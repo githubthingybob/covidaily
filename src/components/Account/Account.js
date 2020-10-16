@@ -95,7 +95,55 @@ class Account extends Component {
                 <input type="radio" name="age" value="Over 60">Over 60</input>
             </fieldset>
         </div>
-
+        <div>
+            <fieldset>
+                <legend>9. Click on your current income range</legend>
+                <input type="radio" name="income" value="Below 20k">Below 20</input>
+                <input type="radio" name="income" value="20k-45k">20k-45k</input>
+                <input type="radio" name="income" value="45k-85k">45k-85k</input>
+                <input type="radio" name="income" value="85k-150k">85k-150k</input>
+                <input type="radio" name="income" value="Above 150k">Above 150k</input>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>10. Click on the monthly average amount of social gatherings (with more than 3 
+                            people outside your household) you have attended</legend>
+                <input type="radio" name="social" value="0-1">0-1</input>
+                <input type="radio" name="social" value="2-3">2-3</input>
+                <input type="radio" name="social" value="4-6">4-6</input>
+                <input type="radio" name="social" value="7-9">7-9</input>
+                <input type="radio" name="social" value="10 or more">10 or more</input>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>11. Click on the monthly average amount of social gatherings (with more than 3 
+                            people outside your household) you have attended</legend>
+                <input type="radio" name="weight" value="Underweight">Underweight</input>
+                <input type="radio" name="weight" value="Average">Average</input>
+                <input type="radio" name="weight" value="Overweight">Overweight</input>
+                <input type="radio" name="weight" value="Obese">Obese</input>
+                <input type="radio" name="weight" value="Morbidly Obese">Morbidly Obese</input>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>12. Click on the biological sex you were born with</legend>
+                <input type="radio" name="sex" value="Male">Male</input>
+                <input type="radio" name="sex" value="Female">Female</input>
+            </fieldset>
+        </div>
+        <div>
+            <fieldset>
+                <legend>13. Click on your monthly average hospital/clinic visits</legend>
+                <input type="radio" name="hospital" value="0-1">0-1</input>
+                <input type="radio" name="hospital" value="2-3">2-3</input>
+                <input type="radio" name="hospital" value="4-5">4-5</input>
+                <input type="radio" name="hospital" value="6-8">6-8</input>
+                <input type="radio" name="hospital" value="9 or more">9 or more</input>
+            </fieldset>
+        </div>
       </div>
       
     );
