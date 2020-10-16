@@ -17,10 +17,14 @@ class DailyLogger extends Component {
                     diastolic: '',
                     temperature: '',
                     symptoms: [],
+                    symptomsNotListed: '',
                     treatment: [],
+                    treatmentNotListed: '',
                     feelings: '',
-                    reactions: []
+                    reactions: [],
+                    reactionsNotListed: ''
             }
+
             onSubmit = (event) => {
                       event.preventDefault();
 
@@ -36,7 +40,13 @@ class DailyLogger extends Component {
                                     systolic: this.state.systolic,
                                     diastolic: this.state.diastolic,
                                     temperature: this.state.temperature,
-                                    symptoms: this.state.symptoms
+                                    symptoms: this.state.symptoms,
+                                    treatment: this.state.treatment,
+                                    feelings: this.state.feelings,
+                                    reactions: this.state.reactions,
+                                    symptomsNotListed: this.state.symptomsNotListed,
+                                    treatmentNotListed: this.state.treatmentNotListed,
+                                    reactionsNotListed: this.state.reactionsNotListed
                               },
                             });
                             this.clearInputFields();
@@ -65,6 +75,7 @@ class DailyLogger extends Component {
 
             handleInputChangeFor = (propertyName) => (event) => {
               this.setState({
+                ...this.state,
                 [propertyName]: event.target.value,
               });
             }; //end handleInputChange
@@ -76,7 +87,10 @@ class DailyLogger extends Component {
 
                 this.setState({
                     ...this.state,
-                    symptoms: [...this.state.symptoms, event.target.value]
+                    symptoms: [...this.state.symptoms, event.target.value],
+                    treatment: [...this.state.treatment, event.target.value],
+                    feelings: event.target.value,
+                    reactions: [...this.state.reactions, event.target.value],
                 })
             }
 
@@ -190,7 +204,7 @@ class DailyLogger extends Component {
                             <label htmlFor= "loss-taste-smell">Loss of Taste/Smell</label>
                         <div>
                                 <textarea id="symptoms-not-listed" placeholder="Symptoms/Mental Health Status Not Listed" rows="7" cols="60"
-                                onChange={this.onClick}>
+                                onChange={this.handleInputChangeFor('symptomsNotListed')}>
                                 </textarea>
                         </div>
           </fieldset>
@@ -245,7 +259,7 @@ class DailyLogger extends Component {
                             <label htmlFor= "hydroxychloroquine">Hydroxychloroquine</label>
                         <div>
                                 <textarea id="treatments-not-listed" placeholder="Treatment Not Listed" rows="7" cols="60"
-                                onChange={this.onClick}>
+                                onChange={this.handleInputChangeFor('treatmentNotListed')}>
                                 </textarea>
                         </div>
           </fieldset>
@@ -284,7 +298,7 @@ class DailyLogger extends Component {
                                 <label htmlFor= "anaphylatic-shock">Anaphylatic Shock</label>
                         <div>
                                 <textarea id="reactions-not-listed" placeholder="Reaction(s) Not Listed" rows="7" cols="60"
-                                onChange={this.onClick}>
+                                onChange={this.handleInputChangeFor('reactionsNotListed')}>
                                 </textarea>
                         </div>
             </fieldset>
