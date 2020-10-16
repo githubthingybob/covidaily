@@ -9,9 +9,8 @@ import './DailyLogger.css'
 
 class DailyLogger extends Component {
             state = {
+                newDailyLog: {
                     date: new Date().toLocaleString().split(',')[0],
-                    helperText: '',
-                    error: false,
                     oximeter: '',
                     systolic: '',
                     diastolic: '',
@@ -23,31 +22,19 @@ class DailyLogger extends Component {
                     feelings: '',
                     reactions: [],
                     reactionsNotListed: ''
+                },
+                helperText: '',
+                error: false,   
             }
 
             onSubmit = (event) => {
                       event.preventDefault();
-
-                      if (this.state.oximeter.length>1 && this.state.systolic.length>1 && 
-                        this.state.diastolic.length>1 && this.state.temperature.length>1 ) {
-                            this.props.dispatch({
+                      if (this.state.newDailyLog.oximeter.length>1 && this.state.newDailyLog.systolic.length>1 && 
+                            this.state.newDailyLog.diastolic.length>1 && this.state.newDailyLog.temperature.length>1 ) {
+                        this.props.dispatch({
                               type: 'POST_LOGS',
                               url: '/api/dailylogger',
-                              payload: {
-                                    date: this.state.date,
-                                    userID: this.props.store.user.id,
-                                    oximeter: this.state.oximeter,
-                                    systolic: this.state.systolic,
-                                    diastolic: this.state.diastolic,
-                                    temperature: this.state.temperature,
-                                    symptoms: this.state.symptoms,
-                                    treatment: this.state.treatment,
-                                    feelings: this.state.feelings,
-                                    reactions: this.state.reactions,
-                                    symptomsNotListed: this.state.symptomsNotListed,
-                                    treatmentNotListed: this.state.treatmentNotListed,
-                                    reactionsNotListed: this.state.reactionsNotListed
-                              },
+                              payload: this.state.newDailyLog
                             });
                             this.clearInputFields();
 
@@ -61,38 +48,49 @@ class DailyLogger extends Component {
 
             clearInputFields = () => {
                     this.setState({
+                        newDailyLog: {
                             oximeter: '',
                             systolic: '',
                             diastolic: '',
                             temperature: '',
+                            feelings: '',
                             symptoms: [],
                             treatment: [],
-                            feelings: '',
-                            reactions: []
+                            reactions: [],
+                            symptomsNotListed: '',
+                            treatmentNotListed: '',
+                            reactionsNotListed: ''
+                        }
                     });
                 }//end clear InputFields
 
 
-            handleInputChangeFor = (propertyName) => (event) => {
-              this.setState({
-                ...this.state,
-                [propertyName]: event.target.value,
-              });
+            handleInputChangeFor = (propertyName, event) => {
+                    this.setState({
+                        newDailyLog: {
+                            ...this.state.newDailyLog,
+                            [propertyName]: event.target.value,
+                        }
+                    });
             }; //end handleInputChange
 
-            onClick = (event) =>{
-                console.log('testing onClick in DailyLogger', this.state);
-                console.log('ID:', this.props.store.user.id)
-                
 
-                this.setState({
-                    ...this.state,
-                    symptoms: [...this.state.symptoms, event.target.value],
-                    treatment: [...this.state.treatment, event.target.value],
-                    feelings: event.target.value,
-                    reactions: [...this.state.reactions, event.target.value],
-                })
-            }
+
+            onClick = (event) =>{
+                    console.log('testing onClick in DailyLogger', this.state.newDailyLog);
+                    console.log('ID:', this.props.store.user.id)
+                    
+
+                    this.setState({
+                        ...this.state.newDailyLog,
+                        newDailyLog: {
+                            symptoms: [...this.state.newDailyLog.symptoms, event.target.value],
+                            treatment: [...this.state.newDailyLog.treatment, event.target.value],
+                            feelings: event.target.value,
+                            reactions: [...this.state.newDailyLog.reactions, event.target.value]
+                        }
+                    })
+            } //end onClick
 
   render() {
 
@@ -109,10 +107,10 @@ class DailyLogger extends Component {
                     name="oximeter"
                     required
                     variant="outlined"
-                    value={this.state.oximeter}
+                    value={this.state.newDailyLog.oximeter}
                     size="small"
                     label="Oximeter (SpO2)"
-                    onChange={this.handleInputChangeFor('oximeter')}
+                    onChange={(event)=>this.handleInputChangeFor('oximeter', event)}
                 />
           </div>
           <div id="blood-pressure-div">
@@ -123,10 +121,10 @@ class DailyLogger extends Component {
                         name="oximeter"
                         required
                         variant="outlined"
-                        value={this.state.systolic}
+                        value={this.state.newDailyLog.systolic}
                         size="small"
                         label="Systolic"
-                        onChange={this.handleInputChangeFor('systolic')}
+                        onChange={(event)=>this.handleInputChangeFor('systolic', event)}
                     />
                 </div>
 
@@ -140,10 +138,10 @@ class DailyLogger extends Component {
                         name="oximeter"
                         required
                         variant="outlined"
-                        value={this.state.diastolic}
+                        value={this.state.newDailyLog.diastolic}
                         size="small"
                         label="Diastolic"
-                        onChange={this.handleInputChangeFor('diastolic')}
+                        onChange={(event)=>this.handleInputChangeFor('diastolic', event)}
                     />
                     
                 </div>
@@ -156,10 +154,10 @@ class DailyLogger extends Component {
                     name="oximeter"
                     required
                     variant="outlined"
-                    value={this.state.temperature}
+                    value={this.state.newDailyLog.temperature}
                     size="small"
                     label="Temperature"
-                    onChange={this.handleInputChangeFor('temperature')}
+                    onChange={(event)=>this.handleInputChangeFor('temperature', event)}
                 />
           </div>
         </div>
@@ -204,7 +202,8 @@ class DailyLogger extends Component {
                             <label htmlFor= "loss-taste-smell">Loss of Taste/Smell</label>
                         <div>
                                 <textarea id="symptoms-not-listed" placeholder="Symptoms/Mental Health Status Not Listed" rows="7" cols="60"
-                                onChange={this.handleInputChangeFor('symptomsNotListed')}>
+                                value={this.state.newDailyLog.symptomsNotListed}
+                                onChange={(event)=>this.handleInputChangeFor('symptomsNotListed', event)}>
                                 </textarea>
                         </div>
           </fieldset>
@@ -259,7 +258,8 @@ class DailyLogger extends Component {
                             <label htmlFor= "hydroxychloroquine">Hydroxychloroquine</label>
                         <div>
                                 <textarea id="treatments-not-listed" placeholder="Treatment Not Listed" rows="7" cols="60"
-                                onChange={this.handleInputChangeFor('treatmentNotListed')}>
+                                value={this.state.newDailyLog.treatmentNotListed}
+                                onChange={(event)=>this.handleInputChangeFor('treatmentNotListed', event)}>
                                 </textarea>
                         </div>
           </fieldset>
@@ -298,7 +298,8 @@ class DailyLogger extends Component {
                                 <label htmlFor= "anaphylatic-shock">Anaphylatic Shock</label>
                         <div>
                                 <textarea id="reactions-not-listed" placeholder="Reaction(s) Not Listed" rows="7" cols="60"
-                                onChange={this.handleInputChangeFor('reactionsNotListed')}>
+                                value={this.state.newDailyLog.reactionsNotListed}
+                                onChange={(event)=>this.handleInputChangeFor('reactionsNotListed', event)}>
                                 </textarea>
                         </div>
             </fieldset>
