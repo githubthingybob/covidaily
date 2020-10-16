@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {HashRouter, Link} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 
@@ -50,7 +49,7 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <HashRouter>
+     
             <div className="register-div">
             <form>
             <h2 id="register-title">Register</h2>
@@ -90,7 +89,7 @@ class RegisterForm extends Component {
                 </div>
               </form>
             </div>    
-      </HashRouter>
+ 
     );
   }
 } //end render

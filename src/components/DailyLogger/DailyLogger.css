@@ -6,4 +6,41 @@
 #daily-logger-main-div {
     margin-top: 200px;
     margin-left: 50px;
+    margin-bottom: 150px;
 }
+
+input[type=checkbox] {
+    margin-left: 15px;
+    margin-right: 3px;
+}
+
+
+#divider {
+    font-size: 30px;
+    margin: 5px;
+}
+
+#temp-div {
+    margin-top: 10px;
+}
+
+#blood-pressure-div {
+    margin-top: 10px;
+}
+
+#systolic-div{
+    width: 90px;
+}
+
+#diastolic-div {
+    width: 90px;
+}
+
+#blood-pressure-div{
+    display: flex;
+}
+
+#symptoms {
+    width: 450px;
+}
+

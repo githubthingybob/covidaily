@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {HashRouter, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Nav.css';
@@ -13,20 +13,18 @@ const loggedIn = props.store.user.id
 if (loggedIn != null) {
   return (
         <HashRouter>
-      <h2 className="nav-title">COVIDaily</h2>
-      <div className="nav-div">
-          <ul className="nav-list">
-            <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li>
-            <li className ="inline-li"><Link className="nav-link-li" to="/about">About</Link></li>
-            <li className ="inline-li"><Link className="nav-link-li" to="/dailylogger">Daily Logger</Link></li>
-            <li className ="inline-li"><Link className="nav-link-li" to="/data">Data</Link></li>
-            <li className ="inline-li"><Link className="nav-link-li" to="/account">Account</Link></li>
-            <li><LogOutButton/></li>
-
-          </ul>
-      </div>
-
-      <div className="nav-line"></div> 
+              <h2 className="nav-title">COVIDaily</h2>
+                  <div className="nav-div">
+                      <ul className="nav-list">
+                        <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li>
+                        <li className ="inline-li"><Link className="nav-link-li" to="/about">About</Link></li>
+                        <li className ="inline-li"><Link className="nav-link-li" to="/dailylogger">Daily Logger</Link></li>
+                        <li className ="inline-li"><Link className="nav-link-li" to="/data">Data</Link></li>
+                        <li className ="inline-li"><Link className="nav-link-li" to="/account">Account</Link></li>
+                        <li><LogOutButton/></li>
+                      </ul>
+                  </div>
+              <div className="nav-line"></div> 
       </HashRouter>
   );
 }
@@ -42,7 +40,6 @@ if (loggedIn != null) {
                     <li className ="inline-li"><Link className="nav-link-li" to="/about">About</Link></li>
                   </ul>
               </div>
-
         <div className="nav-line"></div> 
       </HashRouter>
     )
