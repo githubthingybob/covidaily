@@ -17,7 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import Resources from '../Resources/Resources';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginForm from '../LoginForm/LoginForm';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import RegisterForm from '../RegisterForm/RegisterForm';
 import RegistrationInfo from '../RegistrationInfo/RegistrationInfo'
 import DailyLogger from '../DailyLogger/DailyLogger';
 
@@ -83,10 +83,10 @@ class App extends Component {
             <ProtectedRoute
               // with authRedirect:
               // - if logged in, redirects to "/dailylogger"
-              // - else shows RegisterPage at "/registration"
+              // - else shows RegisterForm at "/registration"
               exact
               path="/registration"
-              component={RegisterPage}
+              component={RegisterForm}
               authRedirect="/dailylogger"
             />
             <ProtectedRoute
