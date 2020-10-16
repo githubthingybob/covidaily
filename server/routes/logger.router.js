@@ -16,8 +16,8 @@ router.post('/', (req, res) => {
   const dailyLog = req.body;
   console.log('req.body POST', req.body)
   const queryText = `
-  INSERT INTO "daily_logs" ("date", "user_id", "oximeter", "temperature", "bp_systolic", "bp_diastolic", "treatment", "treatment_not_listed",
-      "feelings", "medical_reactions", "reactions_not_listed", "symptoms", "symptoms_not_listed")
+  INSERT INTO "daily_logs" ("date", "user_id", "oximeter", "temperature", "systolic", "diastolic", "treatment", "treatment_not_listed",
+      "feelings", "reactions", "reactions_not_listed", "symptoms", "symptoms_not_listed")
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`
 
   pool.query(queryText, [dailyLog.date, dailyLog.userID, dailyLog.oximeter, dailyLog.temperature, dailyLog.systolic, dailyLog.diastolic, 
