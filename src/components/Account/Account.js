@@ -2,150 +2,246 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+//styling
+import './Account.css'
 
 class Account extends Component {
+    state = {
+        covidDays: 0,
+        date: new Date().toLocaleString().split(',')[0],
+        personality: '',
+        residence: '',
+        AC: '',
+        water: '',
+        race: '',
+        sex: '',
+        development: '',
+        age: '',
+        income: '',
+        social: '',
+        social: '',
+        weight: '',
+        covidPositive: '',
+        covidSymptoms: '',
+        cigarettes: '',
+        vitamins: '',
+        insurance: '',
+        children: '',
+        negative: '',
+    }
+
+
+        onClick = (propertyName) => (event) =>{
+                console.log('state:', this.state);           
+                this.setState({
+                    ...this.state,
+                    [propertyName]:  event.target.value
+                })
+        } //end onClick
+
 
   render() {
     return (
-      <div>
+      <div id="account-main-div">
             <div>
                     <p>User ID: {this.props.store.user.id}</p>
                     <p>Email:</p>
             </div>
 
             <div>
-                <p>Days Since COVID-19 Positive</p>
+                <p>{this.state.covidDays} Days Since COVID-19 Positive</p>
             </div>
         
         <div>
             <fieldset>
                 <legend>1. Check the boxes below if they are TRUE</legend>
-                <input type="checkbox">Have you ever Tested positive for COVID-19?</input>
-                <input type="checkbox">Are you currently suffering COVID-like symptoms?</input>
-                <input type="checkbox">Are you a smoker or exposed to 2nd hand smoker?</input>
-                <input type="checkbox">Do you take daily vitamin supplements?</input>
-                <input type="checkbox">Do you have medical insurance?</input>
-                <input type="checkbox">Do you have children who attend school/daycare in person?</input>
-                <input type="checkbox">Has your income/career been negatively affected due to COVID-19?</input>
+                <input id="1.1"type="checkbox" value="true" onClick={this.onClick('covidPositive')}></input>
+                        <label htmlFor= "1.1">Have you ever Tested positive for COVID-19?</label>
+                <input type="checkbox" id="1.2" value="true" onClick={this.onClick('covidSymptoms')}></input>
+                        <label htmlFor="1.2">Are you currently suffering COVID-like symptoms?</label>
+                <input id= "1.3" type="checkbox" value="true" onClick={this.onClick('cigarettes')}></input>
+                        <label htmlFor="1.3">Are you a smoker or exposed to 2nd hand smoker?</label>
+                <input id="1.4" type="checkbox" value="true" onClick={this.onClick('vitamins')}></input>
+                        <label htmlFor="1.4">Do you take daily vitamin supplements?</label>
+                <input id="1.5" type="checkbox" value="true" onClick={this.onClick('insurance')}></input>
+                        <label htmlFor="1.5">Do you have medical insurance?</label>
+                <input id="1.6" type="checkbox" value="true" onClick={this.onClick('children')}></input>
+                        <label htmlFor="1.6">Do you have children who attend school/daycare in person?</label>
+                <input id="1.7" type="checkbox" value="true" onClick={this.onClick('negative')}></input>
+                        <label htmlFor="1.7">Has your income/career been negatively affected due to COVID-19?</label>
             </fieldset>
         </div>
 
         <div>
             <fieldset>
                 <legend>2. Click on a personality type you match more</legend>
-                <input type="radio" name="personality" value="Extrovert">Extrovert</input>
-                <input type="radio" name="personality" value="Introvert">Introvert</input>
+                <input type="radio" id="2.1" name="personality" value="Extrovert" onClick={this.onClick('personality')}></input>
+                        <label htmlFor="2.1">Extrovert</label>
+                <input type="radio" id="2.2" name="personality" value="Introvert" onClick={this.onClick('personality')}></input>
+                        <label htmlFor="2.2">Introvert</label>
             </fieldset>
         </div>
 
         <div>
             <fieldset>
                 <legend>3. Click on your current type of residence</legend>
-                <input type="radio" name="residence" value="Apartment">Apartment</input>
-                <input type="radio" name="residence" value="Townhome/Duplex">Townhome/Duplex</input>
-                <input type="radio" name="residence" value="Single Family Home">Single Family Home</input>
-                <input type="radio" name="residence" value="Dorm/Other">Dorm/Other</input>
+                <input id="3.1" type="radio" name="residence" value="Apartment" onClick={this.onClick('residence')}></input>
+                        <label htmlFor="3.1">Apartment</label>
+                <input id="3.2"type="radio" name="residence" value="Townhome/Duplex" onClick={this.onClick('residence')}></input>
+                        <label htmlFor="3.2">Townhome/Duplex</label>
+                <input id="3.3" type="radio" name="residence" value="Single Family Home" onClick={this.onClick('residence')}></input>
+                        <label htmlFor="3.3">Single Family Home</label>
+                <input id="3.4" type="radio" name="residence" value="Dorm/Other" onClick={this.onClick('residence')}></input>
+                        <label htmlFor="3.4">Dorm/Other</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>4. Click on the current air conditioning system you have</legend>
-                <input type="radio" name="ac" value="Central">Central</input>
-                <input type="radio" name="ac" value="Ductless">Ductless</input>
-                <input type="radio" name="ac" value="Window Unit">Window Unit</input>
-                <input type="radio" name="ac" value="Other">Other</input>
+                <input id="4.1" type="radio" name="ac" value="Central" onClick={this.onClick('AC')}></input>
+                        <label htmlFor="4.1">Central</label>
+                <input id="4.2" type="radio" name="ac" value="Ductless" onClick={this.onClick('AC')}></input>
+                        <label htmlFor="4.2">Ductless</label>
+                <input id="4.3" type="radio" name="ac" value="Window Unit" onClick={this.onClick('AC')}></input>
+                        <label htmlFor="4.3">Window Unit</label>
+                <input id="4.4" type="radio" name="ac" value="Other" onClick={this.onClick('AC')}></input>
+                        <label htmlFor="4.4">Other</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>5. Click on the current type of water you have</legend>
-                <input type="radio" name="water" value="Well-water">Well-water</input>
-                <input type="radio" name="water" value="City-water">City-water</input>
-                <input type="radio" name="water" value="Other">Other</input>
+                <input id="5.1" type="radio" name="water" value="Well-water" onClick={this.onClick('water')}></input>
+                        <label htmlFor="5.1">Well-water</label>
+                <input id="5.2" type="radio" name="water" value="City-water" onClick={this.onClick('water')}></input>
+                        <label htmlFor="5.2">City-water</label>
+                <input id="5.3" type="radio" name="water" value="Other" onClick={this.onClick('water')}></input>
+                        <label htmlFor="5.3">Other</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>6. Click on your race</legend>
-                <input type="radio" name="race" value="Non-Hispanic Caucasian">Non-Hispanic Caucasian</input>
-                <input type="radio" name="race" value="Hispanic Caucasian">Hispanic Caucasian</input>
-                <input type="radio" name="race" value="Black or African American">Black or African American</input>
-                <input type="radio" name="race" value="Asian">Asian</input>
-                <input type="radio" name="race" value="American Indian or Alaska Native">American Indian or Alaska Native</input>
-                <input type="radio" name="race" value="Haiwaiian/Pacific Islander">Haiwaiian/Pacific Islander</input>
-                <input type="radio" name="race" value="Other or Multi-Racial">Other or Multi-Racial</input>
+                <input id="6.1" type="radio" name="race" value="Non-Hispanic Caucasian" onClick={this.onClick('race')}></input>
+                        <label htmlFor="6.1">Non-Hispanic Caucasian</label>
+                <input id="6.2"type="radio" name="race" value="Hispanic Caucasian" onClick={this.onClick('race')}></input>
+                        <label htmlFor="6.2">Hispanic Caucasian</label>
+                <input id="6.3"type="radio" name="race" value="Black or African American" onClick={this.onClick('race')}></input>
+                        <label htmlFor="6.3">Black or African American</label>
+                <input id="6.4" type="radio" name="race" value="Asian" onClick={this.onClick('race')}></input>
+                        <label htmlFor="6.4">Asian</label>
+                <input id="6.5" type="radio" name="race" value="American Indian or Alaska Native" onClick={this.onClick('race')}></input>
+                        <label htmlFor="6.5">American Indian or Alaska Native</label>
+                <input id="6.6" type="radio" name="race" value="Haiwaiian/Pacific Islander" onClick={this.onClick('race')}></input>
+                        <label htmlFor="6.6">Haiwaiian/Pacific Islander</label>
+                <input id="6.7" type="radio" name="race" value="Other or Multi-Racial" onClick={this.onClick('race')}></input>
+                        <label htmlFor="6.7">Other or Multi-Racial</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>7. Click on the development you currently reside</legend>
-                <input type="radio" name="development" value="Rural">Rural</input>
-                <input type="radio" name="development" value="Urban">Urban</input>
-                <input type="radio" name="development" value="Suburban">Suburban</input>
+                <input id="7.1" type="radio" name="development" value="Rural" onClick={this.onClick('development')}></input>
+                        <label htmlFor="7.1">Rural</label>
+                <input id="7.2" type="radio" name="development" value="Urban" onClick={this.onClick('development')}></input>
+                        <label htmlFor="7.2">Urban</label>
+                <input id="7.3" type="radio" name="development" value="Suburban" onClick={this.onClick('development')}></input>
+                        <label htmlFor="7.3">Suburban</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>8. Click on your current age range</legend>
-                <input type="radio" name="age" value="Under 20">Under 20</input>
-                <input type="radio" name="age" value="20-29">20-29</input>
-                <input type="radio" name="age" value="30-39">30-39</input>
-                <input type="radio" name="age" value="40-49">40-49</input>
-                <input type="radio" name="age" value="50-59">50-59</input>
-                <input type="radio" name="age" value="Over 60">Over 60</input>
+                <input id="8.1" type="radio" name="age" value="20 or under" onClick={this.onClick('age')}></input>
+                        <label htmlFor="8.1">20 or under</label>
+                <input id="8.2" type="radio" name="age" value="20-29" onClick={this.onClick('age')}></input>
+                        <label htmlFor="8.2">20-29</label>
+                <input id="8.3" type="radio" name="age" value="30-39" onClick={this.onClick('age')}></input>
+                        <label htmlFor="8.3">30-39</label>
+                <input id="8.4" type="radio" name="age" value="40-49" onClick={this.onClick('age')}></input>
+                        <label htmlFor="8.4">40-49</label>
+                <input id="8.5" type="radio" name="age" value="50-59" onClick={this.onClick('age')}></input>
+                        <label htmlFor="8.5">50-59</label>
+                <input id="8.6" type="radio" name="age" value="60 or over" onClick={this.onClick('age')}></input>
+                        <label htmlFor="8.6">60 or over</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>9. Click on your current income range</legend>
-                <input type="radio" name="income" value="Below 20k">Below 20</input>
-                <input type="radio" name="income" value="20k-45k">20k-45k</input>
-                <input type="radio" name="income" value="45k-85k">45k-85k</input>
-                <input type="radio" name="income" value="85k-150k">85k-150k</input>
-                <input type="radio" name="income" value="Above 150k">Above 150k</input>
+                <input id="9.1" type="radio" name="income" value="Below 20k" onClick={this.onClick('income')}></input>
+                        <label htmlFor="9.1">Below 20</label>
+                <input id="9.2" type="radio" name="income" value="20k-45k" onClick={this.onClick('income')}></input>
+                        <label htmlFor="9.2">20k-45k</label>
+                <input id="9.3" type="radio" name="income" value="45k-85k" onClick={this.onClick('income')}></input>
+                        <label htmlFor="9.3">45k-85k</label>
+                <input id="9.4" type="radio" name="income" value="85k-150k" onClick={this.onClick('income')}></input>
+                        <label htmlFor="9.4">85k-150k</label>
+                <input id="9.5" type="radio" name="income" value="Above 150k" onClick={this.onClick('income')}></input>
+                        <label htmlFor="9.5">Above 150k</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>10. Click on the monthly average amount of social gatherings (with more than 3 
                             people outside your household) you have attended</legend>
-                <input type="radio" name="social" value="0-1">0-1</input>
-                <input type="radio" name="social" value="2-3">2-3</input>
-                <input type="radio" name="social" value="4-6">4-6</input>
-                <input type="radio" name="social" value="7-9">7-9</input>
-                <input type="radio" name="social" value="10 or more">10 or more</input>
+                <input id="10.1" type="radio" name="social" value="0-1" onClick={this.onClick('social')}></input>
+                        <label htmlFor="10.1">0-1</label>
+                <input id="10.2" type="radio" name="social" value="2-3" onClick={this.onClick('social')}></input>
+                        <label htmlFor="10.2">2-3</label>
+                <input id="10.3" type="radio" name="social" value="4-6" onClick={this.onClick('social')}></input>
+                        <label htmlFor="10.3">4-6</label>
+                <input id="10.4" type="radio" name="social" value="7-9" onClick={this.onClick('social')}></input>
+                        <label htmlFor="10.4">7-9</label>
+                <input id="10.5" type="radio" name="social" value="10 or more" onClick={this.onClick('social')}></input>
+                        <label htmlFor="10.5">10 or more</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>11. Click on the monthly average amount of social gatherings (with more than 3 
                             people outside your household) you have attended</legend>
-                <input type="radio" name="weight" value="Underweight">Underweight</input>
-                <input type="radio" name="weight" value="Average">Average</input>
-                <input type="radio" name="weight" value="Overweight">Overweight</input>
-                <input type="radio" name="weight" value="Obese">Obese</input>
-                <input type="radio" name="weight" value="Morbidly Obese">Morbidly Obese</input>
+                <input id="11.1" type="radio" name="weight" value="Underweight" onClick={this.onClick('weight')}></input>
+                        <label htmlFor="11.1">Underweight</label>
+                <input id="11.2" type="radio" name="weight" value="Average" onClick={this.onClick('weight')}></input>
+                        <label htmlFor="11.2">Average</label>
+                <input id="11.3" type="radio" name="weight" value="Overweight" onClick={this.onClick('weight')}></input>
+                        <label htmlFor="11.3">Overweight</label>
+                <input id="11.4" type="radio" name="weight" value="Obese" onClick={this.onClick('weight')}></input>
+                        <label htmlFor="11.4">Obese</label>
+                <input id="11.5" type="radio" name="weight" value="Morbidly Obese" onClick={this.onClick('weight')}></input>
+                        <label htmlFor="11.5">Morbidly Obese</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>12. Click on the biological sex you were born with</legend>
-                <input type="radio" name="sex" value="Male">Male</input>
-                <input type="radio" name="sex" value="Female">Female</input>
+                <input id="12.1" type="radio" name="sex" value="Male" onClick={this.onClick('sex')}></input>
+                        <label htmlFor="12.1">Male</label>
+                <input id="12.2" type="radio" name="sex" value="Female" onClick={this.onClick('sex')}></input>
+                        <label htmlFor="12.2">Female</label>
             </fieldset>
         </div>
         <div>
             <fieldset>
                 <legend>13. Click on your monthly average hospital/clinic visits</legend>
-                <input type="radio" name="hospital" value="0-1">0-1</input>
-                <input type="radio" name="hospital" value="2-3">2-3</input>
-                <input type="radio" name="hospital" value="4-5">4-5</input>
-                <input type="radio" name="hospital" value="6-8">6-8</input>
-                <input type="radio" name="hospital" value="9 or more">9 or more</input>
+                <input id="13.1" type="radio" name="hospital" value="0-1" onClick={this.onClick('visits')}></input>
+                        <label htmlFor="13.1">0-1</label>
+                <input id="13.2" type="radio" name="hospital" value="2-3" onClick={this.onClick('visits')}></input>
+                        <label htmlFor="13.2">2-3</label>
+                <input id="13.3" type="radio" name="hospital" value="4-5" onClick={this.onClick('visits')}></input>
+                        <label htmlFor="13.3">4-5</label>
+                <input id="13.4" type="radio" name="hospital" value="6-8" onClick={this.onClick('visits')}></input>
+                        <label htmlFor="13.4">6-8</label>
+                <input id="13.5" type="radio" name="hospital" value="9 or more" onClick={this.onClick('visits')}></input>
+                        <label htmlFor="13.5">9 or more</label>
             </fieldset>
         </div>
+
+        <button>Update Profile</button>
+        <button>Delete Account</button>
+
       </div>
-      
     );
   }
 }

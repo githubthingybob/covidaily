@@ -14,6 +14,7 @@ import Nav from '../Nav/Nav';
 import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
+import Account from '../Account/Account';
 import Resources from '../Resources/Resources';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginForm from '../LoginForm/LoginForm';
@@ -54,6 +55,12 @@ class App extends Component {
               exact
               path="/dailylogger"
               component={DailyLogger}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/account"
+              component={Account}
             />
 
             <Route
