@@ -19,9 +19,8 @@ class Account extends Component {
         age: '',
         income: '',
         social: '',
-        social: '',
         weight: '',
-        covidPositive: '',
+        covidPositive: [],
         covidSymptoms: '',
         cigarettes: '',
         vitamins: '',
@@ -29,6 +28,7 @@ class Account extends Component {
         children: '',
         negative: '',
     }
+
 
 
         onClick = (propertyName) => (event) =>{
@@ -39,6 +39,24 @@ class Account extends Component {
                 })
         } //end onClick
 
+        onClick = (event) =>{
+                console.log('state:', this.state);           
+                let date =new Date().toLocaleString().split(',')[0];
+                this.setState({
+                    ...this.state,
+                    covidPositive:  [date, event.target.value]
+                })
+        } //end onClick
+
+        onSubmit = (event) => {
+                    event.preventDefault();
+                    console.log('STATE', this.state);
+                    this.props.dispatch({
+                        type: 'UPDATE_ACCOUNT',
+                        url: '/api/account',
+                        payload: this.state
+                    });
+            }; // end onSubmit
 
   render() {
     return (
@@ -55,19 +73,26 @@ class Account extends Component {
         <div>
             <fieldset>
                 <legend>1. Check the boxes below if they are TRUE</legend>
-                <input id="1.1"type="checkbox" value="true" onClick={this.onClick('covidPositive')}></input>
+                <input className="1.1"type="checkbox" value="true" onClick={this.onClick('covidPositive')}></input>
+                <input className="1.1"type="checkbox" value="false" onClick={this.onClick('covidPositive')}></input>
                         <label htmlFor= "1.1">Have you ever Tested positive for COVID-19?</label>
-                <input type="checkbox" id="1.2" value="true" onClick={this.onClick('covidSymptoms')}></input>
+                <input type="checkbox" className="1.2" value="true" onClick={this.onClick('covidSymptoms')}></input>
+                <input type="checkbox" className="1.2" value="false" onClick={this.onClick('covidSymptoms')}></input>
                         <label htmlFor="1.2">Are you currently suffering COVID-like symptoms?</label>
-                <input id= "1.3" type="checkbox" value="true" onClick={this.onClick('cigarettes')}></input>
+                <input className= "1.3" type="checkbox" value="true" onClick={this.onClick('cigarettes')}></input>
+                <input className= "1.3" type="checkbox" value="false" onClick={this.onClick('cigarettes')}></input>
                         <label htmlFor="1.3">Are you a smoker or exposed to 2nd hand smoker?</label>
-                <input id="1.4" type="checkbox" value="true" onClick={this.onClick('vitamins')}></input>
+                <input className="1.4" type="checkbox" value="true" onClick={this.onClick('vitamins')}></input>
+                <input className="1.4" type="checkbox" value="false" onClick={this.onClick('vitamins')}></input>
                         <label htmlFor="1.4">Do you take daily vitamin supplements?</label>
-                <input id="1.5" type="checkbox" value="true" onClick={this.onClick('insurance')}></input>
+                <input className="1.5" type="checkbox" value="true" onClick={this.onClick('insurance')}></input>
+                <input className="1.5" type="checkbox" value="false" onClick={this.onClick('insurance')}></input>
                         <label htmlFor="1.5">Do you have medical insurance?</label>
-                <input id="1.6" type="checkbox" value="true" onClick={this.onClick('children')}></input>
+                <input className="1.6" type="checkbox" value="true" onClick={this.onClick('children')}></input>
+                <input className="1.6" type="checkbox" value="false" onClick={this.onClick('children')}></input>
                         <label htmlFor="1.6">Do you have children who attend school/daycare in person?</label>
-                <input id="1.7" type="checkbox" value="true" onClick={this.onClick('negative')}></input>
+                <input className="1.7" type="checkbox" value="true" onClick={this.onClick('negative')}></input>
+                <input className="1.7" type="checkbox" value="false" onClick={this.onClick('negative')}></input>
                         <label htmlFor="1.7">Has your income/career been negatively affected due to COVID-19?</label>
             </fieldset>
         </div>
