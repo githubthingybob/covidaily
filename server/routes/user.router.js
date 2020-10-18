@@ -30,44 +30,31 @@ router.post('/register', (req, res, next) => {
 });
 
 
-router.post('/profile', (req, res) => {
-  const profile= req.body;
+  // update data for a user
+router.put('/profile/:id', (req, res) => {
+  console.log('body and params for user/profile PUT', req.body, req.params.id);
+  const newData = req.body;
+  
+  const queryText = `UPDATE "user"
+    SET "email"=$1, "covid"='{"${newData.covid.date}", "${newData.covid.testedPositive}"}', "covid_symptoms"=$2, "cigarettes"=$3, 
+    "vitamins"=$4, "insurance"=$5, "children"=$6, "negative"=$7, "personality"=$8, "AC"=$9, "residence"=$10, "water"=$11, 
+    "race"=$12, "development"=$13, "visits"=$14, "sex"=$15, "age"=$16, "income"=$17, "social"=$18, "weight"=$19
+    WHERE "id" = $20;`;
+  
 
-  const queryText = `INSERT INTO "user" (
-      "email", "covid_positive", "current_covid_symptoms", "smoke_exposed", "daily_vitamins", "insurance", 
-      "public_exposed_children", "negative_effects", "personality", "AC", "dwelling", "water", "race", "development", "hospital_visits", 
-      "sex", "age_range", "income_range", "avg_social_gatherings", "weight_range"
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) WHERE "id" = $20;`
-  pool
-    .query(queryText, [profile.email, profile.covid_positive, profile.current_covid_symptoms, profile.smoke_exposed, profile.daily_vitamins, 
-            profile.insurance, profile.public_exposed_children, profile.negative_effects, profile.personality, profile.AC, profile.dwelling, 
-            profile.water, profile.race, profile.development, profile.hospital_visits, profile.sex, profile.age_range, profile.income_range, 
-            profile.avg_social_gatherings, profile.weight_range, profile.id])
-    .then(() => res.sendStatus(201))
-    .catch(() => res.sendStatus(500));
-});//end router.post profile UPDATE
-
-
-//update Username for users
-router.put('/profile', (req, res) => {
-  const profile= req.body;
-
-  const queryText = `UPDATE "user" SET "username" = $1 WHERE "id" = $2;`;
-pool
-    .query(queryText, [profile.newUsername, profile.id])
-    .then(() => res.sendStatus(201))
-    .catch(() => res.sendStatus(500));
-});
-
-//update Password for users
-router.put('/profile', (req, res) => {
-  const profile= req.body;
-
-  const queryText = `UPDATE "user" SET "password" = $1 WHERE "id" = $2;`;
-pool
-    .query(queryText, [profile.newPassword, profile.id])
-    .then(() => res.sendStatus(201))
-    .catch(() => res.sendStatus(500));
+  pool.query(queryText, [
+    newData.email, newData.covidSymptoms, newData.cigarettes, newData.vitamins, newData.insurance, 
+    newData.children, newData.negative, newData.personality, newData.AC, newData.residence, newData.water, newData.race, 
+    newData.development, newData.visits, newData.sex, newData.age, newData.income, newData.social, newData.weight,
+    newData.userID
+  ])
+    .then((response) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
 });
 
 // Handles login form authenticate/login POST
