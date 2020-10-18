@@ -27,7 +27,22 @@ router.post('/register', (req, res, next) => {
     .query(queryText, [username, password])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
-});
+}); //end register
+
+
+//get data for a user
+router.get('/profile/:id', (req, res) => {
+  const queryText = `SELECT * FROM "user" WHERE "id"=$1`;
+  pool.query(queryText, [req.body.userID])
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on GET query ${error}`);
+      res.sendStatus(500);
+    });
+}); //end GET
+
 
 
   // update data for a user
@@ -54,7 +69,8 @@ router.put('/profile/:id', (req, res) => {
       console.warn(err);
       res.sendStatus(500);
     });
-});
+}); //end PUT
+
 
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
