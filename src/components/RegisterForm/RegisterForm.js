@@ -39,7 +39,6 @@ class RegisterForm extends Component {
                                 password: this.state.password,
                               },
                             });
-                            this.props.history.push('/registerdirect')
                       } else {
                             this.setState({
                               helperTextUsername: 'Username must be 5 characters or more',
@@ -101,7 +100,7 @@ class RegisterForm extends Component {
   }
 } //end render
 
-export default withRouter(connect(mapStoreToProps)(RegisterForm));
+export default connect(mapStoreToProps)(RegisterForm);
 
 
 //sources: https://stackoverflow.com/questions/49421792/how-to-use-material-uinext-textfield-error-props

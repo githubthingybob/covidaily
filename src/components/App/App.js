@@ -9,15 +9,13 @@ import {
 import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
-
-
 import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import Account from '../Account/Account';
 import AccountUpdate from '../AccountUpdate/AccountUpdate'
 import Resources from '../Resources/Resources';
 import HomeNotLoggedIn from '../HomeNotLoggedIn/HomeNotLoggedIn';
+import HomeLoggedIn from '../HomeLoggedIn/HomeLoggedIn';
 import LoginForm from '../LoginForm/LoginForm';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import RegisterDirect from '../RegisterDirect/RegisterDirect'
@@ -40,20 +38,25 @@ class App extends Component {
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
 
-            {/* Visiting localhost:3000/about will show the about page. */}
+            {/* Regular Routes */}
             <Route
-              // shows AboutPage at all times (logged in or not)
               exact
               path="/about"
               component={AboutPage}
             />
+            <Route
+              exact
+              path="/resources"
+              component={Resources}
+            />
 
-            {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-            Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+            <Route
+              exact
+              path="/registrationinfo"
+              component={RegistrationInfo}
+            />
+            {/* Protected Routes without authRedirect*/}
             <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
               exact
               path="/dailylogger"
               component={DailyLogger}
@@ -63,7 +66,6 @@ class App extends Component {
               exact
               path="/account"
               component={Account}
-              authRedirect
             />
 
             <ProtectedRoute
@@ -74,41 +76,38 @@ class App extends Component {
 
             <ProtectedRoute
               exact
+              path="/main"
+              component={HomeLoggedIn}
+            />
+
+            <ProtectedRoute
+              exact
               path="/registerdirect"
               component={RegisterDirect}
-            />
-
-            <Route
-              exact
-              path="/resources"
-              component={Resources}
-            />
-
-            <Route
-              exact
-              path="/registration"
-              component={RegisterForm}
-            />
-
-            <Route
-              exact
-              path="/registrationinfo"
-              component={RegistrationInfo}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}
-            <Route
+            <ProtectedRoute
               exact
               path="/login"
               component={LoginForm}
+              authRedirect="/main"
             />
 
-            <Route
+            <ProtectedRoute
+              exact
+              path="/registration"
+              component={RegisterForm}
+              authRedirect="/registerdirect"
+            />
+
+            <ProtectedRoute
               exact
               path="/home"
               component={HomeNotLoggedIn}
+              authRedirect="/main"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
