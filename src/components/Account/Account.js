@@ -7,19 +7,28 @@ import './Account.css'
 
 class Account extends Component {
     state = {
-        userID= this.props.store.user.id
+        email: 'N/A',
+        covid: String(this.props.store.user.covid),
+        covidSymptoms: String(this.props.store.user.covid_symptoms),
+        cigs: String(this.props.store.user.covid),
+        vitamins: String(this.props.store.user.vitamins),
+        insurance: String(this.props.store.user.insurance),
+        children: String(this.props.store.user.children),
+        negative: String(this.props.store.user.negative),
     }
-        componentDidMount=()=>{
-            this.props.dispatch({
-                    type: 'FETCH_PROFILE',
-                    url: `/api/user/profile/${this.state.userID}`
-            });
-        } //end componentDidMount
 
+    componentDidMount = () => {
+        this.props.dispatch({ type: 'FETCH_USER' });
+        if (this.props.store.user.email != null) {
+            this.setState({
+                email: this.props.store.user.email
+            })
+        }
+    }
     
   render() {
     return (
-      <div>
+      <div id="account-container">
         <div>
             <table>
                 <thead>
@@ -48,30 +57,35 @@ class Account extends Component {
                         <td>Weight Range</td>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr>
+                        <td>{this.props.store.user.id}</td>
+                        <td>{this.props.store.user.username}</td>
+                        <td>{this.state.email}</td>
+                        <td>{this.state.covid}</td>
+                        <td>{this.state.covidSymptoms}</td>
+                        <td>{this.state.cigs}</td>
+                        <td>{this.state.vitamins}</td>
+                        <td>{this.state.insurance}</td>
+                        <td>{this.state.children}</td>
+                        <td>{this.state.negative}</td>
+                        <td>{this.props.store.user.personality}</td>
+                        <td>{this.props.store.user.AC}</td>
+                        <td>{this.props.store.user.residence}</td>
+                        <td>{this.props.store.user.water}</td>
+                        <td>{this.props.store.user.race}</td>
+                        <td>{this.props.store.user.development}</td>
+                        <td>{this.props.store.user.visits}</td>
+                        <td>{this.props.store.user.sex}</td>
+                        <td>{this.props.store.user.age}</td>
+                        <td>{this.props.store.user.income}</td>
+                        <td>{this.props.store.user.social}</td>
+                        <td>{this.props.store.user.weight}</td>
+                    </tr>
+                </tbody>
             </table>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
         </div>
+
       </div>
     );
   }
