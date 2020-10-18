@@ -6,9 +6,12 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './Account.css'
 
 class Account extends Component {
+    state = {
+        userID= this.props.store.user.id
+    }
         componentDidMount=()=>{
             this.props.dispatch({
-                    type: 'GET_ACCOUNT',
+                    type: 'FETCH_PROFILE',
                     url: `/api/user/profile/${this.state.userID}`
             });
         } //end componentDidMount
