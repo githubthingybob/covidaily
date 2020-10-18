@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-//styling
-import './HomeLoggedIn.css'
-
-class HomeLoggedIn extends Component {
+class Tips extends Component {
 
 
   render() {
     return (
-      <div id="main-container">
-        <h2>Hello</h2>
+      <div>
+        <h2>Testing</h2>
       </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(HomeLoggedIn);
-
+export default connect(mapStoreToProps)(Tips);
