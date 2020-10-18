@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-import './LandingPage.css';
+import './HomeNotLoggedIn.css';
 
 // CUSTOM COMPONENTS
 import LoginForm from '../LoginForm/LoginForm';
 
-class LandingPage extends Component {
+class HomeNotLoggedIn extends Component {
 
   render() {
     return (
@@ -61,4 +61,4 @@ class LandingPage extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(LandingPage);
+export default connect(mapStoreToProps)(HomeNotLoggedIn);

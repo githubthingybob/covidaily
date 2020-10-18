@@ -17,7 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import Account from '../Account/Account';
 import AccountUpdate from '../AccountUpdate/AccountUpdate'
 import Resources from '../Resources/Resources';
-import LandingPage from '../LandingPage/LandingPage';
+import HomeNotLoggedIn from '../HomeNotLoggedIn/HomeNotLoggedIn';
 import LoginForm from '../LoginForm/LoginForm';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import RegistrationInfo from '../RegistrationInfo/RegistrationInfo'
@@ -106,10 +106,10 @@ class App extends Component {
             <ProtectedRoute
               // with authRedirect:
               // - if logged in, redirects to "/account"
-              // - else shows LandingPage at "/home"
+              // - else shows HomeNotLoggedIn at "/home"
               exact
               path="/home"
-              component={LandingPage}
+              component={HomeNotLoggedIn}
               authRedirect="/account"
             />
 

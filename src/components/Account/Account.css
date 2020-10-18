@@ -2,3 +2,16 @@
     margin-top: 200px;
     margin-left: 50px;
 }
+
+.account-list{
+    list-style: none;
+}
+
+.account-list li {
+    font-family: Poppins;
+    font-size: 14px;
+}
+
+.account-list div {
+    font-family: Raleway;
+}
