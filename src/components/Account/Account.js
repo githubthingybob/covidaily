@@ -39,12 +39,11 @@ class Account extends Component {
                 })
         } //end onClick
 
-        onClick = (event) =>{
+        onClickCovid = (event) =>{
                 console.log('state:', this.state);           
-                let date =new Date().toLocaleString().split(',')[0];
                 this.setState({
                     ...this.state,
-                    covidPositive:  [date, event.target.value]
+                    covidPositive:  [this.state.date, event.target.value]
                 })
         } //end onClick
 
@@ -72,27 +71,32 @@ class Account extends Component {
         
         <div>
             <fieldset>
-                <legend>1. Check the boxes below if they are TRUE</legend>
-                <input className="1.1"type="checkbox" value="true" onClick={this.onClick('covidPositive')}></input>
-                <input className="1.1"type="checkbox" value="false" onClick={this.onClick('covidPositive')}></input>
-                        <label htmlFor= "1.1">Have you ever Tested positive for COVID-19?</label>
-                <input type="checkbox" className="1.2" value="true" onClick={this.onClick('covidSymptoms')}></input>
-                <input type="checkbox" className="1.2" value="false" onClick={this.onClick('covidSymptoms')}></input>
-                        <label htmlFor="1.2">Are you currently suffering COVID-like symptoms?</label>
-                <input className= "1.3" type="checkbox" value="true" onClick={this.onClick('cigarettes')}></input>
-                <input className= "1.3" type="checkbox" value="false" onClick={this.onClick('cigarettes')}></input>
+                <legend>Have you ever tested positive for COVID-19?</legend>
+                <input id="1.1.1"type="radio" name="covidPositive" value="true" onClick={this.onClickCovid}></input>
+                        <label htmlFor= "1.1.1">True</label>
+                <input id="1.1.2"type="radio" name="covidPositive" value="false" onClick={this.onClickCovid}></input>  
+                        <label htmlFor= "1.1.2">False</label>
+        </fieldset>
+        <fieldset>
+                <legend>Are you current suffering COVID-like symptoms?</legend>
+                <input type="radio" id="1.2.1" name="covidSymptoms" value="true" onClick={this.onClick('covidSymptoms')}></input>
+                <input type="radio" id="1.2.2" name="covidSymptoms" value="false" onClick={this.onClick('covidSymptoms')}></input>
+                        <label htmlFor="1.2.1">True</label>
+                        <label htmlFor="1.2.2">False</label>
+                <input id= "1.3" type="radio" name="cigarettes" value="true" onClick={this.onClick('cigarettes')}></input>
+                <input id= "1.3" type="radio" name="cigarettes" value="false" onClick={this.onClick('cigarettes')}></input>
                         <label htmlFor="1.3">Are you a smoker or exposed to 2nd hand smoker?</label>
-                <input className="1.4" type="checkbox" value="true" onClick={this.onClick('vitamins')}></input>
-                <input className="1.4" type="checkbox" value="false" onClick={this.onClick('vitamins')}></input>
+                <input id="1.4" type="radio" name="vitamins" value="true" onClick={this.onClick('vitamins')}></input>
+                <input id="1.4" type="radio" name="vitamins" value="false" onClick={this.onClick('vitamins')}></input>
                         <label htmlFor="1.4">Do you take daily vitamin supplements?</label>
-                <input className="1.5" type="checkbox" value="true" onClick={this.onClick('insurance')}></input>
-                <input className="1.5" type="checkbox" value="false" onClick={this.onClick('insurance')}></input>
+                <input id="1.5" type="radio" name="insurance" value="true" onClick={this.onClick('insurance')}></input>
+                <input id="1.5" type="radio" name="insurance" value="false" onClick={this.onClick('insurance')}></input>
                         <label htmlFor="1.5">Do you have medical insurance?</label>
-                <input className="1.6" type="checkbox" value="true" onClick={this.onClick('children')}></input>
-                <input className="1.6" type="checkbox" value="false" onClick={this.onClick('children')}></input>
+                <input id="1.6" type="radio" name="children" value="true" onClick={this.onClick('children')}></input>
+                <input id="1.6" type="radio" name="children" value="false" onClick={this.onClick('children')}></input>
                         <label htmlFor="1.6">Do you have children who attend school/daycare in person?</label>
-                <input className="1.7" type="checkbox" value="true" onClick={this.onClick('negative')}></input>
-                <input className="1.7" type="checkbox" value="false" onClick={this.onClick('negative')}></input>
+                <input id="1.7" type="radio" name="negative" value="true" onClick={this.onClick('negative')}></input>
+                <input id="1.7" type="radio" name="negative" value="false" onClick={this.onClick('negative')}></input>
                         <label htmlFor="1.7">Has your income/career been negatively affected due to COVID-19?</label>
             </fieldset>
         </div>
