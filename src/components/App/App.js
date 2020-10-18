@@ -15,6 +15,7 @@ import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import Account from '../Account/Account';
+import AccountUpdate from '../AccountUpdate/AccountUpdate'
 import Resources from '../Resources/Resources';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginForm from '../LoginForm/LoginForm';
@@ -61,6 +62,12 @@ class App extends Component {
               exact
               path="/account"
               component={Account}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/accountupdate"
+              component={AccountUpdate}
             />
 
             <Route

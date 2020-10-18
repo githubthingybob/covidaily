@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import {HashRouter, Link} from 'react-router-dom';
 
 //styling
 import './Account.css'
 
 class Account extends Component {
     state = {
-        email: 'N/A',
+        email: String(this.props.store.user.email),
         covid: String(this.props.store.user.covid),
         covidSymptoms: String(this.props.store.user.covid_symptoms),
         cigs: String(this.props.store.user.covid),
@@ -17,18 +18,14 @@ class Account extends Component {
         negative: String(this.props.store.user.negative),
     }
 
-    componentDidMount = () => {
-        this.props.dispatch({ type: 'FETCH_USER' });
-        if (this.props.store.user.email != null) {
-            this.setState({
-                email: this.props.store.user.email
-            })
-        }
-    }
     
   render() {
     return (
+        <HashRouter>
       <div id="account-container">
+          <div>
+              <Link to="/accountupdate"><button>Go To Update Account</button></Link>
+          </div>
         <div>
             <table>
                 <thead>
@@ -87,6 +84,7 @@ class Account extends Component {
         </div>
 
       </div>
+      </HashRouter>
     );
   }
 }
