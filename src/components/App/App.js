@@ -20,6 +20,7 @@ import Resources from '../Resources/Resources';
 import HomeNotLoggedIn from '../HomeNotLoggedIn/HomeNotLoggedIn';
 import LoginForm from '../LoginForm/LoginForm';
 import RegisterForm from '../RegisterForm/RegisterForm';
+import RegisterDirect from '../RegisterDirect/RegisterDirect'
 import RegistrationInfo from '../RegistrationInfo/RegistrationInfo'
 import DailyLogger from '../DailyLogger/DailyLogger';
 
@@ -62,6 +63,7 @@ class App extends Component {
               exact
               path="/account"
               component={Account}
+              authRedirect
             />
 
             <ProtectedRoute
@@ -70,10 +72,22 @@ class App extends Component {
               component={AccountUpdate}
             />
 
+            <ProtectedRoute
+              exact
+              path="/registerdirect"
+              component={RegisterDirect}
+            />
+
             <Route
               exact
               path="/resources"
               component={Resources}
+            />
+
+            <Route
+              exact
+              path="/registration"
+              component={RegisterForm}
             />
 
             <Route
@@ -85,32 +99,16 @@ class App extends Component {
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/dailylogger"
-              // - else shows LoginPage at /login
+            <Route
               exact
               path="/login"
               component={LoginForm}
-              authRedirect="/dailylogger"
             />
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/dailylogger"
-              // - else shows RegisterForm at "/registration"
-              exact
-              path="/registration"
-              component={RegisterForm}
-              authRedirect="/dailylogger"
-            />
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/account"
-              // - else shows HomeNotLoggedIn at "/home"
+
+            <Route
               exact
               path="/home"
               component={HomeNotLoggedIn}
-              authRedirect="/account"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

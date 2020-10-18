@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -31,6 +32,14 @@ class RegisterForm extends Component {
                                 password: this.state.password,
                               },
                             });
+                            this.props.dispatch({
+                              type: 'LOGIN',
+                              payload: {
+                                username: this.state.username,
+                                password: this.state.password,
+                              },
+                            });
+                            this.props.history.push('/registerdirect')
                       } else {
                             this.setState({
                               helperTextUsername: 'Username must be 5 characters or more',
@@ -49,7 +58,6 @@ class RegisterForm extends Component {
 
   render() {
     return (
-     
             <div className="register-div">
             <form>
             <h2 id="register-title">Register</h2>
@@ -80,21 +88,20 @@ class RegisterForm extends Component {
                           />
                   </div>
                 <div id="registration-div">
-                  <Button 
-                        id="registration-btn"
-                        endIcon ={<ArrowForwardIcon/>}
-                        onClick={this.registerUser}>
-                        Register
-                  </Button>
+                        <Button 
+                              id="registration-btn"
+                              endIcon ={<ArrowForwardIcon/>}
+                              onClick={this.registerUser}>
+                              Register
+                        </Button>
                 </div>
               </form>
             </div>    
- 
     );
   }
 } //end render
 
-export default connect(mapStoreToProps)(RegisterForm);
+export default withRouter(connect(mapStoreToProps)(RegisterForm));
 
 
 //sources: https://stackoverflow.com/questions/49421792/how-to-use-material-uinext-textfield-error-props
