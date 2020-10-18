@@ -33,17 +33,16 @@ router.post('/register', (req, res, next) => {
   // update data for a user
 router.put('/profile/:id', (req, res) => {
   console.log('body and params for user/profile PUT', req.body, req.params.id);
-  const newData = req.body;
   
   const queryText = `UPDATE "user"
-    SET "email"=$1, "covid"='{"${newData.covid.date}", "${newData.covid.testedPositive}"}', "covid_symptoms"=$2, "cigarettes"=$3, 
-    "vitamins"=$4, "insurance"=$5, "children"=$6, "negative"=$7, "personality"=$8, "AC"=$9, "residence"=$10, "water"=$11, 
-    "race"=$12, "development"=$13, "visits"=$14, "sex"=$15, "age"=$16, "income"=$17, "social"=$18, "weight"=$19
-    WHERE "id" = $20;`;
-  
+    SET "email"=$1, "covid"=$2, "covid_symptoms"=$3, "cigarettes"=$4, "vitamins"=$5, 
+    "insurance"=$6, "children"=$7, "negative"=$8, "personality"=$9, "AC"=$10, "residence"=$11, "water"=$12, 
+    "race"=$13, "development"=$14, "visits"=$15, "sex"=$16, "age"=$17, "income"=$18, "social"=$19, "weight"=$20
+    WHERE "id" = $21;`;
+  const newData = req.body;
 
   pool.query(queryText, [
-    newData.email, newData.covidSymptoms, newData.cigarettes, newData.vitamins, newData.insurance, 
+    newData.email, newData.covid, newData.covidSymptoms, newData.cigarettes, newData.vitamins, newData.insurance, 
     newData.children, newData.negative, newData.personality, newData.AC, newData.residence, newData.water, newData.race, 
     newData.development, newData.visits, newData.sex, newData.age, newData.income, newData.social, newData.weight,
     newData.userID

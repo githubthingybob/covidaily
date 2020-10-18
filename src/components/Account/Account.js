@@ -27,10 +27,7 @@ class Account extends Component {
         insurance: '',
         children: '',
         negative: '',
-        covid: {
-                date: '',
-                testedPositive: ''
-        }
+        covid: ''
     }
 
 
@@ -40,17 +37,6 @@ class Account extends Component {
                 this.setState({
                     ...this.state,
                     [propertyName]:  event.target.value
-                })
-        } //end onClick
-
-        onClickCovid = (event) =>{
-                console.log('state:', this.state);           
-                this.setState({
-                    ...this.state,
-                    covid:{
-                        date:this.state.date, 
-                        testedPositive: event.target.value
-                        }
                 })
         } //end onClick
 
@@ -79,9 +65,9 @@ class Account extends Component {
         <div className="truefalse-div">
         <fieldset>
                 <legend>Have you ever tested positive for COVID-19?</legend>
-                <input id="1.1.1"type="radio" name="covid" value="true" onClick={this.onClickCovid}></input>
+                <input id="1.1.1"type="radio" name="covid" value="true" onClick={this.onClick('covid')}></input>
                         <label htmlFor= "1.1.1">True</label>
-                <input id="1.1.2"type="radio" name="covid" value="false" onClick={this.onClickCovid}></input>  
+                <input id="1.1.2"type="radio" name="covid" value="false" onClick={this.onClick('covid')}></input>  
                         <label htmlFor= "1.1.2">False</label>
         </fieldset>
         <fieldset>
