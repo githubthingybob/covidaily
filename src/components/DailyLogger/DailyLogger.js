@@ -38,6 +38,7 @@ class DailyLogger extends Component {
                               payload: this.state
                             });
                             this.clearInputFields();
+                            this.props.history.push('/data')
                       } else {
                             this.setState({
                               helperText: 'Required',
