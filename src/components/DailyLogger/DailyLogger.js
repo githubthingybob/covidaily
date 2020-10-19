@@ -5,6 +5,13 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 //materialUI
 import TextField from '@material-ui/core/TextField';
 import './DailyLogger.css'
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup';
 
 
 class DailyLogger extends Component {
@@ -95,6 +102,7 @@ class DailyLogger extends Component {
             } //end onClickReactions
 
             onClickFeelings = (event) => {
+                console.log('feelings:', this.state.feelings)
                 this.setState({
                     ...this.state,
                     feelings: event.target.value
@@ -104,7 +112,8 @@ class DailyLogger extends Component {
 
 
   render() {
-
+        console.log('STATE IN DAILY LOGGER', this.state);
+        
     return (
       <div id="daily-logger-main-div">
         <h2>Daily Log for {this.state.date}</h2>
@@ -176,141 +185,193 @@ class DailyLogger extends Component {
 
         <div id="symptoms">
           <h3 className="daily-logger-h3">2. Symptoms</h3>
-            <fieldset>
-                  <legend>What symptoms do you have today?</legend>
-                
-                        <input type="checkbox" id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "personality-change">Personality Change </label>
-                        <input type="checkbox" id="congestion" name="congestion" value="Congestion" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "Congestion">Congestion </label>
-                        <input type="checkbox" id="dry-cough" name="dry-cough" value="Dry Hacking Cough" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "dry-cough">Dry, Hacking Cough </label>
-                        <input type="checkbox" id="blue-lips-face" name="blue-lips-face" value="Bluish Lips/Face" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "blue-lips-face">Bluish Lips and/or Face </label>
-                        <input type="checkbox" id="feet-hand-lesions" name="feet-hand-lesions" value="Feet/Hand Lesions" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "feet-hand-lesions">Feet and Hand Lesions </label>
-                        <input type="checkbox" id="confusion" name="confusion" value="Confusion" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "confusion">Confusion </label>
-                        <input type="checkbox" id="difficulty-breathing" name="difficulty-breathing" value="Difficulty Breathing" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "difficulty-breathing">Difficulty Breathing</label>
-                        <input type="checkbox" id="dizziness" name="dizziness" value="Dizziness" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "dizziness">Dizziness </label>
-                        <input type="checkbox" id="ear-pain" name="ear-pain" value="Ear Pain" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "ear-pain">Ear Pain</label>
-                        <input type="checkbox" id="stay-awake" name="stay-awake" value="Inability To Stay Awake" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "stay-awake">Inability to Stay Awake</label>
-                        <input type="checkbox" id="vomitting" name="vomitting" value="Vomitting" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "vomitting">Vomitting</label>
-                        <input type="checkbox" id="red-eyes" name="red-eyes" value="Red, irritated eyes" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "red-eyes">Red Irritated Eyes</label>
-                        <input type="checkbox" id="fatigue" name="fatigue" value="Fatigue" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "fatigue">Fatigue</label>
-                        <input type="checkbox" id="chest-pain" name="chest-pain" value="Chest Pain" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "chest-pain">Chest Pain/Tightness</label>
-                        <input type="checkbox" id="sharp-pain" name="sharp-pain" value="Sharp, Stabbing Pain" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "sharp-pain">Sharp, Stabbing Pain</label>
-                        <input type="checkbox" id="loss-taste-smell" name="loss-taste-smell" value="Loss of Taste/Smell" onClick={this.onClickSymptoms}></input>
-                            <label htmlFor= "loss-taste-smell">Loss of Taste/Smell</label>
-                        <div>
-                                <textarea id="symptoms-not-listed" placeholder="Symptoms/Mental Health Status Not Listed" rows="7" cols="60"
-                                onChange={this.handleInputChangeFor('symptomsNotListed')}>
-                                </textarea>
-                        </div>
-          </fieldset>
+                <FormControl component="fieldset">
+                <FormLabel component="legend">What symptoms do you have today?</FormLabel>
+                    <FormGroup>
+                                <FormControlLabel control={
+                                        <Checkbox id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}/>} 
+                                        label="Personality Change" />
+                                <FormControlLabel control={
+                                        <Checkbox id="congestion" name="congestion" value="Congestion" onClick={this.onClickSymptoms}/>} 
+                                        label="Congestion" />
+                                <FormControlLabel control={ 
+                                        <Checkbox id="dry-cough" name="dry-cough" value="Dry Hacking Cough" onClick={this.onClickSymptoms}/>} 
+                                        label="Dry, Hacking Cough" />
+                                <FormControlLabel control={ 
+                                        <Checkbox id="blue-lips-face" name="blue-lips-face" value="Bluish Lips/Face" onClick={this.onClickSymptoms}/>} 
+                                        label="Bluish Lips and/or Face" />
+                                <FormControlLabel control={
+                                        <Checkbox id="feet-hand-lesions" name="feet-hand-lesions" value="Feet/Hand Lesions" onClick={this.onClickSymptoms}/>} 
+                                        label="Feet and Hand Lesions" />
+                                <FormControlLabel control={
+                                        <Checkbox id="confusion" name="confusion" value="Confusion" onClick={this.onClickSymptoms}/>} 
+                                        label="Confusion" />
+                                <FormControlLabel control={
+                                        <Checkbox id="difficulty-breathing" name="difficulty-breathing" value="Difficulty Breathing" onClick={this.onClickSymptoms}/>} 
+                                        label="Difficulty Breathing"/>
+                                <FormControlLabel control={
+                                        <Checkbox id="dizziness" name="dizziness" value="Dizziness" onClick={this.onClickSymptoms}/>}
+                                        label="Dizziness" />
+                                <FormControlLabel control={
+                                        <Checkbox id="ear-pain" name="ear-pain" value="Ear Pain" onClick={this.onClickSymptoms}/>}
+                                        label="Ear Pain"/>
+                                <FormControlLabel control={ 
+                                        <Checkbox id="stay-awake" name="stay-awake" value="Inability To Stay Awake" onClick={this.onClickSymptoms}/>} 
+                                        label="Inability to Stay Awake"/>
+                                <FormControlLabel control={ 
+                                        <Checkbox id="vomitting" name="vomitting" value="Vomitting" onClick={this.onClickSymptoms}/>}
+                                        label="Vomitting"/>
+                                <FormControlLabel control={
+                                        <Checkbox id="red-eyes" name="red-eyes" value="Red, irritated eyes" onClick={this.onClickSymptoms}/>} 
+                                        label="Red Irritated Eyes"/>
+                                <FormControlLabel control={ 
+                                        <Checkbox id="fatigue" name="fatigue" value="Fatigue" onClick={this.onClickSymptoms}/>} 
+                                        label="Fatigue"/>
+                                <FormControlLabel control={
+                                        <Checkbox id="chest-pain" name="chest-pain" value="Chest Pain" onClick={this.onClickSymptoms}/>} 
+                                        label="Chest Pain/Tightness"/>
+                                <FormControlLabel control={
+                                        <Checkbox id="sharp-pain" name="sharp-pain" value="Sharp, Stabbing Pain" onClick={this.onClickSymptoms}/>} 
+                                        label="Sharp, Stabbing Pain"/>
+                                <FormControlLabel control={
+                                        <Checkbox id="loss-taste-smell" name="loss-taste-smell" value="Loss of Taste/Smell" onClick={this.onClickSymptoms}/>} 
+                                        label="Loss of Taste/Smell"/>
+                            <div>
+                            <TextField id="symptoms-not-listed" placeholder="Symptoms/Mental Health Status Not Listed" rows="7" cols="60"
+                                    onChange={this.handleInputChangeFor('symptomsNotListed')}/>
+                            </div>
+                    </FormGroup>
+                </FormControl>
+
         </div>
 
 
         <div id="treatment">
           <h3 className="daily-logger-h3">3. Treatment</h3>
-            <fieldset>
-                  <legend>What treatment are you taking today?</legend>
-                        <input type="checkbox" id="remdesivir" name="remdesivir" value="Remdesivir" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "remdesivir"> Remdesivir </label>
-                        <input type="checkbox" id="dexamethasone" name="dexamethasone" value="Dexamethasone" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "dexamethasone">Dexamethasone</label>
-                        <input type="checkbox" id="Convalescent Plasma" name="convalescent-plasma" value="Convalescent Plasma" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "convalescent-plasma">Convalescent Plasma</label>
-                        <input type="checkbox" id="kevzara" name="kevzara" value="Kevzara" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "kevzara">Kevzara</label>
-                        <input type="checkbox" id="calquence" name="calquence" value="Calquence" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "calquence">Calquence</label>
-                        <input type="checkbox" id="colcrys" name="colcrys" value="Colcrys" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "colcrys">Colcrys</label>
-                        <input type="checkbox" id="xeljanz" name="xeljanz" value="Xeljanz" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "xeljanz">Xeljanz</label>
-                        <input type="checkbox" id="jakafi" name="jakafi" value="Jakafi" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "jakafi">Jakafi</label>
-                        <input type="checkbox" id="tocilizumab" name="tocilizumab" value="Tocilizumab" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "tocilizumab">Tocilizumab</label>
-                        <input type="checkbox" id="pro-140" name="pro-140" value="Pro-140 Leronlimab " onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "pro-140">Pro-140 Leronlimab</label>
-                        <input type="checkbox" id="olumiant" name="olumiant" value="Olumiant" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "olumiant">Olumiant</label>
-                        <input type="checkbox" id="kineret" name="kineret" value="Kineret" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "kineret">Kineret</label>
-                        <input type="checkbox" id="ilaris" name="ilaris" value="Ilaris" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "ilaris">Ilaris</label>
-                        <input type="checkbox" id="regeneron" name="regeneron" value="Regeneron" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "regeneron">Regeneron</label>
-                        <input type="checkbox" id="otezla" name="otezla" value="Otezla" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "otezla">Otezla</label>
-                        <input type="checkbox" id="mavrilimumab" name="mavrilimumab" value="Mavrilimumab" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "mavrilimumab">Mavrilimumab</label>
-                        <input type="checkbox" id="ivermectin" name="ivermectin" value="Ivermectin" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "ivermectin">Ivermectin</label>
-                        <input type="checkbox" id="azithromycin" name="azithromycin" value="Azithromycin" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "azithromycin">Azithromycin</label>
-                        <input type="checkbox" id="kaletra" name="kaletra" value="Kaletra" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "kaletra">Kaletra</label>
-                        <input type="checkbox" id="tamiflu" name="tamiflu" value="Tamiflu" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "tamiflu">Tamiflu</label>
-                        <input type="checkbox" id="hydroxychloroquine" name="hydroxychloroquine" value="Hydroxychloroquine" onClick={this.onClickTreatment}></input>
-                            <label htmlFor= "hydroxychloroquine">Hydroxychloroquine</label>
+            <FormControl component="fieldset">
+                  <FormLabel component="legend">What treatment are you taking today?</FormLabel>
+                        <FormGroup>
+                            <FormControlLabel control={
+                                    <Checkbox id="remdesivir" name="remdesivir" value="Remdesivir" onClick={this.onClickTreatment}/>} 
+                                    label="Remdesivir" />
+                            <FormControlLabel control={
+                                <Checkbox id="dexamethasone" name="dexamethasone" value="Dexamethasone" onClick={this.onClickTreatment}/>} 
+                                label="Dexamethasone"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="Convalescent Plasma" name="convalescent-plasma" value="Convalescent Plasma" onClick={this.onClickTreatment}/>} 
+                                    label="Convalescent Plasma"/>
+                            <FormControlLabel control={ 
+                                    <Checkbox id="kevzara" name="kevzara" value="Kevzara" onClick={this.onClickTreatment}/>} 
+                                    label="Kevzara"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="calquence" name="calquence" value="Calquence" onClick={this.onClickTreatment}/>} 
+                                    label="Calquence"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="colcrys" name="colcrys" value="Colcrys" onClick={this.onClickTreatment}/>} 
+                                    label="Colcrys"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="xeljanz" name="xeljanz" value="Xeljanz" onClick={this.onClickTreatment}/>} 
+                                    label="Xeljanz"/>
+                            <FormControlLabel control={ 
+                                    <Checkbox id="jakafi" name="jakafi" value="Jakafi" onClick={this.onClickTreatment}/>} 
+                                    label="Jakafi"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="tocilizumab" name="tocilizumab" value="Tocilizumab" onClick={this.onClickTreatment}/>} 
+                                    label="Tocilizumab"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="pro-140" name="pro-140" value="Pro-140 Leronlimab " onClick={this.onClickTreatment}/>} 
+                                    label="Pro-140 Leronlimab"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="olumiant" name="olumiant" value="Olumiant" onClick={this.onClickTreatment}/>} 
+                                    label="Olumiant"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="kineret" name="kineret" value="Kineret" onClick={this.onClickTreatment}/>} 
+                                    label="Kineret"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="ilaris" name="ilaris" value="Ilaris" onClick={this.onClickTreatment}/>} 
+                                    label="Ilaris"/>
+                            <FormControlLabel control={ 
+                                    <Checkbox id="regeneron" name="regeneron" value="Regeneron" onClick={this.onClickTreatment}/>} 
+                                    label="Regeneron"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="otezla" name="otezla" value="Otezla" onClick={this.onClickTreatment}/>} 
+                                    label="Otezla"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="mavrilimumab" name="mavrilimumab" value="Mavrilimumab" onClick={this.onClickTreatment}/>} 
+                                    label="Mavrilimumab"/> 
+                            <FormControlLabel control={
+                                    <Checkbox id="ivermectin" name="ivermectin" value="Ivermectin" onClick={this.onClickTreatment}/>} 
+                                    label="Ivermectin"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="azithromycin" name="azithromycin" value="Azithromycin" onClick={this.onClickTreatment}/>} 
+                                    label="Azithromycin"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="kaletra" name="kaletra" value="Kaletra" onClick={this.onClickTreatment}/>} 
+                                    label="Kaletra"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="tamiflu" name="tamiflu" value="Tamiflu" onClick={this.onClickTreatment}/>} 
+                                    label="Tamiflu"/>
+                            <FormControlLabel control={ 
+                                    <Checkbox id="hydroxychloroquine" name="hydroxychloroquine" value="Hydroxychloroquine" onClick={this.onClickTreatment}/>} 
+                                    label="Hydroxychloroquine"/>
                         <div>
                                 <textarea id="treatments-not-listed" placeholder="Treatment Not Listed" rows="7" cols="60"
                                 onChange={this.handleInputChangeFor('treatmentNotListed')}>
                                 </textarea>
                         </div>
-          </fieldset>
+                    </FormGroup>
+          </FormControl>
         </div>
 
 
         <div id="feelings">
             <h3 className="daily-logger-h3">4. Feelings to Current Treatment</h3>
-          <fieldset>
-            <legend>What are your feelings and thoughts towards the treatment you are currently on today?</legend>
-                <input type="checkbox" id="positive" name="positive" value="Positive" onClick={this.onClickFeelings}></input>
-                        <label htmlFor= "positive">Positive</label>
-                <input type="checkbox" id="negative" name="negative" value="Negative" onClick={this.onClickFeelings}></input>
-                        <label htmlFor= "negative">Negative</label>
-          </fieldset>
+                <FormControl component="fieldset">
+                    <FormLabel component="legend">What are your feelings and thoughts towards the treatment you are currently on today?</FormLabel>
+                        <RadioGroup>                        
+                            <FormControlLabel id="positive" name="positive" value="Positive" control={<Radio onClick={this.onClickFeelings}/>} 
+                                    label="Positive"/>
+                            <FormControlLabel id="negative" name="negative" value="Negative" control={<Radio onClick={this.onClickFeelings}/>} 
+                                    label="Negative"/>
+                        </RadioGroup>
+                </FormControl>
         </div>
 
 
         <div id="reactions">
             <h3 className="daily-logger-h3">5. Reaction(s) to Treatment</h3>
-            <fieldset>
-                <legend>What are your reactions to your current treatment?</legend>
-                        <input type="checkbox" id="nausea" name="nausea" value="Nausea" onClick={this.onClickReactions}></input>
-                                <label htmlFor= "nausea">Nausea</label>
-                        <input type="checkbox" id="headaches" name="headaches" value="Headaches" onClick={this.onClickReactions}></input>
-                                <label htmlFor= "headaches">Headaches</label>
-                        <input type="checkbox" id="vomitting" name="vomitting" value="Vomitting" onClick={this.onClickReactions}></input>
-                                <label htmlFor= "vomitting">Vomitting</label>
-                        <input type="checkbox" id="hives" name="hives" value="Hives" onClick={this.onClickReactions}></input>
-                                <label htmlFor= "hives">Hives</label>
-                        <input type="checkbox" id="dry-mouth" name="dry-mouth" value="Dry Mouth" onClick={this.onClickReactions}></input>
-                                <label htmlFor= "dry-mouth">Dry Mouth</label>
-                        <input type="checkbox" id="rash" name="rash" value="Rash" onClick={this.onClickReactions}></input>
-                                <label htmlFor= "rash">Negative</label>
-                        <input type="checkbox" id="anaphylatic-shock" name="anaphylatic-shock" value="Anaphylatic Shock" onClick={this.onClickReactions}></input>
-                                <label htmlFor= "anaphylatic-shock">Anaphylatic Shock</label>
+            <FormControl component="fieldset">
+                <FormLabel component="legend">What are your reactions to your current treatment?</FormLabel>
+                    <FormGroup>
+                        
+                            <FormControlLabel control={
+                                    <Checkbox id="nausea" name="nausea" value="Nausea" onClick={this.onClickReactions}/>} 
+                                    label="Nausea"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="headaches" name="headaches" value="Headaches" onClick={this.onClickReactions}/>} 
+                                    label="Headaches"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="vomitting" name="vomitting" value="Vomitting" onClick={this.onClickReactions}/>} 
+                                    label="Vomitting"/>          
+                            <FormControlLabel control={
+                                    <Checkbox id="hives" name="hives" value="Hives" onClick={this.onClickReactions}/>} 
+                                    label="Hives"/>             
+                            <FormControlLabel control={
+                                    <Checkbox id="dry-mouth" name="dry-mouth" value="Dry Mouth" onClick={this.onClickReactions}/>} 
+                                    label="Dry Mouth"/>
+                            <FormControlLabel control={
+                                    <Checkbox id="rash" name="rash" value="Rash" onClick={this.onClickReactions}/>} 
+                                    label="Negative"/>
+                                <FormControlLabel control={
+                                    <Checkbox id="anaphylatic-shock" name="anaphylatic-shock" value="Anaphylatic Shock" onClick={this.onClickReactions}/>} 
+                                    label="Anaphylatic Shock"/>
                         <div>
                                 <textarea id="reactions-not-listed" placeholder="Reaction(s) Not Listed" rows="7" cols="60"
                                 onChange={this.handleInputChangeFor('reactionsNotListed')}>
                                 </textarea>
                         </div>
-            </fieldset>
+                    </FormGroup>
+            </FormControl>
 
         </div>
 
