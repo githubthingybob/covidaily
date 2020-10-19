@@ -27,8 +27,8 @@ import DataLog from '../DataLog/DataLog';
 import DataGraphs from '../DataGraphs/DataGraphs';
 
 //registration-related
-import RegisterForm from '../RegisterForm/RegisterForm';
-import RegisterDirect from '../RegisterDirect/RegisterDirect';
+import RegisterForm from '../Register/RegisterForm/RegisterForm'
+import RegisterDirect from '../Register/RegisterDirect/RegisterDirect';
 import RegistrationInfo from '../RegistrationInfo/RegistrationInfo';
 
 //styling
