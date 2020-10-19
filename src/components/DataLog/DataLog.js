@@ -19,10 +19,10 @@ class DataLog extends Component {
     console.log('DataLog this.props.store', this.props.store);
     
     return (
-      <div id="datalog-main-div">
-        <table>
-          <thead>
-            <tr>
+      <div id="data-log-main-div">
+        <table id="data-log-main-table">
+          <thead >
+            <tr id="data-log-thead">
               <th>Date</th>
               <th>Oximeter</th>
               <th>Temperature</th>

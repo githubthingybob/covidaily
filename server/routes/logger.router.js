@@ -5,7 +5,7 @@ const router = express.Router();
 //get all logs from a user
 router.get('/:id', (req, res) => {
   console.log('req.params.id', req.params.id);
-  const queryText = `SELECT * FROM "daily_logs" WHERE "id" = $1`;
+  const queryText = `SELECT * FROM "daily_logs" WHERE "user_id" = $1`;
   pool.query(queryText, [req.params.id])
     .then((response) => {
       res.send(response.rows);
