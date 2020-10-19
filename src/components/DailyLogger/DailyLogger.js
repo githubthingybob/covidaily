@@ -4,7 +4,9 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 
 //materialUI
 import './DailyLogger.css'
-import {FormHelperText, RadioGroup, Radio, FormLabel, FormControl, FormControlLabel, FormGroup, Checkbox, TextField} from '@material-ui/core';
+import {FormHelperText, RadioGroup, Radio, FormLabel, FormControl, Button, 
+    FormControlLabel, FormGroup, Checkbox, TextField} from '@material-ui/core';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 
 class DailyLogger extends Component {
@@ -373,7 +375,7 @@ class DailyLogger extends Component {
 
         </div>
 
-        <button onClick={this.onSubmit}>SUBMIT</button>
+        <Button variant="contained" onClick={this.onSubmit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>
       </div>
     );
   }

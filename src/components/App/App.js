@@ -13,9 +13,11 @@ import Nav from '../Nav/Nav';
 import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
 import Resources from '../Resources/Resources';
+import LoginForm from '../LoginForm/LoginForm';
+
+//different homepages
 import HomeNotLoggedIn from '../HomeNotLoggedIn/HomeNotLoggedIn';
 import HomeLoggedIn from '../HomeLoggedIn/HomeLoggedIn';
-import LoginForm from '../LoginForm/LoginForm';
 
 //user-related
 import DailyLogger from '../DailyLogger/DailyLogger';
