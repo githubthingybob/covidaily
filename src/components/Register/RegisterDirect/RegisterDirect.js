@@ -17,7 +17,7 @@ class RegisterDirect extends Component {
   render() {
     return (
         <HashRouter>
-      <div>
+      <div id="register-direct-main-div">
         <h2>Congratulations!</h2>
         <h2>You've created an account!</h2>
 
