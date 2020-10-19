@@ -37,8 +37,10 @@ class DailyLogger extends Component {
                     event.preventDefault();
                     console.log('STATE', this.state);
                     
-                      if (this.state.oximeter.length>1 && this.state.systolic.length>1 && 
-                        this.state.diastolic.length>1 && this.state.temperature.length>1 ) {
+                      if (this.state.oximeter.length>1 && this.state.systolic.length>1 && this.state.diastolic.length>1 && this.state.temperature.length>1 
+                        && this.state.symptoms.length !=0 && this.state.symptomsNotListed !='' && this.state.treatment.length != 0 && this.state.treatmentNotListed !=''
+                        && this.state.feelings !='' && this.state.reactions.length !=0 && this.state.reactionsNotListed !=''
+                        ) {
                             this.props.dispatch({
                               type: 'POST_LOGS',
                               url: '/api/dailylogger',
@@ -185,9 +187,10 @@ class DailyLogger extends Component {
 
         <div id="symptoms">
           <h3 className="daily-logger-h3">2. Symptoms</h3>
-                <FormControl component="fieldset">
+                <FormControl component="fieldset" error={this.state.error}>
                 <FormLabel component="legend">What symptoms do you have today?</FormLabel>
                     <FormGroup>
+                                <FormHelperText>{this.state.helperText}</FormHelperText>
                                 <FormControlLabel control={
                                         <Checkbox id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}/>} 
                                         label="Personality Change" />
@@ -248,9 +251,10 @@ class DailyLogger extends Component {
 
         <div id="treatment">
           <h3 className="daily-logger-h3">3. Treatment</h3>
-            <FormControl component="fieldset">
+            <FormControl component="fieldset" error={this.state.error}>
                   <FormLabel component="legend">What treatment are you taking today?</FormLabel>
                         <FormGroup>
+                            <FormHelperText>{this.state.helperText}</FormHelperText>
                             <FormControlLabel control={
                                     <Checkbox id="remdesivir" name="remdesivir" value="Remdesivir" onClick={this.onClickTreatment}/>} 
                                     label="Remdesivir" />
@@ -326,8 +330,9 @@ class DailyLogger extends Component {
 
         <div id="feelings">
             <h3 className="daily-logger-h3">4. Feelings to Current Treatment</h3>
-                <FormControl component="fieldset">
+                <FormControl component="fieldset" error={this.state.error}>
                     <FormLabel component="legend">What are your feelings and thoughts towards the treatment you are currently on today?</FormLabel>
+                        <FormHelperText>{this.state.helperText}</FormHelperText>
                         <RadioGroup>                        
                             <FormControlLabel id="positive" name="positive" value="Positive" control={<Radio onClick={this.onClickFeelings}/>} 
                                     label="Positive"/>
@@ -340,10 +345,10 @@ class DailyLogger extends Component {
 
         <div id="reactions">
             <h3 className="daily-logger-h3">5. Reaction(s) to Treatment</h3>
-            <FormControl component="fieldset">
+            <FormControl component="fieldset" error={this.state.error}>
                 <FormLabel component="legend">What are your reactions to your current treatment?</FormLabel>
                     <FormGroup>
-                        
+                        <FormHelperText>{this.state.helperText}</FormHelperText>
                             <FormControlLabel control={
                                     <Checkbox id="nausea" name="nausea" value="Nausea" onClick={this.onClickReactions}/>} 
                                     label="Nausea"/>
