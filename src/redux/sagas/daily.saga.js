@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest , put} from 'redux-saga/effects';
 
 
 function* postNewDailyLog(action) {
@@ -11,9 +11,20 @@ function* postNewDailyLog(action) {
     });
 }
 
+function * getLogs (action) {
+    console.log('getLogs SAGA', action);
+    let response= yield axios.get(`/api/dailylogger/${action.payload}`);
+    console.log('GET LOGS', response.data);
+    yield put ({
+        type: "SET_LOGS",
+        payload: response.data
+    })
+    
+}
 
 function* dailyLoggerSaga() {
     yield takeLatest('POST_LOGS', postNewDailyLog);
+    yield takeLatest('FETCH_LOGS', getLogs);
 }
 
 export default dailyLoggerSaga;

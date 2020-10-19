@@ -3,9 +3,10 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 //get all logs from a user
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
+  console.log('req.params.id', req.params.id);
   const queryText = `SELECT * FROM "daily_logs" WHERE "id" = $1`;
-  pool.query(queryText, [req.body.userID])
+  pool.query(queryText, [req.params.id])
     .then((response) => {
       res.send(response.rows);
     })
