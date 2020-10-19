@@ -3,15 +3,8 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 //materialUI
-import TextField from '@material-ui/core/TextField';
 import './DailyLogger.css'
-import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
-import Radio from '@material-ui/core/Radio'
-import RadioGroup from '@material-ui/core/RadioGroup';
+import {FormHelperText, RadioGroup, Radio, FormLabel, FormControl, FormControlLabel, FormGroup, Checkbox, TextField} from '@material-ui/core';
 
 
 class DailyLogger extends Component {
@@ -38,8 +31,8 @@ class DailyLogger extends Component {
                     console.log('STATE', this.state);
                     
                       if (this.state.oximeter.length>1 && this.state.systolic.length>1 && this.state.diastolic.length>1 && this.state.temperature.length>1 
-                        && this.state.symptoms.length !=0 && this.state.symptomsNotListed !='' && this.state.treatment.length != 0 && this.state.treatmentNotListed !=''
-                        && this.state.feelings !='' && this.state.reactions.length !=0 && this.state.reactionsNotListed !=''
+                        && this.state.symptoms.length >0 && this.state.symptomsNotListed !=='' && this.state.treatment.length >0 && this.state.treatmentNotListed !==''
+                        && this.state.feelings !=='' && this.state.reactions.length >0 && this.state.reactionsNotListed !==''
                         ) {
                             this.props.dispatch({
                               type: 'POST_LOGS',
