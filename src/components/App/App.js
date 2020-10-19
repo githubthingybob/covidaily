@@ -16,8 +16,8 @@ import Resources from '../Resources/Resources';
 import LoginForm from '../LoginForm/LoginForm';
 
 //different homepages
-import HomeNotLoggedIn from '../HomeNotLoggedIn/HomeNotLoggedIn';
-import HomeLoggedIn from '../HomeLoggedIn/HomeLoggedIn';
+import HomeNotLoggedIn from '../HomePages/HomeNotLoggedIn/HomeNotLoggedIn';
+import HomeLoggedIn from '../HomePages/HomeLoggedIn/HomeLoggedIn';
 
 //user-related
 import DailyLogger from '../DailyLogger/DailyLogger';

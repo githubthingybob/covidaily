@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 import './HomeNotLoggedIn.css';
 
 // CUSTOM COMPONENTS
-import LoginForm from '../LoginForm/LoginForm';
+import LoginForm from '../../LoginForm/LoginForm';
 import YearlyDeaths from './YearlyDeaths';
 import GettingStarted from './GettingStarted';
 import Tips from './Tips';
