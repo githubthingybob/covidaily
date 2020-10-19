@@ -2,16 +2,20 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+//get all logs from a user
 router.get('/', (req, res) => {
-  // GET route code here
+  const queryText = `SELECT * FROM "daily_logs" WHERE "id" = $1`;
+  pool.query(queryText, [req.body.userID])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
 });
 
-/**
- * POST route template
- */
+//insert daily log 
 router.post('/', (req, res) => {
   const dailyLog = req.body;
   console.log('req.body POST', req.body)

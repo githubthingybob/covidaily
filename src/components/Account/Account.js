@@ -18,7 +18,12 @@ class Account extends Component {
         negative: String(this.props.store.user.negative),
     }
 
-    
+    componentDidMount=()=>{
+        this.props.dispatch({
+            type: "FETCH_USER"
+        })
+    }
+
   render() {
     return (
         <HashRouter>

@@ -8,20 +8,28 @@ import {
 
 import { connect } from 'react-redux';
 
+//directional and static
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
 import AboutPage from '../AboutPage/AboutPage';
-import Account from '../Account/Account';
-import AccountUpdate from '../AccountUpdate/AccountUpdate'
 import Resources from '../Resources/Resources';
 import HomeNotLoggedIn from '../HomeNotLoggedIn/HomeNotLoggedIn';
 import HomeLoggedIn from '../HomeLoggedIn/HomeLoggedIn';
 import LoginForm from '../LoginForm/LoginForm';
-import RegisterForm from '../RegisterForm/RegisterForm';
-import RegisterDirect from '../RegisterDirect/RegisterDirect'
-import RegistrationInfo from '../RegistrationInfo/RegistrationInfo'
-import DailyLogger from '../DailyLogger/DailyLogger';
 
+//user-related
+import DailyLogger from '../DailyLogger/DailyLogger';
+import Account from '../Account/Account';
+import AccountUpdate from '../AccountUpdate/AccountUpdate';
+import DataLog from '../DataLog/DataLog';
+import DataGraphs from '../DataGraphs/DataGraphs';
+
+//registration-related
+import RegisterForm from '../RegisterForm/RegisterForm';
+import RegisterDirect from '../RegisterDirect/RegisterDirect';
+import RegistrationInfo from '../RegistrationInfo/RegistrationInfo';
+
+//styling
 import './App.css';
 
 class App extends Component {
@@ -86,6 +94,17 @@ class App extends Component {
               component={RegisterDirect}
             />
 
+            <ProtectedRoute
+              exact
+              path="/data"
+              component={DataLog}
+            />
+
+            <ProtectedRoute
+              exact
+              path="/datagraphs"
+              component={DataGraphs}
+            />
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}

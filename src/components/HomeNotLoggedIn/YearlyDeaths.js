@@ -14,7 +14,7 @@ class YearlyDeaths extends Component {
               <ol id="yearlyList">
                 <li>Heart Disease: 647,457</li>
                 <li>Cancer: 599,108</li>
-                                  <div id= "covidDeaths">3rd Place: COVID-19 Deaths in the USA: {this.props.store.covidReducer.map ((covid, i) => 
+                                  <div id= "covid-deaths">3rd Place: COVID-19 Deaths in the USA: {this.props.store.covidReducer.map ((covid, i) => 
                                   <span key={i}>{covid.death}</span>)}</div>
                 <li>Accidents (unintentional injuries): 169,936</li>
                 <li>Chronic lower respiratory diseases: 160,201</li>
@@ -24,6 +24,8 @@ class YearlyDeaths extends Component {
                 <li>Influenza and Pneumonia: 55,672</li>
                 <li>Nephritis, nephrotic syndrome and nephrosis: 50,633</li>
                 <li>Intentional self-harm (suicide): 47,173</li>
+                                  <div id="usaCases">Current USA Cases:{this.props.store.covidReducer.map ((covid, i) => 
+                                  <span key={i}>{covid.positive}</span>)}</div>
               </ol>
           </div> 
 

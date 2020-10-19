@@ -48,6 +48,7 @@ class Account extends Component {
                         url: `/api/user/profile/${this.state.userID}`,
                         payload: this.state
                     });
+                    this.props.history.push('/account')
             }; // end onSubmit
 
   render() {

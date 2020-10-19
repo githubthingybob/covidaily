@@ -8,6 +8,7 @@ import './HomeNotLoggedIn.css';
 import LoginForm from '../LoginForm/LoginForm';
 import YearlyDeaths from './YearlyDeaths';
 import GettingStarted from './GettingStarted';
+import Tips from './Tips';
 
 class HomeNotLoggedIn extends Component {
 
@@ -22,17 +23,17 @@ class HomeNotLoggedIn extends Component {
       <div className="container">
 
         <div className="grid">
-          <div className="grid-col grid-col_8">
+          <div className="grid-col_8">
                 <GettingStarted/>
             <div id="divider"></div>
                 <YearlyDeaths/>
           </div>
 
-          <div className="grid-col grid-col_4">
-            <LoginForm/>
-
+          <div className="grid-col_4">
+                <LoginForm/>
+                <Tips/>
           </div>
-        </div>
+      </div>
       </div>
     );
   }
