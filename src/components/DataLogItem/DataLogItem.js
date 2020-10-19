@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './DataLogItem.css'
+import Checkbox from '@material-ui/core/Checkbox';
+import { Check } from '@material-ui/icons';
 
 class DataLogItem extends Component {
     componentDidMount=()=>{
@@ -11,6 +13,11 @@ class DataLogItem extends Component {
         })
     };
 
+    onEdit=()=>{
+    }
+
+    onDelete=()=>{
+    }
   render() {
     return (
         <tr id="data-log-item-tr"> 
@@ -25,8 +32,8 @@ class DataLogItem extends Component {
             <td>{this.props.item.reactions_not_listed}</td>
             <td>{this.props.item.symptoms}</td>
             <td>{this.props.item.symptoms_not_listed}</td>
-            <td><input type="checkbox"></input></td>
-            <td><input type="checkbox"></input></td>
+            <td><Checkbox onClick={this.onEdit}/></td>
+            <td><Checkbox onClick={this.onDelete}/></td>
       </tr>
      
     );
