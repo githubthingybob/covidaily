@@ -1,4 +1,25 @@
 #main-container{
-    margin-top: 200px;
-    margin-left: 50px;
+    margin-top: 150px;
+    margin-left: 80px;
+}
+
+.main-directory{
+    background-color: rgba(127, 255, 212, 0.719);
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.main-directory h2 {
+    margin: 0px;
+    padding: 0px;
+    font-family: Poppins;
+    text-align: center;
+    color: rgb(83, 83, 83);
+}
+
+.main-directory p {
+    margin: 0px;
 }

@@ -16,17 +16,18 @@ class HomeLoggedIn extends Component {
     return (
       <HashRouter>
         <div id="main-container">
-            <h2>Things to Do</h2>
-            <div>
-                <Link to="/accountupdate"><Button startIcon ={<ArrowBackIcon/>}>Update Your Profile in Account</Button></Link>
-                <Link to="/dailylogger"><Button endIcon ={<ArrowForwardIcon/>}>Log your Daily Vitals and Symptoms</Button></Link>
-            </div>
-
-            <div>
-                <Link to="/data"><Button startIcon ={<ArrowBackIcon/>}>Check out your data</Button></Link>
-                <Link to="/dailylogger"><Button endIcon ={<ArrowForwardIcon/>}>Log your Daily Vitals and Symptoms</Button></Link>
-            </div>
             
+            <div className="main-directory">
+              <h2>Things to Do</h2>
+              <p>
+                <Link to="/accountupdate"><Button startIcon ={<ArrowBackIcon/>}>Update Your Profile</Button></Link>
+                <Link to="/dailylogger"><Button endIcon ={<ArrowForwardIcon/>}>Log Vitals and Symptoms</Button></Link>
+                </p>
+                <p>
+                <Link to="/data"><Button startIcon ={<ArrowBackIcon/>}>Check out your Data</Button></Link>
+                <Link to="/dailylogger"><Button endIcon ={<ArrowForwardIcon/>}>Check out Resources</Button></Link>
+            </p>
+            </div>
             
          
          
