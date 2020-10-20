@@ -1,86 +1,7 @@
-
-.grid {
-  display: flex;
-  flex: 0 1 auto;
-  /* defaults to 'row' */
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* defaults to 'flex-start' */
-  justify-content: flex-start;
-  align-items: flex-start;
+#home-not-logged-container{
+  position: absolute;
+  z-index: 4;
 }
-
-.grid-col {
-  flex: 0 0 auto;
-  padding: 0 0.5rem 0.5rem;
-  box-sizing: border-box;
-}
-
-.grid-col_1 {
-  flex-basis: 8.33333333%;
-  max-width: 8.33333333%;
-}
-
-.grid-col_2 {
-  flex-basis: 16.66666667%;
-  max-width: 16.66666667%;
-}
-
-.grid-col_3 {
-  flex-basis: 25%;
-  max-width: 25%;
-}
-
-.grid-col_4 {
-  flex-basis: 33.33333333%;
-  max-width: 33.33333333%;
-}
-
-.grid-col_5 {
-  flex-basis: 41.66666667%;
-  max-width: 41.66666667%;
-}
-
-.grid-col_6 {
-  flex-basis: 50%;
-  max-width: 50%;
-}
-
-.grid-col_7 {
-  flex-basis: 58.33333333%;
-  max-width: 58.33333333%;
-}
-
-.grid-col_8 {
-  flex-basis: 66.66666667%;
-  max-width: 66.66666667%;
-}
-
-.grid-col_9 {
-  flex-basis: 75%;
-  max-width: 75%;
-}
-
-.grid-col_10 {
-  flex-basis: 83.33333333%;
-  max-width: 83.33333333%;
-}
-
-.grid-col_11 {
-  flex-basis: 91.66666667%;
-  max-width: 91.66666667%;
-}
-
-.grid-col_12 {
-  flex-basis: 100%;
-  max-width: 100%;
-}
-
-.container {
-  margin-top: 120px;
-  margin-left: 30px;
-}
-
 .h2-gettingStarted {
   font-size: 18px;
   font-family: Poppins;
@@ -88,6 +9,8 @@
   padding-top: 15px;
   padding-left: 30px;
   margin-bottom:5px;
+  position: absolute;
+  z-index: 4;
 }
 
 .h2-yearly {
@@ -97,13 +20,20 @@
   padding-top: 15px;
   padding-left: 30px;
   margin-bottom: 5px;
+  position: absolute;
+  z-index: 4;
 }
 
 #gettingStarted{
-  background: radial-gradient(108.19% 1253.06% at -3.45% 7.73%, #83007c 0%, #c08bbd 100%);
+  background: purple;
   box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
   border-radius:20px;
   margin-top: 20px;
+  position: absolute;
+  z-index: 4;
+  top: 0px;
+  left: 0px;
+  display: flex
 }
 
 #gettingStartedList {
@@ -111,27 +41,36 @@
   padding-left: 80px;
   padding-right: 10px;
   margin: 2px;
+  position: absolute;
 }
 
 .li-landingPage{
   color: white;
   font-family: Poppins;
   font-weight: 600;
+  position: absolute;
+  z-index: 4;
 }
 
 .detailsUnderList{
   color: white;
   font-family: Raleway;
+  position: absolute;
+  z-index: 4;
 }
 
 #yearlyStats{
   background: radial-gradient(108.19% 1253.06% at -3.45% 7.73%, #ffc0f1 0%, #FFFFFF 100%);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius:20px;
+  position: absolute;
+  z-index: 4;
 }
 
 #divider {
   margin: 20px;
+  position: absolute;
+  z-index: 4;
 }
 
 #yearlyList {
@@ -141,12 +80,20 @@
   margin: 2px;
   font-family: Raleway;
   color: #8B8B8B;
+  position: absolute;
+  z-index: 4;
 };
 
 #yearlyList li{
   color: black;
+  position: absolute;
+  z-index: 4;
 };
 
 #covidDeaths {
   padding-left: 300px;
+  position: absolute;
+  z-index: 4;
 };
+
+

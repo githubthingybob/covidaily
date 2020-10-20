@@ -13,8 +13,9 @@ const loggedIn = props.store.user.id
 if (loggedIn != null) {
   return (
         <HashRouter>
-              <h2 className="nav-title">COVIDaily</h2>
+              
                   <div className="nav-div">
+                    <h2 className="nav-title">COVIDAILY</h2>
                       <ul className="nav-list">
                         <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/about">About</Link></li>
@@ -24,7 +25,7 @@ if (loggedIn != null) {
                         <li><LogOutButton/></li>
                       </ul>
                   </div>
-              <div className="nav-line"></div> 
+              <span className="nav-line"></span> 
       </HashRouter>
   );
 }
@@ -32,7 +33,7 @@ if (loggedIn != null) {
   else {
     return(
       <HashRouter>
-        <Link to="/home"><h2 className="nav-title">COVIDaily</h2></Link>
+        <Link to="/home"><h2 className="nav-title">COVIDAILY</h2></Link>
               <div className="nav-div">
                   <ul className="nav-list">
                     <li className ="inline-li"><Link className="nav-link-li" to="/home">Home</Link></li>
@@ -40,7 +41,7 @@ if (loggedIn != null) {
                     <li className ="inline-li"><Link className="nav-link-li" to="/about">About</Link></li>
                   </ul>
               </div>
-        <div className="nav-line"></div> 
+        <span className="nav-line"></span> 
       </HashRouter>
     )
 }

@@ -20,20 +20,11 @@ class HomeNotLoggedIn extends Component {
 
   render() {
     return (
-      <div className="container">
-
-        <div className="grid">
-          <div className="grid-col_8">
+      <div className="home-not-logged-container">
                 <GettingStarted/>
-            <div id="divider"></div>
                 <YearlyDeaths/>
-          </div>
-
-          <div className="grid-col_4">
                 <LoginForm/>
                 <Tips/>
-          </div>
-      </div>
       </div>
     );
   }
