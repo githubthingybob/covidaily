@@ -21,7 +21,8 @@ if (loggedIn != null) {
                         <li className ="inline-li"><Link className="nav-link-li" to="/dailylogger">Daily Logger</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/data">Data</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/account">Account</Link></li>
-                        <li><LogOutButton/></li>
+                        <li className ="inline-li"><Link className="nav-link-li" to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}>Log Out</Link></li>
+                        <li></li>
                       </ul>
                   </div>
               <div className="nav-line"></div> 
