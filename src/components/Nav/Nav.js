@@ -15,12 +15,12 @@ if (loggedIn != null) {
               <h2 className="nav-title">COVIDAILY</h2>
                   <div className="nav-div">
                       <ul className="nav-list">
+                        <li className ="inline-li"><Link className="nav-link-li" to="/main">Home</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/dailylogger">Daily Logger</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/data">Data</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/account">Account</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/home" onClick={()=>props.dispatch({type:'LOGOUT'})}>Log Out</Link></li>
-                        <li></li>
                       </ul>
                   </div>
               <div className="nav-line"></div> 
@@ -38,7 +38,7 @@ if (loggedIn != null) {
                     <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li>
                   </ul>
               </div>
-        <div className="nav-line"></div> 
+        <div className="not-logged-nav-line"></div> 
       </HashRouter>
     )
 }

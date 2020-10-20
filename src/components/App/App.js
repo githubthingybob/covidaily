@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 //directional and static
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../DoNotTouch/ProtectedRoute/ProtectedRoute';
-import AboutPage from '../AboutPage/AboutPage';
 import Resources from '../Resources/Resources';
 import LoginForm from '../LoginForm/LoginForm';
 
