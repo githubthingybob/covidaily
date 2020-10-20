@@ -1,0 +1,24 @@
+#tips-div{
+    position: absolute;
+    width: 330px;
+    top: 550px;
+    left: 85%;
+    text-align: center;
+    margin:0px;
+    padding:0px;
+    background-color: rgba(255, 0, 200, 0.075);
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#tips-div h2{
+    color: rgb(0, 0, 0);
+    font-family: Poppins;
+    margin: 0px;
+}
+
+#tips-div div{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    
+}

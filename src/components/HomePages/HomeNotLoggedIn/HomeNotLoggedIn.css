@@ -1,7 +1,4 @@
-#home-not-logged-container{
-  position: absolute;
-  z-index: 4;
-}
+
 .h2-gettingStarted {
   font-size: 18px;
   font-family: Poppins;
@@ -9,8 +6,6 @@
   padding-top: 15px;
   padding-left: 30px;
   margin-bottom:5px;
-  position: absolute;
-  z-index: 4;
 }
 
 .h2-yearly {
@@ -20,20 +15,16 @@
   padding-top: 15px;
   padding-left: 30px;
   margin-bottom: 5px;
-  position: absolute;
-  z-index: 4;
 }
 
 #gettingStarted{
-  background: purple;
+  background-image: linear-gradient(30deg, #66094adc, #ff4180 90%);
   box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
   border-radius:20px;
-  margin-top: 20px;
-  position: absolute;
-  z-index: 4;
-  top: 0px;
-  left: 0px;
-  display: flex
+  position: relative;
+  top: 150px;
+  left: 50px;
+  width: 75%;
 }
 
 #gettingStartedList {
@@ -41,37 +32,31 @@
   padding-left: 80px;
   padding-right: 10px;
   margin: 2px;
-  position: absolute;
+
 }
 
 .li-landingPage{
   color: white;
   font-family: Poppins;
   font-weight: 600;
-  position: absolute;
-  z-index: 4;
+
 }
 
 .detailsUnderList{
   color: white;
   font-family: Raleway;
-  position: absolute;
-  z-index: 4;
 }
 
 #yearlyStats{
   background: radial-gradient(108.19% 1253.06% at -3.45% 7.73%, #ffc0f1 0%, #FFFFFF 100%);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius:20px;
-  position: absolute;
-  z-index: 4;
+  position: relative;
+  top: 165px;
+  left: 50px;
+  width: 75%;
 }
 
-#divider {
-  margin: 20px;
-  position: absolute;
-  z-index: 4;
-}
 
 #yearlyList {
   padding-bottom: 20px;
@@ -80,20 +65,13 @@
   margin: 2px;
   font-family: Raleway;
   color: #8B8B8B;
-  position: absolute;
-  z-index: 4;
+
 };
 
 #yearlyList li{
   color: black;
-  position: absolute;
-  z-index: 4;
 };
 
 #covidDeaths {
   padding-left: 300px;
-  position: absolute;
-  z-index: 4;
 };
-
-
