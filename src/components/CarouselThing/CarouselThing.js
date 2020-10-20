@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 //images and materialUI
+import './CarouselThing.css'
 import Carousel from 'react-material-ui-carousel'
 import CarouselItem from '../CarouselItem/CarouselItem';
 import image1 from '../../Images/chronic.png'
@@ -32,12 +33,15 @@ function CarouselThing(props) {
 ]
 
   return (
-    <Carousel>
+    <div id="carousel-container">    
+      <Carousel>
         {items.map((item,i) =>
         <CarouselItem key={i} item={item}/>
         )}
 
     </Carousel>
+    </div>
+
   );
 }
 
