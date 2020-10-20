@@ -21,7 +21,7 @@
   top: 120px;
   margin:0px;
   padding:0px;
-  background: radial-gradient(57.95% 662245.53% at 91.91% 100.02%, #02FFA9 0%, #C9FFED 76.7%);
+  background: linear-gradient(60deg, #a9ffe2c7, #000000b2);
 }
 
 .nav-list {
