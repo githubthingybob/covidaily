@@ -9,12 +9,14 @@
     background-color: rgba(255, 0, 200, 0.075);
     padding-bottom: 10px;
     padding-top: 10px;
+    border-radius: 20px;
 }
 
 #tips-div h2{
-    color: rgb(0, 0, 0);
+    color: rgb(165, 0, 129);
     font-family: Poppins;
     margin: 0px;
+    text-decoration: underline;
 }
 
 #tips-div div{

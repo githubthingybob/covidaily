@@ -1,9 +1,9 @@
 .login-div{
     width: 330px;
     height: 350px;
-    background: #BAECD7;
+    background-image: linear-gradient(240deg, #9df4ff91, #00ffaad5);
     box-shadow: 7px 7px 5.19372px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
+    border-radius: 20px;
     position: absolute;
     top: 165px;
     left: 85%;
@@ -18,7 +18,7 @@
     line-height: 25px;
     letter-spacing: 0.01em;
     padding-top: 30px;
-    color: #737373;
+    color: #000000;
 }
 
 .username-login {
@@ -48,7 +48,7 @@
 }
 
 #register-btn {
-    background: #5A0ABF;
+    background: #5200d6;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     color: white;
@@ -57,10 +57,18 @@
 }
 
 #login-btn {
-    background: #22D196;
+    background: #00c482;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     color: white;
     margin-left: 10px;
     padding-left: 15px;
+}
+
+#login-btn:hover{
+    background-color: rgb(255, 56, 89);
+}
+
+#register-btn:hover{
+    background-color: rgb(255, 56, 89);
 }
