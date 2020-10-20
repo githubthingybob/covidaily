@@ -51,11 +51,6 @@ class App extends Component {
             {/* Regular Routes */}
             <Route
               exact
-              path="/about"
-              component={AboutPage}
-            />
-            <Route
-              exact
               path="/resources"
               component={Resources}
             />
