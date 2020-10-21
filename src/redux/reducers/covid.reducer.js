@@ -1,3 +1,5 @@
+//data from api
+
 const covidReducer = (state = [], action) => {
     console.log('COVIDREDUCER state', action.payload);
     switch (action.type) {

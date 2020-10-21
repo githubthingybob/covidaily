@@ -11,9 +11,10 @@ function* postNewDailyLog(action) {
     });
 }
 
+//get logs of a specific user
 function * getLogs (action) {
     console.log('getLogs SAGA', action);
-    let response= yield axios.get(`/api/dailylogger/${action.payload}`);
+    let response= yield axios.get(`/api/dailylogger/user/${action.payload}`);
     console.log('GET LOGS', response.data);
     yield put ({
         type: "SET_LOGS",

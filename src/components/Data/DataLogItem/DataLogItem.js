@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './DataLogItem.css'
 import Checkbox from '@material-ui/core/Checkbox';
-import { Check } from '@material-ui/icons';
+import { HashRouter, Link } from 'react-router-dom';
 
 class DataLogItem extends Component {
     componentDidMount=()=>{
@@ -13,13 +13,16 @@ class DataLogItem extends Component {
         })
     };
 
-    onEdit=()=>{
-    }
 
-    onDelete=()=>{
+    onDelete=(event)=>{
+      this.props.dispatch({
+        type: "DELETE_LOG",
+        payload: this.props.item.id
+      })
     }
   render() {
     return (
+      <HashRouter>
         <tr id="data-log-item-tr"> 
             <td>{this.props.item.date.toLocaleString().split('T')[0]}</td>
             <td>{this.props.item.oximeter}</td>
@@ -32,10 +35,10 @@ class DataLogItem extends Component {
             <td>{this.props.item.reactions_not_listed}</td>
             <td>{this.props.item.symptoms}</td>
             <td>{this.props.item.symptoms_not_listed}</td>
-            <td><Checkbox onClick={this.onEdit}/></td>
+            <td><Checkbox/></td>
             <td><Checkbox onClick={this.onDelete}/></td>
       </tr>
-     
+     </HashRouter>
     );
   }
 }

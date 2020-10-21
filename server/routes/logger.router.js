@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 //get all logs from a user
-router.get('/:id', (req, res) => {
+router.get('/user/:id', (req, res) => {
   console.log('req.params.id', req.params.id);
   const queryText = `SELECT * FROM "daily_logs" WHERE "user_id" = $1`;
   pool.query(queryText, [req.params.id])
@@ -32,6 +32,19 @@ router.post('/', (req, res) => {
       res.send(result.rows); })
     .catch((err) => {
       console.error('Error completing POST DAILY LOG query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.delete('/:id', (req, res) => {
+  console.log('REQBODY DELETE', req.body);
+  const queryText = `DELETE FROM "daily_logs" WHERE "id" = $1`;
+  pool.query(queryText, [req.body.id])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
       res.sendStatus(500);
     });
 });

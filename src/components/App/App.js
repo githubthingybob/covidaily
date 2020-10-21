@@ -18,12 +18,16 @@ import LoginForm from '../LoginForm/LoginForm';
 import HomeNotLoggedIn from '../HomePages/HomeNotLoggedIn/HomeNotLoggedIn';
 import HomeLoggedIn from '../HomePages/HomeLoggedIn/HomeLoggedIn';
 
+//data
+import DataLog from '../Data/DataLog/DataLog';
+import DataGraphs from '../Data/DataGraphs/DataGraphs';
+import DataEdit from '../Data/DataEdit/DataEdit';
+
 //user-related
 import DailyLogger from '../DailyLogger/DailyLogger';
 import Account from '../Account/Account';
 import AccountUpdate from '../AccountUpdate/AccountUpdate';
-import DataLog from '../DataLog/DataLog';
-import DataGraphs from '../DataGraphs/DataGraphs';
+
 
 //registration-related
 import RegisterForm from '../Register/RegisterForm/RegisterForm'
@@ -70,6 +74,11 @@ class App extends Component {
               exact
               path="/account"
               component={Account}
+            />
+
+            <ProtectedRoute
+              path="/data/edit/:id"
+              component={DataEdit}
             />
 
             <ProtectedRoute

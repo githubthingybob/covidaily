@@ -20,15 +20,15 @@ import image9 from '../../Images/publicclosings.jpg';
 function CarouselThing(props) {
 
  let items = [
-    {image: <img src={image1}/>},
-    {image: <img src={image2}/>},
-    {image: <img src={image3}/>},
-    {image: <img src={image4}/>},
-    {image: <img src={image5}/>},
-    {image: <img src={image6}/>},
-    {image: <img src={image7}/>},
-    {image: <img src={image8}/>},
-    {image: <img src={image9}/>}
+    {image: <img src={image1} alt="test"/>},
+    {image: <img src={image2} alt="test"/>},
+    {image: <img src={image3} alt="test"/>},
+    {image: <img src={image4} alt="test"/>},
+    {image: <img src={image5} alt="test"/>},
+    {image: <img src={image6} alt="test"/>},
+    {image: <img src={image7} alt="test"/>},
+    {image: <img src={image8} alt="test"/>},
+    {image: <img src={image9} alt="test"/>}
 
 ]
 
