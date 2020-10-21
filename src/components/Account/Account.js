@@ -5,6 +5,11 @@ import {HashRouter, Link} from 'react-router-dom';
 
 //styling
 import './Account.css'
+import {FormLabel, FormControl, List, ListItem, Button, 
+    FormControlLabel, FormGroup, ListItemIcon} from '@material-ui/core';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Grid from '@material-ui/core/Grid'
+import {AccountCircleIcon, EmailIcon} from '@material-ui/icons/';
 
 class Account extends Component {
     state = {
@@ -29,65 +34,68 @@ class Account extends Component {
         <HashRouter>
       <div id="account-container">
           <div>
-              <Link to="/accountupdate"><button>Go To Update Account</button></Link>
+              <Link to="/accountupdate"><Button>Update Account</Button></Link>
           </div>
 
-        <div>
-            <ul className= "account-list">
-                <li>User ID</li>
-                    <div>{this.props.store.user.id}</div>
-                <li>User Name</li>
-                    <div>{this.props.store.user.username}</div>
-                <li>Email </li>
-                    <div>{this.state.email}</div>
-            </ul>
-        </div>
-        <div>
-            <ul className= "account-list">
-                <li>Covid Positive </li>
+        <Grid container spacing={2}>
+                <Grid item xs>
+                    <List dense>
+                        <ListItem><ListItemIcon><AccountCircleIcon/></ListItemIcon>{this.props.store.user.username}</ListItem>
+                    </List>
+                </Grid>
+                
+                <Grid item xs>
+                    <List dense>
+                        <ListItem><ListItemIcon><EmailIcon/></ListItemIcon>{this.props.store.user.email}</ListItem>
+                    </List>
+                </Grid>
+                <Grid item xs>Email </Grid>
+                    
+
+        </Grid>
+        <Grid>
+                <Grid item xs>Covid Positive </Grid>
                     <div>{this.state.covid}</div>
-                <li>Covid-like Symptoms?</li>
+                <Grid item xs>Covid-like Symptoms?</Grid>
                     <div>{this.state.covidSymptoms}</div>
-                <li>Smoker or 2nd Hand Smoker? </li>
+                <Grid item xs>Smoker or 2nd Hand Smoker? </Grid>
                     <div>{this.state.cigs}</div>
-                <li>Take daily vitamins? </li>
+                <Grid item xs>Take daily vitamins? </Grid>
                     <div>{this.state.vitamins}</div>
-                <li>Have medical insurance? </li>
+                <Grid item xs>Have medical insurance? </Grid>
                     <div>{this.state.insurance}</div>
-                <li>Children in daycare/school in person? </li>
+                <Grid item xs>Children in daycare/school in person? </Grid>
                     <div>{this.state.children}</div>
-                <li>Negatively affected by COVID-19? </li>
+                <Grid item xs>Negatively affected by COVID-19? </Grid>
                     <div>{this.state.negative}</div>
-            </ul>
-        </div>
-        <div>
-            <ul className= "account-list">
-                <li>Personality </li>
+        </Grid>
+        <Grid>
+                <Grid item xs>Personality </Grid>
                     <div>{this.props.store.user.personality}</div>
-                <li>Air Conditioning Type </li>
+                <Grid item xs>Air Conditioning Type </Grid>
                     <div>{this.props.store.user.AC}</div>
-                <li>Type of Residence </li>
+                <Grid item xs>Type of Residence </Grid>
                     <div>{this.props.store.user.residence}</div>
-                <li>Type of water </li>
+                <Grid item xs>Type of water </Grid>
                     <div>{this.props.store.user.water}</div>
-                <li>Race </li>
+                <Grid item xs>Race </Grid>
                     <div>{this.props.store.user.race}</div>
-                <li>Type of Development </li>
+                <Grid item xs>Type of Development </Grid>
                     <div>{this.props.store.user.development}</div>
-                <li>Average Monthly Hospital/Clinic Visits </li>
+                <Grid item xs>Average Monthly Hospital/Clinic Visits </Grid>
                     <div>{this.props.store.user.visits}</div>
-                <li>Sex </li>
+                <Grid item xs>Sex </Grid>
                     <div>{this.props.store.user.sex}</div>
-                <li>Age Range </li>
+                <Grid item xs>Age Range </Grid>
                     <div>{this.props.store.user.age}</div>
-                <li>Income Range </li>
+                <Grid item xs>Income Range </Grid>
                     <div>{this.props.store.user.income}</div>
-                <li>Average Monthly Social Visits (3+ people) </li>
+                <Grid item xs>Average Monthly Social Visits (3+ people) </Grid>
                     <div>{this.props.store.user.social}</div>
-                <li>Weight Range </li>
+                <Grid item xs>Weight Range </Grid>
                     <div>{this.props.store.user.weight}</div>
-            </ul>
-        </div>
+
+        </Grid>
 
       </div>
       </HashRouter>

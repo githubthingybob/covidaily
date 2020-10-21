@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { withRouter} from 'react-router-dom';
 
 //styling
 import './AccountUpdate.css'
@@ -53,16 +54,7 @@ class Account extends Component {
 
   render() {
     return (
-      <div id="account-main-div">
-            <div>
-                    <p>User ID: {this.props.store.user.id}</p>
-                    <p>Email:</p>
-            </div>
-
-            <div>
-                <p>{this.state.covidDays} Days Since COVID-19 Positive</p>
-            </div>
-        
+      <div id="account-main-div"> 
         <div className="truefalse-div">
         <fieldset>
                 <legend>Have you ever tested positive for COVID-19?</legend>
@@ -288,5 +280,5 @@ class Account extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(Account);
+export default withRouter(connect(mapStoreToProps)(Account));
 

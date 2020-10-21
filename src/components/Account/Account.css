@@ -3,13 +3,13 @@
     margin-left: 50px;
 }
 
-.account-list{
+ul {
     list-style: none;
 }
-
-.account-list li {
+.account-list-main li {
     font-family: Poppins;
     font-size: 14px;
+    display: inline;
 }
 
 .account-list div {
