@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { takeLatest , put} from 'redux-saga/effects';
 
-
+//attached to logger.router.js router.post LINE 21
 function* postNewDailyLog(action) {
     console.log('in postNewDailyLog with', action);
     yield axios({
@@ -12,6 +12,7 @@ function* postNewDailyLog(action) {
 }
 
 //get logs of a specific user
+//attached to logger.router.js router.post LINE 6
 function * getLogs (action) {
     console.log('getLogs SAGA', action);
     let response= yield axios.get(`/api/dailylogger/user/${action.payload}`);

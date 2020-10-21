@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { takeLatest } from 'redux-saga/effects';
 
-
+//delete specific log
+//attached to logger.router.js router.delete LINE 41
 function* deleteLog(action) {
     console.log('deleteLogSAGA', action);
     yield axios({

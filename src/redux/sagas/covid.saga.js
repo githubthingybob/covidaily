@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { takeLatest, put } from 'redux-saga/effects';
 
+//attached to covid.reducer.js
 
 function* getCOVIDCases(action) {
     console.log('in getCOVIDCases SAGA', action);

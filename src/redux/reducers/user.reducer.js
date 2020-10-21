@@ -1,3 +1,6 @@
+
+//attached to user.router, login.saga.js, registration.saga.js
+//attached to updateUser.saga, user.saga
 const userReducer = (state = {}, action) => {
   console.log('userReducer', action.payload);
   
