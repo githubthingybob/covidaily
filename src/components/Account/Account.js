@@ -9,7 +9,9 @@ import {FormLabel, FormControl, List, ListItem, Button,
     FormControlLabel, FormGroup, ListItemIcon} from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Grid from '@material-ui/core/Grid'
-import {AccountCircleIcon, EmailIcon} from '@material-ui/icons/';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import EmailIcon from '@material-ui/icons/Email';
+import FingerprintIcon from '@material-ui/icons/Fingerprint';
 
 class Account extends Component {
     state = {
@@ -33,68 +35,144 @@ class Account extends Component {
     return (
         <HashRouter>
       <div id="account-container">
-          <div>
               <Link to="/accountupdate"><Button>Update Account</Button></Link>
-          </div>
-
-        <Grid container spacing={2}>
+        <Grid container spacing={2} id="main-account">
                 <Grid item xs>
                     <List dense>
-                        <ListItem><ListItemIcon><AccountCircleIcon/></ListItemIcon>{this.props.store.user.username}</ListItem>
+                        <ListItem className="grid-q"><ListItemIcon><AccountCircleIcon className="icon"/></ListItemIcon>{this.props.store.user.username}</ListItem>
                     </List>
                 </Grid>
-                
                 <Grid item xs>
                     <List dense>
-                        <ListItem><ListItemIcon><EmailIcon/></ListItemIcon>{this.props.store.user.email}</ListItem>
+                        <ListItem className="grid-q"><ListItemIcon><FingerprintIcon className="icon"/></ListItemIcon>{this.props.store.user.id}</ListItem>
                     </List>
                 </Grid>
-                <Grid item xs>Email </Grid>
+                <Grid item xs>
+                    <List dense>
+                        <ListItem className="grid-q"><ListItemIcon><EmailIcon className="icon"/></ListItemIcon>{this.props.store.user.email}</ListItem>
+                    </List>
+                </Grid>
                     
 
         </Grid>
-        <Grid>
-                <Grid item xs>Covid Positive </Grid>
-                    <div>{this.state.covid}</div>
-                <Grid item xs>Covid-like Symptoms?</Grid>
-                    <div>{this.state.covidSymptoms}</div>
-                <Grid item xs>Smoker or 2nd Hand Smoker? </Grid>
-                    <div>{this.state.cigs}</div>
-                <Grid item xs>Take daily vitamins? </Grid>
-                    <div>{this.state.vitamins}</div>
-                <Grid item xs>Have medical insurance? </Grid>
-                    <div>{this.state.insurance}</div>
-                <Grid item xs>Children in daycare/school in person? </Grid>
-                    <div>{this.state.children}</div>
-                <Grid item xs>Negatively affected by COVID-19? </Grid>
-                    <div>{this.state.negative}</div>
-        </Grid>
-        <Grid>
-                <Grid item xs>Personality </Grid>
-                    <div>{this.props.store.user.personality}</div>
-                <Grid item xs>Air Conditioning Type </Grid>
-                    <div>{this.props.store.user.AC}</div>
-                <Grid item xs>Type of Residence </Grid>
-                    <div>{this.props.store.user.residence}</div>
-                <Grid item xs>Type of water </Grid>
-                    <div>{this.props.store.user.water}</div>
-                <Grid item xs>Race </Grid>
-                    <div>{this.props.store.user.race}</div>
-                <Grid item xs>Type of Development </Grid>
-                    <div>{this.props.store.user.development}</div>
-                <Grid item xs>Average Monthly Hospital/Clinic Visits </Grid>
-                    <div>{this.props.store.user.visits}</div>
-                <Grid item xs>Sex </Grid>
-                    <div>{this.props.store.user.sex}</div>
-                <Grid item xs>Age Range </Grid>
-                    <div>{this.props.store.user.age}</div>
-                <Grid item xs>Income Range </Grid>
-                    <div>{this.props.store.user.income}</div>
-                <Grid item xs>Average Monthly Social Visits (3+ people) </Grid>
-                    <div>{this.props.store.user.social}</div>
-                <Grid item xs>Weight Range </Grid>
-                    <div>{this.props.store.user.weight}</div>
 
+        <Grid container spacing={5} id="true-false-grid">
+                <Grid item xs>
+                     <List dense>
+                        <ListItem className="grid-q">Have you ever tested positive for COVID-19?</ListItem>
+                        <ListItem>{this.state.covid}</ListItem>
+                    </List>
+                </Grid>
+                <Grid item xs>
+                    <List dense>
+                        <ListItem className="grid-q">Are you currently suffering from Covid-like symptoms?</ListItem>
+                        <ListItem>{this.state.covidSymptoms}</ListItem>
+                    </List></Grid>
+                <Grid item xs>
+                    <List dense>
+                        <ListItem className="grid-q">Are you a smoker or second-hand smoker?</ListItem>
+                        <ListItem>{this.state.cigs}</ListItem>
+                    </List>
+                </Grid>
+
+                <Grid item xs>
+                    <List dense>
+                        <ListItem className="grid-q">Do you take a daily multi-vitamin?</ListItem>
+                        <ListItem>{this.state.vitamins}</ListItem>
+                    </List>
+                </Grid>
+                <Grid item xs>
+                    <List dense>
+                        <ListItem className="grid-q">Do you have medical insurance?</ListItem>
+                        <ListItem>{this.state.insurance}</ListItem>
+                    </List>
+                </Grid>
+                <Grid item xs>
+                    <List dense>
+                        <ListItem className="grid-q">Do you have children who attend daycare/or school in person?</ListItem>
+                        <ListItem>{this.state.children}</ListItem>
+                    </List>
+                </Grid>
+                <Grid item xs>
+                    <List dense>
+                        <ListItem className="grid-q">Has your life been negatively affected by COVID-19?</ListItem>
+                        <ListItem>{this.state.negative}</ListItem>
+                    </List>
+                </Grid>
+        </Grid>
+        <Grid container spacing={5} id="varies-grid">
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Extrovert or Introvert</ListItem>
+                                <ListItem>{this.props.store.user.personality}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Type of Air-Conditioning System</ListItem>
+                                <ListItem>{this.props.store.user.AC}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs ={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Type of Current Residence</ListItem>
+                                <ListItem>{this.props.store.user.residence}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Type of Current Water</ListItem>
+                                <ListItem>{this.props.store.user.water}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Race</ListItem>
+                                <ListItem>{this.props.store.user.race}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense>
+                                <ListItem className="grid-q">Type of Current Development</ListItem>
+                                <ListItem>{this.props.store.user.development}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Monthly Average of Hospital/Clinic Visits</ListItem>
+                                <ListItem>{this.props.store.user.visits}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Biological Sex</ListItem>
+                                <ListItem>{this.props.store.user.sex}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Age Range</ListItem>
+                                <ListItem>{this.props.store.user.age}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Income Range</ListItem>
+                                <ListItem>{this.props.store.user.income}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Monthly Average of Social Gatherings of People(3+)</ListItem>
+                                <ListItem>{this.props.store.user.social}</ListItem>
+                            </List>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <List dense className="grid-list">
+                                <ListItem className="grid-q">Weight Range</ListItem>
+                                <ListItem>{this.props.store.user.weight}</ListItem>
+                            </List>
+                </Grid>
         </Grid>
 
       </div>

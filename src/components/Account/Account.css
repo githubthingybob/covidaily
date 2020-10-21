@@ -1,17 +1,44 @@
 #account-container{
-    margin-top: 200px;
-    margin-left: 50px;
+    width: 1920px;
+    height: 1080px;
+    margin: 0;
 }
 
-ul {
-    list-style: none;
+#main-account{
+    background-color: rgba(44, 44, 44, 0.747);
+    margin: 0px;
+    padding: 0px;
+    top: 120px;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    color: white;
 }
-.account-list-main li {
+
+.icon{
+    color: white;
+}
+
+#true-false-grid{
+    margin:0px;
+    padding: 0px;
+    top: 130px;
+    position: relative;
+    width: 100%;
+    color: white;
+    background-color: rgb(114, 114, 114);
+}
+
+#varies-grid{
+    margin:0px;
+    padding: 0px;
+    top: 150px;
+    position: relative;
+    width: 100%;
+    color: white;
+    background-color: rgb(114, 114, 114);
+}
+
+.grid-q{
     font-family: Poppins;
-    font-size: 14px;
-    display: inline;
-}
-
-.account-list div {
-    font-family: Raleway;
 }
