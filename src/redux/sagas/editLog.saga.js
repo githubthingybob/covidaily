@@ -3,6 +3,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 
 
 //get specific log
+//attached to router.get in logger.router LINE 55
 function * getDetails (action) {
     console.log('getDetails SAGA', action);
     let response= yield axios.get(`/api/dailylogger/details/${action.payload}`);
@@ -15,13 +16,13 @@ function * getDetails (action) {
 }
 
 //edit specific log
+//attached to router.put in logger.router LINE 69
 function* editLog(action) {
     console.log('editLogSAGA', action);
     yield axios({
         method: 'PUT',
-        url: `/api/dailylogger/edit/${action.payload}`,
-        data: {
-            id: action.payload}
+        url: `/api/dailylogger/edit/${action.payload.logID}`,
+        data: action.payload
     });
 }
 

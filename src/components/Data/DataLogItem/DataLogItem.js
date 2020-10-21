@@ -4,7 +4,6 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './DataLogItem.css'
 import Checkbox from '@material-ui/core/Checkbox';
 import { withRouter} from 'react-router-dom';
-import {TextField, Button} from '@material-ui/core';
 
 class DataLogItem extends Component {
 
