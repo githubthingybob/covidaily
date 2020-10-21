@@ -7,6 +7,7 @@ import './DailyLogger.css'
 import {FormHelperText, RadioGroup, Radio, FormLabel, FormControl, Button, 
     FormControlLabel, FormGroup, Checkbox, TextField} from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Grid from '@material-ui/core/Grid'
 
 
 class DailyLogger extends Component {
@@ -26,7 +27,7 @@ class DailyLogger extends Component {
                     reactionsNotListed: '',
                     helperText: '',
                     error: false,
-            }
+            }//end state
 
             onSubmit = (event) => {
                     event.preventDefault();
@@ -112,10 +113,11 @@ class DailyLogger extends Component {
         console.log('STATE IN DAILY LOGGER', this.state);
         
     return (
-      <div id="daily-logger-main-div">
-        <h2>Daily Log for {this.state.date}</h2>
+            <div>
+             <h2>Daily Log for {this.state.date}
+             </h2><Grid container spacing={5}>
 
-        <div id="vitals">
+        <Grid item xs id="vitals">
           <h3 className="daily-logger-h3">1. Vitals</h3>
           <div id="oxi-div">
               <TextField 
@@ -177,17 +179,16 @@ class DailyLogger extends Component {
                     onChange={this.handleInputChangeFor('temperature')}
                 />
           </div>
-        </div>
+        </Grid>
 
-
-        <div id="symptoms">
+        <Grid item xs id="symptoms">
           <h3 className="daily-logger-h3">2. Symptoms</h3>
                 <FormControl component="fieldset" error={this.state.error}>
                 <FormLabel component="legend">What symptoms do you have today?</FormLabel>
                     <FormGroup>
                                 <FormHelperText>{this.state.helperText}</FormHelperText>
                                 <FormControlLabel control={
-                                        <Checkbox id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}/>} 
+                                        <Checkbox classname="symptoms-label" id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}/>} 
                                         label="Personality Change" />
                                 <FormControlLabel control={
                                         <Checkbox id="congestion" name="congestion" value="Congestion" onClick={this.onClickSymptoms}/>} 
@@ -241,15 +242,16 @@ class DailyLogger extends Component {
                     </FormGroup>
                 </FormControl>
 
-        </div>
+        </Grid>
 
-
-        <div id="treatment">
+        < Grid item xs id="treatment">
           <h3 className="daily-logger-h3">3. Treatment</h3>
+          <Grid container spacing={2}>
             <FormControl component="fieldset" error={this.state.error}>
                   <FormLabel component="legend">What treatment are you taking today?</FormLabel>
                         <FormGroup>
                             <FormHelperText>{this.state.helperText}</FormHelperText>
+                            <Grid item xs>
                             <FormControlLabel control={
                                     <Checkbox id="remdesivir" name="remdesivir" value="Remdesivir" onClick={this.onClickTreatment}/>} 
                                     label="Remdesivir" />
@@ -283,6 +285,8 @@ class DailyLogger extends Component {
                             <FormControlLabel control={
                                     <Checkbox id="olumiant" name="olumiant" value="Olumiant" onClick={this.onClickTreatment}/>} 
                                     label="Olumiant"/>
+                        </Grid>
+                        <Grid item xs>
                             <FormControlLabel control={
                                     <Checkbox id="kineret" name="kineret" value="Kineret" onClick={this.onClickTreatment}/>} 
                                     label="Kineret"/>
@@ -318,12 +322,15 @@ class DailyLogger extends Component {
                                 onChange={this.handleInputChangeFor('treatmentNotListed')}>
                                 </textarea>
                         </div>
+                        </Grid>
                     </FormGroup>
           </FormControl>
-        </div>
-
-
-        <div id="feelings">
+          
+          </Grid>
+        </Grid>
+      
+                                
+        <Grid item xs id="feelings">
             <h3 className="daily-logger-h3">4. Feelings to Current Treatment</h3>
                 <FormControl component="fieldset" error={this.state.error}>
                     <FormLabel component="legend">What are your feelings and thoughts towards the treatment you are currently on today?</FormLabel>
@@ -335,10 +342,10 @@ class DailyLogger extends Component {
                                     label="Negative"/>
                         </RadioGroup>
                 </FormControl>
-        </div>
+        </Grid>
 
 
-        <div id="reactions">
+        <Grid item xs id="reactions">
             <h3 className="daily-logger-h3">5. Reaction(s) to Treatment</h3>
             <FormControl component="fieldset" error={this.state.error}>
                 <FormLabel component="legend">What are your reactions to your current treatment?</FormLabel>
@@ -373,10 +380,11 @@ class DailyLogger extends Component {
                     </FormGroup>
             </FormControl>
 
-        </div>
+        </Grid>
 
         <Button variant="contained" onClick={this.onSubmit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>
-      </div>
+        
+        </Grid></div>
     );
   }
 }

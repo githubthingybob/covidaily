@@ -9,11 +9,6 @@
     margin-bottom: 150px;
 }
 
-input[type=checkbox] {
-    margin-left: 15px;
-    margin-right: 3px;
-}
-
 
 #divider {
     font-size: 30px;
@@ -44,3 +39,7 @@ input[type=checkbox] {
     width: 450px;
 }
 
+.symptoms-label{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
