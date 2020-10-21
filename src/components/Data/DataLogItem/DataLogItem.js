@@ -4,27 +4,36 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import './DataLogItem.css'
 import Checkbox from '@material-ui/core/Checkbox';
 import { withRouter} from 'react-router-dom';
+import {TextField, Button} from '@material-ui/core';
 
 class DataLogItem extends Component {
+
+  state={
+    isEditChecked: false
+  }
     componentDidMount=()=>{
         this.props.dispatch({
             type: 'FETCH_LOGS',
             payload: this.props.store.user.id
         })
-    };
+    };//end componentDidMount
 
+    goToEdit = () =>{
+          this.props.history.push(`/data/edit/${this.props.item.id}`)
+          
+    }//end checkEdit
 
     onDelete=(event)=>{
-      this.props.dispatch({
-        type: "DELETE_LOG",
-        payload: this.props.item.id
-      })
-    window.location.reload();
-    } //end
+          this.props.dispatch({
+            type: "DELETE_LOG",
+            payload: this.props.item.id
+          })
+          window.location.reload();
+    } //end ondelete 
 
   render() {
-    return (
-        <tr id="data-log-item-tr"> 
+        return (
+            <tr id="data-log-item-tr"> 
             <td>{this.props.item.date.toLocaleString().split('T')[0]}</td>
             <td>{this.props.item.oximeter}</td>
             <td>{this.props.item.temperature}</td>
@@ -36,12 +45,13 @@ class DataLogItem extends Component {
             <td>{this.props.item.reactions_not_listed}</td>
             <td>{this.props.item.symptoms}</td>
             <td>{this.props.item.symptoms_not_listed}</td>
-            <td><Checkbox/></td>
+            <td><Checkbox onClick={this.goToEdit}/></td>
             <td><Checkbox onClick={this.onDelete}/></td>
       </tr>
-    );
-  }
-}
+        )
+
+  } //render
+} //component
 
 export default withRouter(connect(mapStoreToProps)(DataLogItem));
 

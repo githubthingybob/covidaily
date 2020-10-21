@@ -8,6 +8,7 @@ import dailyLoggerSaga from './daily.saga';
 import updateUserSaga from './updateUser.saga';
 import covidSaga from './covid.saga'
 import deleteLogSaga from './deleteLog.saga';
+import editLogSaga from './editLog.saga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -28,6 +29,7 @@ export default function* rootSaga() {
     dailyLoggerSaga(),
     updateUserSaga(),
     covidSaga (),
-    deleteLogSaga()
+    deleteLogSaga(),
+    editLogSaga()
   ]);
 }

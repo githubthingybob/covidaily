@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { takeLatest , put} from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 
 
 function* deleteLog(action) {
@@ -10,7 +10,6 @@ function* deleteLog(action) {
         data: {
             id: action.payload}
     });
-
 }
 
 function* deleteLogSaga() {

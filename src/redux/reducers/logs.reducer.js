@@ -1,5 +1,4 @@
 
-//storing log from DB to send out 
 const logsReducer = (state = [], action) => {
     console.log('LOGS REDUCER', action.payload);
     

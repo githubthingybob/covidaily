@@ -16,6 +16,7 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
+
 //insert daily log 
 router.post('/', (req, res) => {
   const dailyLog = req.body;
@@ -36,6 +37,7 @@ router.post('/', (req, res) => {
     });
 });
 
+//delete specific log
 router.delete('/:id', (req, res) => {
   console.log('REQBODY DELETE', req.body);
   const queryText = `DELETE FROM "daily_logs" WHERE "id" = $1`;
@@ -48,6 +50,39 @@ router.delete('/:id', (req, res) => {
       res.sendStatus(500);
     });
 });
+
+//get specific logID from a user to render
+router.get('/details/:id', (req, res) => {
+  console.log('req.params.id', req.params.id);
+  const queryText = `SELECT * FROM "daily_logs" WHERE "id" = $1`;
+  pool.query(queryText, [req.params.id])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
+//edit specific logID
+router.put('/edit/:id', (req, res) => {
+  let e=req.body
+  console.log('EDIT in logger.router', req.body);
+  const queryText = `UPDATE "daily_logs" SET "date"=$1,"oximeter"=$2, "temperature"=$3, "systolic"=$4, 
+                    "diastolic"=$5, "treatment"=$6, "treatment_not_listed"=$7, "feelings"=$8, "reactions"=$9, 
+                    "reactions_not_listed"=$10, "symptoms"=$11, "symptoms_not_listed"$12 WHERE "user_id"=$13`;
+  pool.query(queryText, [e.date, e.oximeter, e.temperature, e.systolic, e.diastolic, e.treatment, treatmentNotListed, 
+                          e.feelings, e.reactions, e.reactionsNotListed, e.symptoms, e.symptomsNotListed, e.userID])
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      console.warn(err);
+      res.sendStatus(500);
+    });
+});
+
 
 
 module.exports = router;
