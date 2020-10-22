@@ -248,7 +248,12 @@ class DailyLogger extends Component {
                                         <Checkbox id="loss-taste-smell" name="loss-taste-smell" value="Loss of Taste/Smell" onClick={this.onClickSymptoms}/>} 
                                         label="Loss of Taste/Smell"/></Grid>
                             <div>
-                            <TextField id="symptoms-not-listed" placeholder="Symptoms/Mental Health Status Not Listed" rows="7" cols="60"
+                            <TextField id="symptoms-not-listed" 
+                                placeholder="Symptoms/Mental Health Status Not Listed" 
+                                multiline
+                                variant="outlined"
+                                fullWidth
+                                rows={5}
                                     onChange={this.handleInputChangeFor('symptomsNotListed')}/>
                             </div>
                         </FormGroup>
@@ -257,8 +262,8 @@ class DailyLogger extends Component {
 </Grid>
 
 <Grid item xs id="treatment">
-          <h3 className="daily-logger-h3">3. Treatment</h3>
-          <Grid container justify="space-evenly" spacing={5}>
+        <h3 className="daily-logger-h3">3. Treatment</h3>
+          <Grid container>
             <FormControl component="fieldset" error={this.state.error}>
                   <FormLabel component="legend">What treatment are you taking today?</FormLabel>
                         <FormGroup>
@@ -330,9 +335,14 @@ class DailyLogger extends Component {
                                     <Checkbox id="hydroxychloroquine" name="hydroxychloroquine" value="Hydroxychloroquine" onClick={this.onClickTreatment}/>} 
                                     label="Hydroxychloroquine"/>
                         <div>
-                                <textarea id="treatments-not-listed" placeholder="Treatment Not Listed" rows="7" cols="60"
+                                <TextField id="treatments-not-listed" 
+                                placeholder="Treatment Not Listed" 
+                                multiline
+                                variant="outlined"
+                                fullWidth
+                                rows={5}
                                 onChange={this.handleInputChangeFor('treatmentNotListed')}>
-                                </textarea>
+                                </TextField>
                         </div>
                         </Grid>
                     </FormGroup>
@@ -380,9 +390,15 @@ class DailyLogger extends Component {
                                     <Checkbox id="anaphylatic-shock" name="anaphylatic-shock" value="Anaphylatic Shock" onClick={this.onClickReactions}/>} 
                                     label="Anaphylatic Shock"/>
                         <div>
-                                <textarea id="reactions-not-listed" placeholder="Reaction(s) Not Listed" rows="7" cols="60"
+                                <TextField 
+                                id="reactions-not-listed" 
+                                placeholder="Reaction(s) Not Listed" 
+                                multiline
+                                variant="outlined"
+                                fullWidth
+                                rows={5}
                                 onChange={this.handleInputChangeFor('reactionsNotListed')}>
-                                </textarea>
+                                </TextField>
                         </div>
                     </FormGroup>
             </FormControl>
@@ -390,7 +406,9 @@ class DailyLogger extends Component {
         </Grid>
 
 </Grid>                        
-        <Button variant="contained" onClick={this.onSubmit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>
+        <div id="daily-logger-btn-div">
+          <Button id="daily-submit-btn"variant="contained" onClick={this.onSubmit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>      
+        </div>
         
 </div>
     );
