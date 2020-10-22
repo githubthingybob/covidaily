@@ -107,16 +107,13 @@ class DailyLogger extends Component {
                 })
             }
 
-
-
   render() {
         
     return (
-            <div>
-             <h2>Daily Log for {this.state.date}
-             </h2>
-        <Grid container alignContent="center">
-        <Grid item xs id="vitals">
+            <div id="daily-logger-main-container">
+             <h2>Daily Log for {this.state.date}</h2>
+<Grid container spacing={5}>
+<Grid item xs id="vitals">
           <h3 className="daily-logger-h3">1. Vitals</h3>
           <div id="oxi-div">
               <TextField 
@@ -178,14 +175,16 @@ class DailyLogger extends Component {
                     onChange={this.handleInputChangeFor('temperature')}
                 />
           </div>
-        </Grid>
+        
 
-        <Grid item xs id="symptoms">
+        
           <h3 className="daily-logger-h3">2. Symptoms</h3>
                 <FormControl component="fieldset" error={this.state.error}>
                 <FormLabel component="legend">What symptoms do you have today?</FormLabel>
+                <Grid container>
                     <FormGroup>
-                                <FormHelperText>{this.state.helperText}</FormHelperText>
+                        <FormHelperText>{this.state.helperText}</FormHelperText>
+                        <Grid item xs>
                                 <FormControlLabel control={
                                         <Checkbox classname="symptoms-label" id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}/>} 
                                         label="Personality Change" />
@@ -194,7 +193,9 @@ class DailyLogger extends Component {
                                         label="Congestion" />
                                 <FormControlLabel control={ 
                                         <Checkbox id="dry-cough" name="dry-cough" value="Dry Hacking Cough" onClick={this.onClickSymptoms}/>} 
-                                        label="Dry, Hacking Cough" />
+                                        label="Dry, Hacking Cough"/>
+                        </Grid>
+                        <Grid item xs>
                                 <FormControlLabel control={ 
                                         <Checkbox id="blue-lips-face" name="blue-lips-face" value="Bluish Lips/Face" onClick={this.onClickSymptoms}/>} 
                                         label="Bluish Lips and/or Face" />
@@ -204,57 +205,68 @@ class DailyLogger extends Component {
                                 <FormControlLabel control={
                                         <Checkbox id="confusion" name="confusion" value="Confusion" onClick={this.onClickSymptoms}/>} 
                                         label="Confusion" />
+                                </Grid>
+                        <Grid item xs>
                                 <FormControlLabel control={
                                         <Checkbox id="difficulty-breathing" name="difficulty-breathing" value="Difficulty Breathing" onClick={this.onClickSymptoms}/>} 
                                         label="Difficulty Breathing"/>
+                                
                                 <FormControlLabel control={
                                         <Checkbox id="dizziness" name="dizziness" value="Dizziness" onClick={this.onClickSymptoms}/>}
                                         label="Dizziness" />
                                 <FormControlLabel control={
                                         <Checkbox id="ear-pain" name="ear-pain" value="Ear Pain" onClick={this.onClickSymptoms}/>}
                                         label="Ear Pain"/>
+                        </Grid>
+                        <Grid item xs>
                                 <FormControlLabel control={ 
                                         <Checkbox id="stay-awake" name="stay-awake" value="Inability To Stay Awake" onClick={this.onClickSymptoms}/>} 
                                         label="Inability to Stay Awake"/>
+
                                 <FormControlLabel control={ 
                                         <Checkbox id="vomitting" name="vomitting" value="Vomitting" onClick={this.onClickSymptoms}/>}
                                         label="Vomitting"/>
+                                
                                 <FormControlLabel control={
                                         <Checkbox id="red-eyes" name="red-eyes" value="Red, irritated eyes" onClick={this.onClickSymptoms}/>} 
                                         label="Red Irritated Eyes"/>
+                                
                                 <FormControlLabel control={ 
                                         <Checkbox id="fatigue" name="fatigue" value="Fatigue" onClick={this.onClickSymptoms}/>} 
                                         label="Fatigue"/>
+                                
                                 <FormControlLabel control={
                                         <Checkbox id="chest-pain" name="chest-pain" value="Chest Pain" onClick={this.onClickSymptoms}/>} 
                                         label="Chest Pain/Tightness"/>
+                        </Grid>
+                        <Grid item xs>
                                 <FormControlLabel control={
                                         <Checkbox id="sharp-pain" name="sharp-pain" value="Sharp, Stabbing Pain" onClick={this.onClickSymptoms}/>} 
                                         label="Sharp, Stabbing Pain"/>
+                                
                                 <FormControlLabel control={
                                         <Checkbox id="loss-taste-smell" name="loss-taste-smell" value="Loss of Taste/Smell" onClick={this.onClickSymptoms}/>} 
-                                        label="Loss of Taste/Smell"/>
+                                        label="Loss of Taste/Smell"/></Grid>
                             <div>
                             <TextField id="symptoms-not-listed" placeholder="Symptoms/Mental Health Status Not Listed" rows="7" cols="60"
                                     onChange={this.handleInputChangeFor('symptomsNotListed')}/>
                             </div>
-                    </FormGroup>
-                </FormControl>
+                        </FormGroup>
+                </Grid>
+        </FormControl>
+</Grid>
 
-        </Grid>
-
-        < Grid item xs id="treatment">
+<Grid item xs id="treatment">
           <h3 className="daily-logger-h3">3. Treatment</h3>
           <Grid container justify="space-evenly" spacing={5}>
             <FormControl component="fieldset" error={this.state.error}>
                   <FormLabel component="legend">What treatment are you taking today?</FormLabel>
                         <FormGroup>
                             <FormHelperText>{this.state.helperText}</FormHelperText>
-                            <Grid item xs={10}>
+                        <Grid item xs={10}>
                             <FormControlLabel control={
                                     <Checkbox id="remdesivir" name="remdesivir" value="Remdesivir" onClick={this.onClickTreatment}/>} 
-                                    label="Remdesivir" />
-                                
+                                    label="Remdesivir" />   
                             <FormControlLabel control={
                                 <Checkbox id="dexamethasone" name="dexamethasone" value="Dexamethasone" onClick={this.onClickTreatment}/>} 
                                 label="Dexamethasone"/>
@@ -324,14 +336,10 @@ class DailyLogger extends Component {
                         </div>
                         </Grid>
                     </FormGroup>
-          </FormControl>
-          
+          </FormControl>      
           </Grid>
-        </Grid>
-      
-                                
-        <Grid item xs id="feelings">
-            <h3 className="daily-logger-h3">4. Feelings to Current Treatment</h3>
+          <Grid item xs>
+                  <h3 className="daily-logger-h3">4. Feelings to Current Treatment</h3>
                 <FormControl component="fieldset" error={this.state.error}>
                     <FormLabel component="legend">What are your feelings and thoughts towards the treatment you are currently on today?</FormLabel>
                         <FormHelperText>{this.state.helperText}</FormHelperText>
@@ -343,8 +351,7 @@ class DailyLogger extends Component {
                         </RadioGroup>
                 </FormControl>
         </Grid>
-
-
+</Grid>
         <Grid item xs id="reactions">
             <h3 className="daily-logger-h3">5. Reaction(s) to Treatment</h3>
             <FormControl component="fieldset" error={this.state.error}>
@@ -382,9 +389,10 @@ class DailyLogger extends Component {
 
         </Grid>
 
+</Grid>                        
         <Button variant="contained" onClick={this.onSubmit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>
         
-        </Grid></div>
+</div>
     );
   }
 }
