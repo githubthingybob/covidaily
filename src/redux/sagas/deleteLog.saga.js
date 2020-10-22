@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 //delete specific log
 //attached to logger.router.js router.delete LINE 41
@@ -11,6 +11,9 @@ function* deleteLog(action) {
         data: {
             id: action.payload}
     });
+    yield put({
+        type: "FETCH_LOGS"
+    })
 }
 
 function* deleteLogSaga() {

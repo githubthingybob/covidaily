@@ -1,9 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 //get all logs from a user
-router.get('/user/:id', (req, res) => {
+router.get('/user/:id', rejectUnauthenticated, (req, res) => {
   console.log('req.params.id', req.params.id);
   const queryText = `SELECT * FROM "daily_logs" WHERE "user_id" = $1`;
   pool.query(queryText, [req.params.id])
@@ -18,7 +21,7 @@ router.get('/user/:id', (req, res) => {
 
 
 //insert daily log 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   const dailyLog = req.body;
   console.log('req.body POST', req.body)
   const queryText = `
@@ -38,7 +41,7 @@ router.post('/', (req, res) => {
 });
 
 //delete specific log
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   console.log('REQBODY DELETE', req.body);
   const queryText = `DELETE FROM "daily_logs" WHERE "id" = $1`;
   pool.query(queryText, [req.body.id])
@@ -52,7 +55,7 @@ router.delete('/:id', (req, res) => {
 });
 
 //get specific logID from a user to render
-router.get('/details/:id', (req, res) => {
+router.get('/details/:id', rejectUnauthenticated, (req, res) => {
   console.log('req.params.id', req.params.id);
   const queryText = `SELECT * FROM "daily_logs" WHERE "id" = $1`;
   pool.query(queryText, [req.params.id])
@@ -66,7 +69,7 @@ router.get('/details/:id', (req, res) => {
 });
 
 //edit specific logID
-router.put('/edit/:id', (req, res) => {
+router.put('/edit/:id', rejectUnauthenticated, (req, res) => {
   let e=req.body
   console.log('EDIT in logger.router', req.body);
   const queryText = `UPDATE "daily_logs" SET "date"=$1,"oximeter"=$2, "temperature"=$3, "systolic"=$4, 
