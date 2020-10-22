@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter} from 'react-router-dom';
 
+
+
 //styling
 import './AccountUpdate.css'
-
+import {Radio, RadioGroup, FormLabel, FormControl, Button, Select,
+    FormControlLabel, Grid} from '@material-ui/core';
 class Account extends Component {
     state = {
-        covidDays: 0,
         date: new Date().toLocaleString().split(',')[0],
         userID: this.props.store.user.id,
         personality: '',
@@ -28,11 +30,9 @@ class Account extends Component {
         insurance: '',
         children: '',
         negative: '',
-        covid: ''
+        covid: '',
+        visits: ''
     }
-
-
-
         onClick = (propertyName) => (event) =>{
                 console.log('state:', this.state);           
                 this.setState({
@@ -41,6 +41,13 @@ class Account extends Component {
                 })
         } //end onClick
 
+        onChange= (propertyName, event) =>{
+                console.log('state:', this.state);           
+                this.setState({
+                    ...this.state,
+                    [propertyName]:  event.target.value
+                })
+        } //end onChange
         onSubmit = (event) => {
                     event.preventDefault();
                     console.log('STATE', this.state);
@@ -54,227 +61,233 @@ class Account extends Component {
 
   render() {
     return (
-      <div id="account-main-div"> 
-        <div className="truefalse-div">
-        <fieldset>
-                <legend>Have you ever tested positive for COVID-19?</legend>
-                <input id="1.1.1"type="radio" name="covid" value="true" onClick={this.onClick('covid')}></input>
-                        <label htmlFor= "1.1.1">True</label>
-                <input id="1.1.2"type="radio" name="covid" value="false" onClick={this.onClick('covid')}></input>  
-                        <label htmlFor= "1.1.2">False</label>
-        </fieldset>
-        <fieldset>
-                <legend>Are you current suffering COVID-like symptoms?</legend>
-                <input type="radio" id="1.2.1" name="covidSymptoms" value="true" onClick={this.onClick('covidSymptoms')}></input>
-                        <label htmlFor="1.2.1">True</label>
-                <input type="radio" id="1.2.2" name="covidSymptoms" value="false" onClick={this.onClick('covidSymptoms')}></input>
-                        <label htmlFor="1.2.2">False</label>
-        </fieldset>
-        <fieldset>
-                <legend>Are you a smoker or exposed to 2nd hand smoker?</legend>
-                <input id= "1.3.1" type="radio" name="cigarettes" value="true" onClick={this.onClick('cigarettes')}></input>
-                        <label htmlFor="1.3.1">True</label>
-                <input id= "1.3.2" type="radio" name="cigarettes" value="false" onClick={this.onClick('cigarettes')}></input>
-                        <label htmlFor="1.3.2">False</label>
-        </fieldset>
-        <fieldset>
-                <legend>Do you take daily vitamin supplements?</legend>
-                <input id="1.4.1" type="radio" name="vitamins" value="true" onClick={this.onClick('vitamins')}></input>
-                        <label htmlFor="1.4.1">True</label>
-                <input id="1.4.2" type="radio" name="vitamins" value="false" onClick={this.onClick('vitamins')}></input>
-                        <label htmlFor="1.4.2">False</label>
-        </fieldset>
-        <fieldset>
-                <legend>Do you have medical insurance?</legend>
-                <input id="1.5.1" type="radio" name="insurance" value="true" onClick={this.onClick('insurance')}></input>
-                        <label htmlFor="1.5.1">True</label>
-                <input id="1.5.2" type="radio" name="insurance" value="false" onClick={this.onClick('insurance')}></input>
-                        <label htmlFor="1.5.2">False</label>
-        </fieldset>
-        <fieldset>
-                <legend>Do you have children who attend school/daycare in person?</legend>
-                <input id="1.6.1" type="radio" name="children" value="true" onClick={this.onClick('children')}></input>
-                        <label htmlFor="1.6.1">True</label>
-                <input id="1.6.2" type="radio" name="children" value="false" onClick={this.onClick('children')}></input>
-                        <label htmlFor="1.6.2">False</label>
-        </fieldset>
-        <fieldset>
-                <legend>Has your income/career been negatively affected due to COVID-19?</legend>
-                <input id="1.7.1" type="radio" name="negative" value="true" onClick={this.onClick('negative')}></input>
-                        <label htmlFor="1.7.1">True</label>
-                <input id="1.7.2" type="radio" name="negative" value="false" onClick={this.onClick('negative')}></input>
-                        <label htmlFor="1.7.2">False</label>
-        </fieldset>
-        </div>
+     <div id="account-main-container">
+        <Grid id="account-main-grid"> 
+                <Grid container spacing={5}>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Have you ever tested positive for COVID-19?</FormLabel>
+                                        <RadioGroup > 
+                                                <FormControlLabel name="covid" value="true" control={<Radio size="small" id="1.1.1" onClick={this.onClick('covid')}/>} label="True"/>
+                                                <FormControlLabel name="covid" value="false" control={<Radio size="small" id="1.1.2" onClick={this.onClick('covid')}/>  } label="False"/>
+                                        </RadioGroup>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Are you current suffering COVID-like symptoms?</FormLabel>
+                                        <RadioGroup>
+                                                <FormControlLabel name="covidSymptoms" value="true" control={<Radio size="small"  id="1.2.1" onClick={this.onClick('covidSymptoms')}/>} label="True"/>
+                                                <FormControlLabel name="covidSymptoms" value="false" control={<Radio size="small" id="1.2.2" onClick={this.onClick('covidSymptoms')}/>} label="False"/>
+                                        </RadioGroup>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                        <FormControl component="fieldset">
+                                <FormLabel component="legend">Are you a smoker or exposed to 2nd hand smoker?</FormLabel>
+                                <RadioGroup>
+                                        <FormControlLabel name="cigarettes" value="true"control={<Radio size="small" id= "1.3.1" onClick={this.onClick('cigarettes')}/>} label="True"/>
+                                        <FormControlLabel control={<Radio size="small" id= "1.3.2"  name="cigarettes" value="false" onClick={this.onClick('cigarettes')}/>} label="False"/>
+                                </RadioGroup>
+                        </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                        <FormControl component="fieldset">
+                                <FormLabel component="legend">Do you take daily vitamin supplements?</FormLabel>
+                                <RadioGroup>
+                                        <FormControlLabel name="vitamins" value="true"control={<Radio size="small" id="1.4.1" onClick={this.onClick('vitamins')}/>} label="True"/>
+                                        <FormControlLabel name="vitamins" value="false"control={<Radio size="small" id="1.4.2" onClick={this.onClick('vitamins')}/>} label="False"/>
+                                </RadioGroup>
+                        </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                        <FormControl component="fieldset">
+                                <FormLabel component="legend">Do you have medical insurance?</FormLabel>
+                                <RadioGroup>
+                                        <FormControlLabel name="insurance" value="true" control={<Radio size="small" id="1.5.1" onClick={this.onClick('insurance')}/>} label="True"/>
+                                        <FormControlLabel name="insurance" value="false"control={<Radio size="small" id="1.5.2" onClick={this.onClick('insurance')}/>} label="False"/>
+                                </RadioGroup>
+                        </FormControl>
+                        </Grid>
+                </Grid>
 
-        <div className="personality-div">
-            <fieldset>
-                <legend>2. Click on a personality type you match more</legend>
-                <input type="radio" id="2.1" name="personality" value="Extrovert" onClick={this.onClick('personality')}></input>
-                        <label htmlFor="2.1">Extrovert</label>
-                <input type="radio" id="2.2" name="personality" value="Introvert" onClick={this.onClick('personality')}></input>
-                        <label htmlFor="2.2">Introvert</label>
-            </fieldset>
-        </div>
+                <Grid container spacing={5} id="row-2">
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Do you have children who attend school/daycare in person?</FormLabel>
+                                        <RadioGroup>
+                                                <FormControlLabel name="children" value="true" control={<Radio size="small" id="1.6.1" onClick={this.onClick('children')}/>} label="True"/>
+                                                <FormControlLabel name="children" value="false" control={<Radio size="small" id="1.6.2" onClick={this.onClick('children')}/>} label="False"/>
+                                        </RadioGroup>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Has your income/career been negatively affected due to COVID-19?</FormLabel>
+                                        <RadioGroup>
+                                                <FormControlLabel name="negative" value="true"control={<Radio size="small" id="1.7.1" onClick={this.onClick('negative')}/>} label="True"/>
+                                                <FormControlLabel name="negative" value="false" control={<Radio size="small" id="1.7.2" onClick={this.onClick('negative')}/>} label="False"/>
+                                        </RadioGroup>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on a personality type you match more</FormLabel>
+                                        <RadioGroup>
+                                                <FormControlLabel name="personality" value="Extrovert" control={<Radio size="small"  id="2.1" onClick={this.onClick('personality')}/>} label="Extrovert"/>
+                                                <FormControlLabel name="personality" value="Introvert" control={<Radio size="small"  id="2.2" onClick={this.onClick('personality')}/>} label="Introvert"/>
+                                        </RadioGroup>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on the biological sex you were born with</FormLabel>
+                                        <RadioGroup>
+                                                <FormControlLabel name="sex" value="Male"control={<Radio size="small" id="12.1" onClick={this.onClick('sex')}/>} label="Male"/>
+                                                <FormControlLabel name="sex" value="Female" control={<Radio size="small" id="12.2" onClick={this.onClick('sex')}/>} label="Female"/>
+                                        </RadioGroup>
+                                </FormControl>
+                        </Grid>
+                </Grid>
 
-        <div className="residence-div">
-            <fieldset>
-                <legend>3. Click on your current type of residence</legend>
-                <input id="3.1" type="radio" name="residence" value="Apartment" onClick={this.onClick('residence')}></input>
-                        <label htmlFor="3.1">Apartment</label>
-                <input id="3.2"type="radio" name="residence" value="Townhome/Duplex" onClick={this.onClick('residence')}></input>
-                        <label htmlFor="3.2">Townhome/Duplex</label>
-                <input id="3.3" type="radio" name="residence" value="Single Family Home" onClick={this.onClick('residence')}></input>
-                        <label htmlFor="3.3">Single Family Home</label>
-                <input id="3.4" type="radio" name="residence" value="Dorm/Other" onClick={this.onClick('residence')}></input>
-                        <label htmlFor="3.4">Dorm/Other</label>
-            </fieldset>
-        </div>
-        <div className="ac-div">
-            <fieldset>
-                <legend>4. Click on the current air conditioning system you have</legend>
-                <input id="4.1" type="radio" name="ac" value="Central" onClick={this.onClick('AC')}></input>
-                        <label htmlFor="4.1">Central</label>
-                <input id="4.2" type="radio" name="ac" value="Ductless" onClick={this.onClick('AC')}></input>
-                        <label htmlFor="4.2">Ductless</label>
-                <input id="4.3" type="radio" name="ac" value="Window Unit" onClick={this.onClick('AC')}></input>
-                        <label htmlFor="4.3">Window Unit</label>
-                <input id="4.4" type="radio" name="ac" value="Other" onClick={this.onClick('AC')}></input>
-                        <label htmlFor="4.4">Other</label>
-            </fieldset>
-        </div>
-        <div className="water-div">
-            <fieldset>
-                <legend>5. Click on the current type of water you have</legend>
-                <input id="5.1" type="radio" name="water" value="Well-water" onClick={this.onClick('water')}></input>
-                        <label htmlFor="5.1">Well-water</label>
-                <input id="5.2" type="radio" name="water" value="City-water" onClick={this.onClick('water')}></input>
-                        <label htmlFor="5.2">City-water</label>
-                <input id="5.3" type="radio" name="water" value="Other" onClick={this.onClick('water')}></input>
-                        <label htmlFor="5.3">Other</label>
-            </fieldset>
-        </div>
-        <div className="race-div">
-            <fieldset>
-                <legend>6. Click on your race</legend>
-                <input id="6.1" type="radio" name="race" value="Non-Hispanic Caucasian" onClick={this.onClick('race')}></input>
-                        <label htmlFor="6.1">Non-Hispanic Caucasian</label>
-                <input id="6.2"type="radio" name="race" value="Hispanic Caucasian" onClick={this.onClick('race')}></input>
-                        <label htmlFor="6.2">Hispanic Caucasian</label>
-                <input id="6.3"type="radio" name="race" value="Black or African American" onClick={this.onClick('race')}></input>
-                        <label htmlFor="6.3">Black or African American</label>
-                <input id="6.4" type="radio" name="race" value="Asian" onClick={this.onClick('race')}></input>
-                        <label htmlFor="6.4">Asian</label>
-                <input id="6.5" type="radio" name="race" value="American Indian or Alaska Native" onClick={this.onClick('race')}></input>
-                        <label htmlFor="6.5">American Indian or Alaska Native</label>
-                <input id="6.6" type="radio" name="race" value="Haiwaiian/Pacific Islander" onClick={this.onClick('race')}></input>
-                        <label htmlFor="6.6">Haiwaiian/Pacific Islander</label>
-                <input id="6.7" type="radio" name="race" value="Other or Multi-Racial" onClick={this.onClick('race')}></input>
-                        <label htmlFor="6.7">Other or Multi-Racial</label>
-            </fieldset>
-        </div>
-        <div className="development-div">
-            <fieldset>
-                <legend>7. Click on the development you currently reside</legend>
-                <input id="7.1" type="radio" name="development" value="Rural" onClick={this.onClick('development')}></input>
-                        <label htmlFor="7.1">Rural</label>
-                <input id="7.2" type="radio" name="development" value="Urban" onClick={this.onClick('development')}></input>
-                        <label htmlFor="7.2">Urban</label>
-                <input id="7.3" type="radio" name="development" value="Suburban" onClick={this.onClick('development')}></input>
-                        <label htmlFor="7.3">Suburban</label>
-            </fieldset>
-        </div>
-        <div className="age-div">
-            <fieldset>
-                <legend>8. Click on your current age range</legend>
-                <input id="8.1" type="radio" name="age" value="20 or under" onClick={this.onClick('age')}></input>
-                        <label htmlFor="8.1">20 or under</label>
-                <input id="8.2" type="radio" name="age" value="20-29" onClick={this.onClick('age')}></input>
-                        <label htmlFor="8.2">20-29</label>
-                <input id="8.3" type="radio" name="age" value="30-39" onClick={this.onClick('age')}></input>
-                        <label htmlFor="8.3">30-39</label>
-                <input id="8.4" type="radio" name="age" value="40-49" onClick={this.onClick('age')}></input>
-                        <label htmlFor="8.4">40-49</label>
-                <input id="8.5" type="radio" name="age" value="50-59" onClick={this.onClick('age')}></input>
-                        <label htmlFor="8.5">50-59</label>
-                <input id="8.6" type="radio" name="age" value="60 or over" onClick={this.onClick('age')}></input>
-                        <label htmlFor="8.6">60 or over</label>
-            </fieldset>
-        </div>
-        <div className="income-div">
-            <fieldset>
-                <legend>9. Click on your current income range</legend>
-                <input id="9.1" type="radio" name="income" value="Below 20k" onClick={this.onClick('income')}></input>
-                        <label htmlFor="9.1">Below 20</label>
-                <input id="9.2" type="radio" name="income" value="20k-45k" onClick={this.onClick('income')}></input>
-                        <label htmlFor="9.2">20k-45k</label>
-                <input id="9.3" type="radio" name="income" value="45k-85k" onClick={this.onClick('income')}></input>
-                        <label htmlFor="9.3">45k-85k</label>
-                <input id="9.4" type="radio" name="income" value="85k-150k" onClick={this.onClick('income')}></input>
-                        <label htmlFor="9.4">85k-150k</label>
-                <input id="9.5" type="radio" name="income" value="Above 150k" onClick={this.onClick('income')}></input>
-                        <label htmlFor="9.5">Above 150k</label>
-            </fieldset>
-        </div>
-        <div className="social-div">
-            <fieldset>
-                <legend>10. Click on the monthly average amount of social gatherings (with more than 3 
-                            people outside your household) you have attended</legend>
-                <input id="10.1" type="radio" name="social" value="0-1" onClick={this.onClick('social')}></input>
-                        <label htmlFor="10.1">0-1</label>
-                <input id="10.2" type="radio" name="social" value="2-3" onClick={this.onClick('social')}></input>
-                        <label htmlFor="10.2">2-3</label>
-                <input id="10.3" type="radio" name="social" value="4-6" onClick={this.onClick('social')}></input>
-                        <label htmlFor="10.3">4-6</label>
-                <input id="10.4" type="radio" name="social" value="7-9" onClick={this.onClick('social')}></input>
-                        <label htmlFor="10.4">7-9</label>
-                <input id="10.5" type="radio" name="social" value="10 or more" onClick={this.onClick('social')}></input>
-                        <label htmlFor="10.5">10 or more</label>
-            </fieldset>
-        </div>
-        <div className="weight">
-            <fieldset>
-                <legend>11. Click on your weight range</legend>
-                <input id="11.1" type="radio" name="weight" value="Underweight" onClick={this.onClick('weight')}></input>
-                        <label htmlFor="11.1">Underweight</label>
-                <input id="11.2" type="radio" name="weight" value="Average" onClick={this.onClick('weight')}></input>
-                        <label htmlFor="11.2">Average</label>
-                <input id="11.3" type="radio" name="weight" value="Overweight" onClick={this.onClick('weight')}></input>
-                        <label htmlFor="11.3">Overweight</label>
-                <input id="11.4" type="radio" name="weight" value="Obese" onClick={this.onClick('weight')}></input>
-                        <label htmlFor="11.4">Obese</label>
-                <input id="11.5" type="radio" name="weight" value="Morbidly Obese" onClick={this.onClick('weight')}></input>
-                        <label htmlFor="11.5">Morbidly Obese</label>
-            </fieldset>
-        </div>
-        <div className="sex-div">
-            <fieldset>
-                <legend>12. Click on the biological sex you were born with</legend>
-                <input id="12.1" type="radio" name="sex" value="Male" onClick={this.onClick('sex')}></input>
-                        <label htmlFor="12.1">Male</label>
-                <input id="12.2" type="radio" name="sex" value="Female" onClick={this.onClick('sex')}></input>
-                        <label htmlFor="12.2">Female</label>
-            </fieldset>
-        </div>
-        <div className="visits">
-            <fieldset>
-                <legend>13. Click on your monthly average hospital/clinic visits</legend>
-                <input id="13.1" type="radio" name="hospital" value="0-1" onClick={this.onClick('visits')}></input>
-                        <label htmlFor="13.1">0-1</label>
-                <input id="13.2" type="radio" name="hospital" value="2-3" onClick={this.onClick('visits')}></input>
-                        <label htmlFor="13.2">2-3</label>
-                <input id="13.3" type="radio" name="hospital" value="4-5" onClick={this.onClick('visits')}></input>
-                        <label htmlFor="13.3">4-5</label>
-                <input id="13.4" type="radio" name="hospital" value="6-8" onClick={this.onClick('visits')}></input>
-                        <label htmlFor="13.4">6-8</label>
-                <input id="13.5" type="radio" name="hospital" value="9 or more" onClick={this.onClick('visits')}></input>
-                        <label htmlFor="13.5">9 or more</label>
-            </fieldset>
-        </div>
+                <Grid container spacing={5} id="row-3">
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on the current type of water you have</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('water', event)}
+                                        >
+                                                <option name="water" value="Well-water" id="5.1">Well-water</option>
+                                                <option name="water" value="City-water" id="5.2">City-water</option>
+                                                <option name="water" value="Other" id="5.3">Other</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on your race</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('race', event)}
+                                        >
+                                                <option name="race" value="Non-Hispanic Caucasian" id="6.1">Non-Hispanic Caucasian</option>
+                                                <option name="race" value="Hispanic Caucasian" id="6.2">Hispanic Caucasian</option>
+                                                <option name="race" value="Black or African American" id="6.3">Black or African American</option>
+                                                <option name="race" value="Asian" id="6.4">Asian</option>
+                                                <option name="race" value="American Indian or Alaska Native" id="6.5">American Indian or Alaska Native</option>
+                                                <option name="race" value="Haiwaiian/Pacific Islander" id="6.6">Haiwaiian/Pacific Islander</option>
+                                                <option name="race" value="Other or Multi-Racial" id="6.7">Other or Multi-Racial</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on the development you currently reside</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('development', event)}
+                                        >
+                                                <option name="development" value="Rural" id="7.1">Rural</option>
+                                                <option name="development" value="Urban" id="7.2">Urban</option>
+                                                <option name="development" value="Suburban" id="7.3">Suburban</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on your current age range</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('age', event)}
+                                        >
+                                                <option name="age" value="20 or under"id="8.1">0 or under</option>
+                                                <option name="age" value="20-29"id="8.2">0-29</option>
+                                                <option name="age" value="30-39" id="8.3">0-39</option>
+                                                <option name="age" value="40-49" size="small" id="8.4">0-49</option>
+                                                <option name="age" value="50-59" size="small" id="8.5">0-59</option>
+                                                <option name="age" value="60 or over" id="8.6">60 or over</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on your current income range</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('income', event)}
+                                        >
+                                                <option name="income" value="Below 20k" id="9.1">Below 20</option>
+                                                <option name="income" value="20k-45k" id="9.2">20k-45k</option>
+                                                <option name="income" value="45k-85k" id="9.3">45k-85k</option>
+                                                <option name="income" value="85k-150k" id="9.4">85k-150k</option>
+                                                <option name="income" value="Above 150k" id="9.5">Above 150k</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                </Grid>
+                <Grid container spacing={5}>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on the monthly average amount of social gatherings (with 3+ people outside your household) you have attended</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('social', event)}
+                                        >
+                                                <option name="social" value="0-1" id="10.1">0-1</option>
+                                                <option name="social" value="2-3" id="10.2">2-3</option>
+                                                <option name="social" value="4-6" id="10.3">4-6</option>
+                                                <option name="social" value="7-9" id="10.4">7-9</option>
+                                                <option name="social" value="10 or more" id="10.5">10 or more</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on your weight range</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('weight', event)}
+                                        >
+                                                <option id="11.1"  name="weight" value="Underweight">Underweight</option>
+                                                <option id="11.2"  name="weight" value="Average">Average</option>
+                                                <option id="11.3"  name="weight" value="Overweight">Overweight</option>
+                                                <option id="11.4"  name="weight" value="Obese">Obese</option>
+                                                <option id="11.5"  name="weight" value="Morbidly Obese">Morbidly Obese </option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on your current type of residence</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('residence', event)}
+                                        >
+                                                <option value="Apartment" name="residence" id="3.1">Apartment</option>
+                                                <option name="residence" value="Townhome/Duplex" id="3.2">Townhome/Duplex</option>
+                                                <option name="residence" value="Single Family Home" id="3.3">Single Family Home</option>               
+                                                <option name="residence" value="Dorm/Other" id="3.4">Dorm/Other</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on your monthly average hospital/clinic visits</FormLabel>
+                                        <Select
+                                        onChange={(event)=>this.onChange('visits', event)}
+                                        >
+                                                <option name="hospital" value="0-1" id="13.1">0-1</option>
+                                                <option name="hospital" value="2-3" id="13.2">2-3</option>
+                                                <option name="hospital" value="4-5" id="13.3">4-5</option>
+                                                <option name="hospital" value="6-8" id="13.4">6-8</option>
+                                                <option name="hospital" value="9 or more" id="13.5">9 or more</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
+                </Grid>
+                <div id="account-update-btn-div">
+                        <Button
+                                id="account-update-btn" 
+                                onClick={this.onSubmit}>
+                        Update Profile
+                        </Button>
+                </div>
+                
 
-        <button onClick={this.onSubmit}>Update Profile</button>
-        <button>Delete Account</button>
-
+        </Grid>
       </div>
     );
   }

@@ -15,6 +15,7 @@ class DataLogItem extends Component {
             type: 'FETCH_LOGS',
             payload: this.props.store.user.id
         })
+        
     };//end componentDidMount
 
     goToEdit = () =>{

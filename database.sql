@@ -1,42 +1,45 @@
-CREATE TABLE "user" (
+CREATE EXTENSION IF NOT EXISTS citext;
+
+CREATE TABLE "user"
+(
   "id" serial primary key,
-  "username" VARCHAR (200) UNIQUE, 
+  "username" VARCHAR (200) UNIQUE NOT NULL,
+  "email" CITEXT UNIQUE DEFAULT 'N/A',
   "password" VARCHAR (1000) NOT NULL,
-  "covid_positive" boolean DEFAULT FALSE,
-  "current_covid_symptoms" boolean DEFAULT FALSE,
-  "smoke_exposed" boolean DEFAULT FALSE,
-  "daily_vitamins" boolean DEFAULT FALSE,
-  "insurance" boolean DEFAULT FALSE,
-  "public_exposed_children" boolean DEFAULT FALSE,
-  "negative_effects" boolean DEFAULT FALSE,
-  "personality" varchar (50),
-  "AC" varchar (50),
-  "dwelling" varchar (100),
-  "water" varchar (100),
-  "race" varchar (100),
-  "development" varchar (100),
-  "hospital_visits" varchar (50),
-  "sex" varchar (20),
-  "age_range" varchar (20),
-  "income_range" varchar (100),
-  "avg_social_gatherings" varchar (50),
-  "weight_range" varchar (50)
- );
- 
+  "covid" boolean,
+  "covid_symptoms" boolean,
+  "cigarettes" boolean,
+  "vitamins" boolean,
+  "insurance" boolean,
+  "children" boolean,
+  "negative" boolean,
+  "personality" varchar (50) DEFAULT 'N/A',
+  "AC" varchar (50) DEFAULT 'N/A',
+  "residence" varchar (100) DEFAULT 'N/A',
+  "water" varchar (100) DEFAULT 'N/A',
+  "race" varchar (100) DEFAULT 'N/A',
+  "development" varchar (100) DEFAULT 'N/A',
+  "visits" varchar (50) DEFAULT 'N/A',
+  "sex" varchar (20) DEFAULT 'N/A',
+  "age" varchar (20) DEFAULT 'N/A',
+  "income" varchar (100) DEFAULT 'N/A',
+  "social" varchar (50) DEFAULT 'N/A',
+  "weight" varchar (50) DEFAULT 'N/A'
+);
+
 CREATE TABLE "daily_logs" (
 "id" SERIAL PRIMARY KEY,
 "date" DATE,
 "user_id" INT REFERENCES "user",
 "oximeter" INT,
 "temperature" INT,
-"bp_systolic" INT,
-"bp_diastolic" INT,
+"systolic" INT,
+"diastolic" INT,
 "treatment" TEXT [],
 "treatment_not_listed" text,
-"feeling" varchar (20),
-"other_feelings" text,
-"medical_reactions" TEXT [],
+"feelings" varchar (20),
+"reactions" TEXT [],
 "reactions_not_listed" text,
-"symptoms" text [],
-"other_symptoms" text
+"symptoms" text [] DEFAULT,
+"symptoms_not_listed" text
 );

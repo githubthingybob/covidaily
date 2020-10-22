@@ -44,6 +44,7 @@ class DailyLogger extends Component {
                             });
                             this.clearInputFields();
                             this.props.history.push('/data')
+                            window.location.reload();
                       } else {
                             this.setState({
                               helperText: 'Required',
