@@ -53,8 +53,11 @@ class Account extends Component {
         <HashRouter>
       <div id="account-container">
         <div id="update-div">
-            <Link to="/accountupdate"><Button>Update Account</Button></Link>
+            <Link to="/accountupdate">
+                <Button id="update-btn" endIcon ={<ArrowForwardIcon/>}>Update Account</Button>
+            </Link>
         </div>
+        
         <Grid container alignItems="center" justify="space-evenly" id="main-account">
                 <Grid item xs>
                     <List dense>

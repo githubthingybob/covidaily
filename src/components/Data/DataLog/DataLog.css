@@ -1,29 +1,35 @@
 #data-log-main-div{
-    margin-top: 200px;
+    margin-top: 170px;
 }
 
 #data-log-main-table th{
     font-family: Raleway;
-    font-size: 15px;
+    font-size: 19px;
+
 }
 
 #data-log-main-table td{
     font-family: Raleway;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 #data-log-main-table {
     border-radius: 15px;
-    padding: 20px;
+    padding: 30px;
     border-collapse: collapse;
     margin: auto;
+    background: linear-gradient(45deg, #ecfeffec, #d9fff2ee);
 }
 
 
 #data-log-thead th{
     margin: 0px;
-    padding: 5px;
-    background-color: rgb(0, 204, 153);
-    text-align: center;
+    background-color: rgb(94, 94, 94);
+    text-align: center;    
+    padding-right:25px;
+    padding-left: 25px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: white;
 }
 

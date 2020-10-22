@@ -5,7 +5,7 @@
 }
 
 #video-div video {
-    filter: opacity(40%);
+    filter: opacity(30%);
     z-index: -5;
     position: absolute;
     object-Fit: cover;

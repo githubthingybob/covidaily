@@ -44,8 +44,8 @@ class DataLogItem extends Component {
             <td>{this.props.item.reactions_not_listed}</td>
             <td>{this.props.item.symptoms}</td>
             <td>{this.props.item.symptoms_not_listed}</td>
-            <td><Checkbox onClick={this.goToEdit}/></td>
-            <td><Checkbox onClick={this.onDelete}/></td>
+            <td><Checkbox className="data-log-check" onClick={this.goToEdit}/></td>
+            <td><Checkbox className="data-log-check" onClick={this.onDelete}/></td>
       </tr>
         )
 
