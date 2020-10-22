@@ -155,6 +155,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on the current type of water you have</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('water', event)}
                                         >
                                                 <option name="water" value="Well-water" id="5.1">Well-water</option>
@@ -167,6 +168,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on your race</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('race', event)}
                                         >
                                                 <option name="race" value="Non-Hispanic Caucasian" id="6.1">Non-Hispanic Caucasian</option>
@@ -183,6 +185,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on the development you currently reside</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('development', event)}
                                         >
                                                 <option name="development" value="Rural" id="7.1">Rural</option>
@@ -195,6 +198,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on your current age range</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('age', event)}
                                         >
                                                 <option name="age" value="20 or under"id="8.1">0 or under</option>
@@ -210,6 +214,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on your current income range</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('income', event)}
                                         >
                                                 <option name="income" value="Below 20k" id="9.1">Below 20</option>
@@ -226,6 +231,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on the monthly average amount of social gatherings (with 3+ people outside your household) you have attended</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('social', event)}
                                         >
                                                 <option name="social" value="0-1" id="10.1">0-1</option>
@@ -240,6 +246,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on your weight range</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('weight', event)}
                                         >
                                                 <option id="11.1"  name="weight" value="Underweight">Underweight</option>
@@ -254,6 +261,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on your current type of residence</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('residence', event)}
                                         >
                                                 <option value="Apartment" name="residence" id="3.1">Apartment</option>
@@ -267,6 +275,7 @@ class Account extends Component {
                                 <FormControl component="fieldset">
                                         <FormLabel component="legend">Click on your monthly average hospital/clinic visits</FormLabel>
                                         <Select
+                                        native
                                         onChange={(event)=>this.onChange('visits', event)}
                                         >
                                                 <option name="hospital" value="0-1" id="13.1">0-1</option>
