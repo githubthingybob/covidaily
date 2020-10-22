@@ -110,13 +110,12 @@ class DailyLogger extends Component {
 
 
   render() {
-        console.log('STATE IN DAILY LOGGER', this.state);
         
     return (
             <div>
              <h2>Daily Log for {this.state.date}
-             </h2><Grid container spacing={5}>
-
+             </h2>
+        <Grid container alignContent="center">
         <Grid item xs id="vitals">
           <h3 className="daily-logger-h3">1. Vitals</h3>
           <div id="oxi-div">
@@ -246,15 +245,16 @@ class DailyLogger extends Component {
 
         < Grid item xs id="treatment">
           <h3 className="daily-logger-h3">3. Treatment</h3>
-          <Grid container spacing={2}>
+          <Grid container justify="space-evenly" spacing={5}>
             <FormControl component="fieldset" error={this.state.error}>
                   <FormLabel component="legend">What treatment are you taking today?</FormLabel>
                         <FormGroup>
                             <FormHelperText>{this.state.helperText}</FormHelperText>
-                            <Grid item xs>
+                            <Grid item xs={10}>
                             <FormControlLabel control={
                                     <Checkbox id="remdesivir" name="remdesivir" value="Remdesivir" onClick={this.onClickTreatment}/>} 
                                     label="Remdesivir" />
+                                
                             <FormControlLabel control={
                                 <Checkbox id="dexamethasone" name="dexamethasone" value="Dexamethasone" onClick={this.onClickTreatment}/>} 
                                 label="Dexamethasone"/>
@@ -286,7 +286,7 @@ class DailyLogger extends Component {
                                     <Checkbox id="olumiant" name="olumiant" value="Olumiant" onClick={this.onClickTreatment}/>} 
                                     label="Olumiant"/>
                         </Grid>
-                        <Grid item xs>
+                        <Grid item xs={10}>
                             <FormControlLabel control={
                                     <Checkbox id="kineret" name="kineret" value="Kineret" onClick={this.onClickTreatment}/>} 
                                     label="Kineret"/>

@@ -18,7 +18,7 @@
     padding: 30px;
     border-collapse: collapse;
     margin: auto;
-    background: linear-gradient(45deg, #ecfeffec, #d9fff2ee);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 
