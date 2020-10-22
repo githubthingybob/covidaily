@@ -111,7 +111,7 @@ class DailyLogger extends Component {
         
     return (
             <div id="daily-logger-main-container">
-             <h2>Daily Log for {this.state.date}</h2>
+             <h2 id="daily-date">Daily Log for {this.state.date}</h2>
 <Grid container spacing={5}>
 <Grid item xs id="vitals">
           <h3 className="daily-logger-h3">1. Vitals</h3>

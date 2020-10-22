@@ -74,7 +74,7 @@
         padding-left: 15px;
 }
 #update-btn:hover {
-    background-color: rgb(255, 56, 89);
+    background-image: linear-gradient(240deg, #ff00f2, #ff006a);
 }
 
 a:link{
