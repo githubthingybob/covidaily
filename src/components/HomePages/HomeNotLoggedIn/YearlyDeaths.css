@@ -1,0 +1,27 @@
+#covid-deaths{
+    background-image: linear-gradient(30deg, #00bd94, #00d38d);
+    width: 200px;
+    height: 85px;
+    left: 600px;
+    top: 50px;
+    position: absolute;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    font-family: Poppins;
+    padding: 10px;
+}
+
+#usaCases{
+        background-image: linear-gradient(30deg, #b900e7, #7200b4);
+        width: 200px;
+        height: 80px;
+        text-align: center;
+        left: 1000px;
+        top: 200px;
+        position: absolute;
+        color: white;
+        border-radius: 10px;
+        font-family: Poppins;
+        padding: 20px;
+}

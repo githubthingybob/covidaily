@@ -8,7 +8,7 @@ import { withRouter} from 'react-router-dom';
 //styling
 import './AccountUpdate.css'
 import {Radio, RadioGroup, FormLabel, FormControl, Button, Select,
-    FormControlLabel, Grid} from '@material-ui/core';
+    FormControlLabel, Grid, TextField} from '@material-ui/core';
 class Account extends Component {
     state = {
         date: new Date().toLocaleString().split(',')[0],
@@ -31,7 +31,8 @@ class Account extends Component {
         children: '',
         negative: '',
         covid: '',
-        visits: ''
+        visits: '',
+        email: ''
     }
         onClick = (propertyName) => (event) =>{
                 console.log('state:', this.state);           
@@ -285,6 +286,17 @@ class Account extends Component {
                                                 <option name="hospital" value="9 or more" id="13.5">9 or more</option>
                                         </Select>
                                 </FormControl>
+                        </Grid>
+                        <Grid item xs={2}>
+                                <h4>Add Your Email</h4>
+                                        <TextField 
+                                                name="email"
+                                                variant="outlined"
+                                                value={this.state.email}
+                                                size="small"
+                                                label="Email"
+                                                onChange={(event)=>this.onChange('email', event)}
+                                                />
                         </Grid>
                 </Grid>
                 <div id="account-update-btn-div">
