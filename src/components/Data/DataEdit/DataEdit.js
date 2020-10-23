@@ -26,6 +26,8 @@ class DataEdit extends Component {
                     feelings: '',
                     reactions: [],
                     reactionsNotListed: '',
+                    logID: Number(this.props.match.params.id),
+                    bloodPressure: ''
       }//end state
       
       componentDidMount=()=>{
@@ -38,15 +40,10 @@ class DataEdit extends Component {
 
       onSubmitEdit = (event)=>{
         event.preventDefault();
-        let newDetails = {
-          ...this.state,
-          logID: this.props.match.params.id
-        }
-        console.log('newDetails EDIT', newDetails);
         
             this.props.dispatch({
               type: 'EDIT_LOG',
-              payload: newDetails
+              payload: this.state
             })
         // this.props.history.push('/data')
         // window.location.reload();
@@ -55,7 +52,8 @@ class DataEdit extends Component {
       handleInputChangeFor = (propertyName) => (event) => {       
           this.setState({
                   ...this.state,
-                    [propertyName]: event.target.value
+                    [propertyName]: event.target.value,
+                    bloodPressure: `${String(this.state.systolic)}/${String(this.state.diastolic)}`
           });
       }; //end handleInputChange
 
@@ -93,6 +91,7 @@ class DataEdit extends Component {
 
       
   render() {
+        console.log('EDIT STATE', this.state)
     return (
       <div>
               <div id="data-log-main-div">
@@ -417,7 +416,7 @@ class DataEdit extends Component {
 
 </Grid>                        
         <div id="daily-logger-btn-div">
-          <Button id="daily-submit-btn"variant="contained" onClick={this.onSubmit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>      
+          <Button id="daily-submit-btn"variant="contained" onClick={this.onSubmitEdit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>      
         </div>
         
 </div>
