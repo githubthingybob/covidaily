@@ -16,7 +16,7 @@ if (loggedIn != null) {
                   <div className="nav-div">
                       <ul className="nav-list">
                         <li className ="inline-li"><Link className="nav-link-li" to="/main">Home</Link></li>
-                        <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li>
+                        {/* <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li> */}
                         <li className ="inline-li"><Link className="nav-link-li" to="/dailylogger">Daily Logger</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/data">Data</Link></li>
                         <li className ="inline-li"><Link className="nav-link-li" to="/account">Account</Link></li>
