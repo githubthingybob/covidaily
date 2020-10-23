@@ -15,8 +15,6 @@ class DataLog extends Component {
   };
   
   render() {
-    console.log('DataLog this.props.store', this.props.store);
-    
     return (
       <>
           <DataLogItem/>
