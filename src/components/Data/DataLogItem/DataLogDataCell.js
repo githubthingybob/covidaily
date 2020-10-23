@@ -2,10 +2,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import DataLogItem from '../DataLogItem/DataLogItem';
-import './DataLog.css'
+import TableCell from '@material-ui/core/TableCell';
 
-class DataLog extends Component {
+class DataLogDataCell extends Component {
 
   componentDidMount=()=>{
     this.props.dispatch({
@@ -17,10 +16,15 @@ class DataLog extends Component {
   render() {
     return (
       <>
-      <DataLogItem/>
+      <TableCell>
+          TESTING
+      </TableCell>
+      <TableCell>
+          EDIT
+      </TableCell>
       </>
     );
   }
 }
 
-export default connect(mapStoreToProps)(DataLog);
+export default connect(mapStoreToProps)(DataLogDataCell);

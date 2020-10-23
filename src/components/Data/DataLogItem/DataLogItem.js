@@ -12,6 +12,8 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import DataLog from '../DataLog/DataLog';
+import DataLogDataCell from './DataLogDataCell'
 
 const columns = [
   {id: 'date', label: 'Date', minWidth: 150 , align: 'center', format:(value) => value.split('T')[0]},
@@ -24,7 +26,9 @@ const columns = [
   {id: 'treatment_not_listed',label: 'Other Treatments', minWidth: 170, align: 'center'},
   {id: 'feelings',label: 'Feelings', minWidth: 50, align: 'center'},
   {id: 'reactions',label: 'Reactions', minWidth: 170, align: 'center'},
-  {id: 'reactions_not_listed',label: 'Other Reactions', minWidth: 170, align: 'center'}
+  {id: 'reactions_not_listed',label: 'Other Reactions', minWidth: 170, align: 'center'},
+  {label: 'Edit', minWidth: 30, align: 'center'},
+  {label: 'Delete', minWidth: 30, align: 'center'}
 ];
 
 
@@ -52,6 +56,10 @@ function DataLogTest(props) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  
+  const edit=(event)=>{
+    console.log('EVENT EDIT', event.target.value)
+  }
 
   return (
     <Paper className={classes.root}>
@@ -68,39 +76,22 @@ function DataLogTest(props) {
                   {column.label}
                 </TableCell>
               ))}
-                <TableCell
-                  align="center"
-                  style={{ color: '#00ffc8', backgroundColor: '#3f3f3fe5', fontFamily: 'Poppins' }}
-                >
-                  Edit
-                </TableCell>
-                <TableCell
-                  align="center"
-                  style={{ color: '#00ffc8', backgroundColor: '#3f3f3fe5', fontFamily: 'Poppins' }}
-                >
-                  Delete
-                </TableCell>
             </TableRow>
           </TableHead>
             <TableBody>
-           {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, i) => {
+           {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, i) => { console.log('ROW', row);
              return (
-               <TableRow tabIndex={-1} key={i}>
-                 {columns.map((column,i) => {
-                   const value = row[column.id];
-                   return (
-                     <TableCell key={i} align={column.align} style={{fontFamily: 'Raleway'}}>
-                       {column.format && typeof value === 'number' ? column.format(value) : value}
-                     </TableCell>
-                   ); 
-                 })}
-                 <TableCell align="center" style={{minWidth:"30"}}>
-                    <EditIcon/>
-                 </TableCell>
-                 <TableCell align="center" style={{minWidth:"30"}}>
-                    <DeleteIcon/>
-                 </TableCell>
-               </TableRow>
+               
+              <TableRow  hover role="checkbox" tabIndex={-1} key={row.code} >
+                  {columns.map((column) => {
+                    const value = row[column.id];
+                    return (
+                      <TableCell key={column.id} align={column.align} value={row.id} onClick={edit}>
+                        {column.format && typeof value === 'number' ? column.format(value) : value}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
              );
            })}
          </TableBody>
