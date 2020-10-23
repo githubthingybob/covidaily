@@ -12,33 +12,31 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
 const columns = [
-  {id: 'date', label: 'Date', minWidth: 150 , align: 'center'},
-  {id: 'oximeter', label: 'Oximeter (SpO2)', minWidth: 70, align: 'center' },
-  {id: 'temperature', label: 'Temperature', minWidth: 70, align: 'center'},
-  {id: 'bloodpressure', label: 'Blood Pressure (S/D)', minWidth: 100, align: 'center'},
-  {id: 'treatment',label: 'Symptom(s)', minWidth: 170, align: 'center'},
-  {id: 'treatment',label: 'Other Symptom(s)', minWidth: 170, align: 'center'},
+  {id: 'date', label: 'Date', minWidth: 150 , align: 'center', format:(value) => value.split('T')[0]},
+  {id: 'oximeter', label: 'Oximeter (SpO2)', minWidth: 50, align: 'center' },
+  {id: 'temperature', label: 'Temperature', minWidth: 50, align: 'center'},
+  {id: 'systolic', label: 'Blood Pressure (S/D)', minWidth: 20, align: 'center'},
+  {id: 'diastolic', label: 'Blood Pressure (S/D)', minWidth: 20, align: 'center'},
+  {id: 'symptoms',label: 'Symptom(s)', minWidth: 170, align: 'center'},
+  {id: 'symptoms_not_listed',label: 'Other Symptom(s)', minWidth: 170, align: 'center'},
   {id: 'treatment',label: 'Treatment(s)', minWidth: 170, align: 'center'},
-  {id: 'treatment',label: 'Other Treatment(s)', minWidth: 170, align: 'center'},
-  {id: 'treatment',label: 'Feelings', minWidth: 50, align: 'center'},
-  {id: 'treatment',label: 'Reaction(s)', minWidth: 170, align: 'center'},
-  {id: 'treatment',label: 'Other Reaction(s)', minWidth: 170, align: 'center'},
-  {id: 'treatment',label: 'Edit', minWidth: 50, align: 'center'},
-  {id: 'treatment',label: 'Delete', minWidth: 50, align: 'center'},
+  {id: 'treatment_not_listed',label: 'Other Treatment(s)', minWidth: 170, align: 'center'},
+  {id: 'feelings',label: 'Feelings', minWidth: 50, align: 'center'},
+  {id: 'reactions',label: 'Reaction(s)', minWidth: 170, align: 'center'},
+  {id: 'reactions_not_listed',label: 'Other Reaction(s)', minWidth: 170, align: 'center'},
+  {label: 'Edit', minWidth: 50, align: 'center'},
+  {label: 'Delete', minWidth: 50, align: 'center'},
 ];
-
-
-
 
 
 const useStyles = makeStyles({
   root: {
-    width: '90%',
-    marginTop: '180px',
+    width: '95%',
+    marginTop: '160px',
     margin: 'auto'
   },
   container: {
-    maxHeight: 700,
+    maxHeight: 800,
     
   },
 });
@@ -47,7 +45,7 @@ function DataLogTest(props) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const rows = props.store.logsReducer
+    const rows = props.store.logsReducer;
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -60,12 +58,12 @@ function DataLogTest(props) {
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
+        <Table stickyHeader aria-label="data-logs">
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
+              {columns.map((column,i) => (
                 <TableCell
-                  key={column.id}
+                  key={i}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
                 >
@@ -74,22 +72,23 @@ function DataLogTest(props) {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
-          </TableBody>
+            <TableBody>
+           {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+             return (
+               <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                 {columns.map((column,i) => {
+                   const value = row[column.id];
+                   return (
+                     <TableCell key={i} align={column.align}>
+                       {column.format && typeof value === 'number' ? column.format(value) : value}
+                     </TableCell>
+                   );
+                 })}
+               </TableRow>
+             );
+           })}
+         </TableBody>
+
         </Table>
       </TableContainer>
       <TablePagination

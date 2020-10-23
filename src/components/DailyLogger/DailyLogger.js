@@ -17,6 +17,7 @@ class DailyLogger extends Component {
                     oximeter: '',
                     systolic: '',
                     diastolic: '',
+                    bloodpressure:'',
                     temperature: '',
                     symptoms: [],
                     symptomsNotListed: '',
@@ -38,9 +39,9 @@ class DailyLogger extends Component {
                         && this.state.feelings !=='' && this.state.reactions.length >0 && this.state.reactionsNotListed !==''
                         ) {
                             this.props.dispatch({
-                              type: 'POST_LOGS',
-                              url: '/api/dailylogger',
-                              payload: this.state
+                                type: 'POST_LOGS',
+                                url: '/api/dailylogger',
+                                payload: this.state
                             });
                             this.clearInputFields();
                             this.props.history.push('/data')
@@ -69,10 +70,11 @@ class DailyLogger extends Component {
                     });
                 }//end clear InputFields
 
-            handleInputChangeFor = (propertyName) => (event) => {       
+            handleInputChangeFor = (propertyName) => (event) => {  
               this.setState({
                   ...this.state,
-                    [propertyName]: event.target.value
+                    [propertyName]: event.target.value,
+                    bloodpressure: `${String(this.state.systolic)}/${String(this.state.diastolic)}`
               });
             }; //end handleInputChange
 
@@ -109,7 +111,7 @@ class DailyLogger extends Component {
             }
 
   render() {
-        
+         console.log('STATE', this.state);
     return (
             <div id="daily-logger-main-container">
              <h2 id="daily-date">Daily Log for {this.state.date}</h2>
