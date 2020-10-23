@@ -20,15 +20,15 @@ import image9 from '../../Images/publicclosings.jpg';
 function CarouselThing(props) {
 
  let items = [
-    {image: <img src={image1} alt="test"/>},
-    {image: <img src={image2} alt="test"/>},
-    {image: <img src={image3} alt="test"/>},
-    {image: <img src={image4} alt="test"/>},
-    {image: <img src={image5} alt="test"/>},
-    {image: <img src={image6} alt="test"/>},
-    {image: <img src={image7} alt="test"/>},
-    {image: <img src={image8} alt="test"/>},
-    {image: <img src={image9} alt="test"/>}
+    {image: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"><img src={image1} alt="test"/></a>},
+    {image: <a href="https://www.kff.org/coronavirus-covid-19/issue-brief/how-many-adults-are-at-risk-of-serious-illness-if-infected-with-coronavirus/"><img src={image2} alt="test"/></a>},
+    {image: <a href="https://www.kff.org/coronavirus-covid-19/issue-brief/how-many-adults-are-at-risk-of-serious-illness-if-infected-with-coronavirus/"><img src={image3} alt="test"/></a>},
+    {image: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"><img src={image4} alt="test"/></a>},
+    {image: <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"><img src={image5} alt="test"/></a>},
+    {image: <a href="https://www.cdc.gov/flu/pandemic-resources/1918-pandemic-h1n1.html"><img src={image6} alt="test"/></a>},
+    {image: <a href="https://www.cdc.gov/flu/pandemic-resources/1918-pandemic-h1n1.html"><img src={image7} alt="test"/></a>},
+    {image: <a href="https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm"><img src={image7} alt="test"/></a>},
+    {image: <a href="https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm"><img src={image7} alt="test"/></a>},
 
 ]
 
