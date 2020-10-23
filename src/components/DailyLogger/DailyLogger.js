@@ -17,7 +17,7 @@ class DailyLogger extends Component {
                     oximeter: '',
                     systolic: '',
                     diastolic: '',
-                    bloodpressure:'',
+                    bloodPressure:'',
                     temperature: '',
                     symptoms: [],
                     symptomsNotListed: '',
@@ -74,7 +74,7 @@ class DailyLogger extends Component {
               this.setState({
                   ...this.state,
                     [propertyName]: event.target.value,
-                    bloodpressure: `${String(this.state.systolic)}/${String(this.state.diastolic)}`
+                    bloodPressure: `${String(this.state.systolic)}/${String(this.state.diastolic)}`
               });
             }; //end handleInputChange
 
@@ -189,7 +189,7 @@ class DailyLogger extends Component {
                         <FormHelperText>{this.state.helperText}</FormHelperText>
                         <Grid item xs>
                                 <FormControlLabel control={
-                                        <Checkbox classname="symptoms-label" id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}/>} 
+                                        <Checkbox className="symptoms-label" id="personality-change" name="personality-change" value="Personality Change" onClick={this.onClickSymptoms}/>} 
                                         label="Personality Change" />
                                 <FormControlLabel control={
                                         <Checkbox id="congestion" name="congestion" value="Congestion" onClick={this.onClickSymptoms}/>} 

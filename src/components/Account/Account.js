@@ -5,8 +5,7 @@ import {HashRouter, Link} from 'react-router-dom';
 
 //styling
 import './Account.css'
-import {FormLabel, FormControl, List, ListItem, Button, 
-    FormControlLabel, FormGroup, ListItemIcon} from '@material-ui/core';
+import {List, ListItem, Button, ListItemIcon} from '@material-ui/core';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Grid from '@material-ui/core/Grid'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
