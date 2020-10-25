@@ -11,7 +11,7 @@
 .h2-yearly {
   font-size: 18px;
   font-family: Poppins;
-  color: black;
+  color: rgb(83, 83, 83);
   padding-top: 15px;
   padding-left: 30px;
   margin-bottom: 5px;
@@ -48,7 +48,7 @@
 }
 
 #yearlyStats{
-  background: radial-gradient(108.19% 1253.06% at -3.45% 7.73%, #ffc0f1 0%, #FFFFFF 100%);
+  background: radial-gradient(108.19% 1253.06% at -3.45% 7.73%, #ffa2eb 0%, #FFFFFF 100%);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius:20px;
   position: relative;
@@ -64,12 +64,12 @@
   padding-right: 10px;
   margin: 2px;
   font-family: Raleway;
-  color: #8B8B8B;
+  color: black;
 
 };
 
 #yearlyList li{
-  color: black;
+  color: rgb(255, 255, 255);
 };
 
 #covidDeaths {
