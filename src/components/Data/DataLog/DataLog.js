@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 import DataLogItem from '../DataLogItem/DataLogItem';
+import DataGraphs from '../DataGraphs/DataGraphs'
 import './DataLog.css'
 
 
@@ -17,9 +18,18 @@ class DataLog extends Component {
   
   render() {
     console.log('DataLog this.props.store', this.props.store);
+    // console.log('TESTING', this.props.store.logsReducer.map((item, i)=>
+    //           <p key={i}> {item.date.toLocaleString().replace('2020-', '').split('T')[0]}</p>
+    //           ));
+    
     
     return (
       <div id="data-log-main-div">
+        
+        
+
+        
+        
         <table id="data-log-main-table">
           <thead >
             <tr id="data-log-thead">
@@ -46,6 +56,8 @@ class DataLog extends Component {
               />)}
           </tbody>
         </table>
+
+        <DataGraphs/>
       </div>
     );
   }
