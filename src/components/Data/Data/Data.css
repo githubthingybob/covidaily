@@ -1,4 +1,10 @@
 #data-main-container{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    height: 3000px;
+}
 
+.switch{
+    position: absolute;
+    top: 12%;
+    left: 5%;
 }

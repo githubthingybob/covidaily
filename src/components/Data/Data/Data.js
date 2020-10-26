@@ -27,13 +27,14 @@ toggle = () =>{
             return (
                 <HashRouter>
                 <div id="data-main-container">
-                    <FormControl component="fieldset">
+                    <div className="switch">
+                         <FormControl component="fieldset">
                         <FormControlLabel 
                         control={<Switch onChange={this.toggle}/>}
                         label="Go to Graphs"
                         />
                     </FormControl>
-
+                    </div>
                     <DataLog/>
                 </div>
                 </HashRouter>
@@ -44,13 +45,14 @@ toggle = () =>{
           return(
               <HashRouter>
                 <div id="data-main-container">
-                    <FormControl component="fieldset">
+                    <div className="switch">
+                        <FormControl component="fieldset">
                         <FormControlLabel 
                         control={<Switch onChange={this.toggle}/>}
                         label="Go to Logs"
                         />
                     </FormControl>
-
+                    </div>
                     <DataGraphs/>
                     
                 </div>

@@ -6,22 +6,20 @@ import {Line} from 'react-chartjs-2'
 //styling
 import './DataGraphItems.css'
 
-const Temperature = (mapStoreToProps) =>{
+const Diastolic = (mapStoreToProps) =>{
   let logs = mapStoreToProps.store.logsReducer
-  let temperature = logs.map((item) => item.temperature);
+  let diastolic = logs.map((item) => item.oximeter);
   let dates = logs.map((item)=> item.date.toLocaleString().replace('2020-', '').split('T')[0]);
   let orderedDates = dates.sort()
-
-    console.log('TEMPERATURE', temperature);
-
- const [chartData, setChartData] = useState({});
+console.log('DATES', orderedDates);
+const [chartData, setChartData] = useState({});
   const charts =()=>{
     setChartData({
               labels: orderedDates,
               datasets: [
                 {
-                  label: "Temperature",
-                  data: temperature,
+                  label: "Diastolic",
+                  data: diastolic,
                   backgroundColor: "rgba(75, 192, 192, 0.6)",
                 }
               ]
@@ -29,14 +27,12 @@ const Temperature = (mapStoreToProps) =>{
   } 
 
 
-   
 
     useEffect(() => {
       charts();
     }, [logs])
-
   return (
-    <div id="temperature-line-graph">
+    <div id="diastolic-line-graph">
       <Line
       data={chartData}
       options={{
@@ -44,7 +40,7 @@ const Temperature = (mapStoreToProps) =>{
         responsive: true,
         title: {
             display: true,
-            text: 'Daily Temperature',
+            text: 'Daily Diastolic',
             fontSize: 20
         },
         scales: {
@@ -57,7 +53,7 @@ const Temperature = (mapStoreToProps) =>{
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Temperature (°F)'
+                    labelString: 'BP: Diastolic'
                 }
             }]
         },
@@ -71,6 +67,5 @@ const Temperature = (mapStoreToProps) =>{
 }
 
 
-export default connect(mapStoreToProps)(Temperature);
-
+export default connect(mapStoreToProps)(Diastolic);
 

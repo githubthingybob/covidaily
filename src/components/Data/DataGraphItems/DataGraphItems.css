@@ -1,9 +1,31 @@
 #oximeter-line-graph{
-    height: 400px;
-    width: 600px;
+    height: 500px;
+    width: 800px;
+    position: absolute;
+    top: 15%;
+    left: 3%
 }
 
 #temperature-line-graph{
-    height: 400px;
-    width: 600px;
+    height: 500px;
+    width: 800px;
+    position: absolute;
+    top: 60%;
+    left: 3%;
+}
+
+#systolic-line-graph {
+    height: 500px;
+    width: 800px;
+    top: 15%;
+    position: absolute;
+    left: 50%;
+}
+
+#diastolic-line-graph {
+    height: 500px;
+    width: 800px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
 }

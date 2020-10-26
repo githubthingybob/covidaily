@@ -12,7 +12,7 @@ const Oximeter = (mapStoreToProps) =>{
   let dates = logs.map((item)=> item.date.toLocaleString().replace('2020-', '').split('T')[0]);
   let orderedDates = dates.sort()
 console.log('DATES', orderedDates);
-
+const [chartData, setChartData] = useState({});
   const charts =()=>{
     setChartData({
               labels: orderedDates,
@@ -27,7 +27,6 @@ console.log('DATES', orderedDates);
   } 
 
 
-    const [chartData, setChartData] = useState({});
 
     useEffect(() => {
       charts();

@@ -75,9 +75,9 @@ router.put('/edit/:id', rejectUnauthenticated, (req, res) => {
   const queryText = `UPDATE "daily_log" SET "oximeter"=$1, "temperature"=$2, "systolic"=$3, 
                     "diastolic"=$4, "blood_pressure"=$5, "treatment"=$6, "treatment_not_listed"=$7, "feelings"=$8, 
                     "reactions"=$9, "reactions_not_listed"=$10, "symptoms"=$11, "symptoms_not_listed"=$12
-                    WHERE "user_id"=$13`;
+                    WHERE "id"=$13`;
   pool.query(queryText, [e.oximeter, e.temperature, e.systolic, e.diastolic, e.bloodPressure, e.treatment, e.treatmentNotListed, 
-                          e.feelings, e.reactions, e.reactionsNotListed, e.symptoms, e.symptomsNotListed, e.userID])
+                          e.feelings, e.reactions, e.reactionsNotListed, e.symptoms, e.symptomsNotListed, e.logID])
     .then((response) => {
       res.send(response.rows);
     })
