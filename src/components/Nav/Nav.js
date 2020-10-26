@@ -35,7 +35,6 @@ if (loggedIn != null) {
               <div className="nav-div">
                   <ul className="nav-list">
                     <li className ="inline-li"><Link className="nav-link-li" to="/home">Home</Link></li>
-                    <li className ="inline-li"><Link className="nav-link-li" to="/resources">Resources</Link></li>
                   </ul>
               </div>
         <div className="not-logged-nav-line"></div> 
