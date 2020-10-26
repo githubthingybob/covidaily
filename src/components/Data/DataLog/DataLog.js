@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-
 import DataLogItem from '../DataLogItem/DataLogItem';
 import './DataLog.css'
 
@@ -18,11 +17,6 @@ class DataLog extends Component {
   render() {
     return (
       <div id="data-log-main-div">
-        
-        
-
-        
-        
         <table id="data-log-main-table">
           <thead >
             <tr id="data-log-thead">

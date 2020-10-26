@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
-import React, {useState, EffectCallback, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import {Line} from 'react-chartjs-2'
 
+//styling
+import './DataGraphItems.css'
 
 const Oximeter = (mapStoreToProps) =>{
   let logs = mapStoreToProps.store.logsReducer
