@@ -4,6 +4,7 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 
 //graphs
 import Oximeter from '../DataGraphItems/Oximeter';
+import Temperature from '../DataGraphItems/Temperature';
 
 class DataGraphs extends Component {
 
@@ -12,6 +13,7 @@ class DataGraphs extends Component {
     return (
       <div id="data-graphs-container">
       <Oximeter/>
+      <Temperature/>
       </div>
     );
   }

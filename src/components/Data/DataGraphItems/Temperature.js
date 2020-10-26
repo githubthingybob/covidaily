@@ -6,20 +6,22 @@ import {Line} from 'react-chartjs-2'
 //styling
 import './DataGraphItems.css'
 
-const Oximeter = (mapStoreToProps) =>{
+const Temperature = (mapStoreToProps) =>{
   let logs = mapStoreToProps.store.logsReducer
-  let oximeter = logs.map((item) => item.oximeter);
+  let temperature = logs.map((item) => item.temperature);
   let dates = logs.map((item)=> item.date.toLocaleString().replace('2020-', '').split('T')[0]);
   let orderedDates = dates.sort()
-console.log('DATES', orderedDates);
+
+    console.log('TEMPERATURE', temperature);
+
 
   const charts =()=>{
     setChartData({
               labels: orderedDates,
               datasets: [
                 {
-                  label: "Oximeter",
-                  data: oximeter,
+                  label: "Temperature",
+                  data: temperature,
                   backgroundColor: "rgba(75, 192, 192, 0.6)",
                 }
               ]
@@ -32,8 +34,9 @@ console.log('DATES', orderedDates);
     useEffect(() => {
       charts();
     }, [logs])
+
   return (
-    <div id="oximeter-line-graph">
+    <div id="temperature-line-graph">
       <Line
       data={chartData}
       options={{
@@ -41,7 +44,7 @@ console.log('DATES', orderedDates);
         responsive: true,
         title: {
             display: true,
-            text: 'Daily Oximeter',
+            text: 'Daily Temperature',
             fontSize: 20
         },
         scales: {
@@ -54,7 +57,7 @@ console.log('DATES', orderedDates);
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Oximeter (SpO2)'
+                    labelString: 'Temperature (°F)'
                 }
             }]
         },
@@ -68,12 +71,6 @@ console.log('DATES', orderedDates);
 }
 
 
-export default connect(mapStoreToProps)(Oximeter);
+export default connect(mapStoreToProps)(Temperature);
 
 
-
-// let date = this.props.store.logsReducer.map((item, i)=>
-//           item.date.toLocaleString().replace('2020-', '').split('T')[0])
-
-// [this.props.store.logsReducer.map((item) =>
-//           item.oximeter)]
