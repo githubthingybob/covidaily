@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
 import React, {useState, EffectCallback, useEffect} from 'react';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
-import {Bar, Line, Pie} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 
 
-const DataGraphs = (mapStoreToProps) =>{
+const Oximeter = (mapStoreToProps) =>{
   let logs = mapStoreToProps.store.logsReducer
   let oximeter = logs.map((item) => item.oximeter);
   let dates = logs.map((item)=> item.date.toLocaleString().replace('2020-', '').split('T')[0]);
+  let orderedDates = dates.sort()
+console.log('DATES', orderedDates);
+
   const charts =()=>{
     setChartData({
               labels: dates,
@@ -15,7 +18,7 @@ const DataGraphs = (mapStoreToProps) =>{
                 {
                   label: "Oximeter",
                   data: oximeter,
-                  backgroundColor: ["rgba(75, 192, 192, 0.6)"],
+                  backgroundColor: "rgba(75, 192, 192, 0.6)",
                 }
               ]
     })
@@ -28,30 +31,34 @@ const DataGraphs = (mapStoreToProps) =>{
       charts()
     }, [logs])
   return (
-    <div>
+    <div id="oximeter-line-graph">
       <Line
       data={chartData}
       options={{
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         responsive: true,
         title: {
-          display: true,
-          text: 'Oximeter'
+            display: true,
+            text: 'Daily Oximeter',
+            fontSize: 20
         },
         scales: {
-          xAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Dates'
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Dates (MM-DD)'
+                }
+            }],
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Oximeter (SpO2)'
+                }
+            }]
+        },
+        legend:{
+              display:false,
             }
-          }],
-          yAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Oximeter'
-            }
-          }]
-        }
       }}
       />
     </div>
@@ -59,7 +66,7 @@ const DataGraphs = (mapStoreToProps) =>{
 }
 
 
-export default connect(mapStoreToProps)(DataGraphs);
+export default connect(mapStoreToProps)(Oximeter);
 
 
 
