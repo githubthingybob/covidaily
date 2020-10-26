@@ -19,7 +19,7 @@ import HomeNotLoggedIn from '../HomePages/HomeNotLoggedIn/HomeNotLoggedIn';
 import HomeLoggedIn from '../HomePages/HomeLoggedIn/HomeLoggedIn';
 
 //data
-import DataLog from '../Data/DataLog/DataLog';
+import Data from '../Data/Data/Data';
 import DataGraphs from '../Data/DataGraphs/DataGraphs';
 import DataEdit from '../Data/DataEdit/DataEdit';
 
@@ -102,7 +102,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/data"
-              component={DataLog}
+              component={Data}
             />
 
             <ProtectedRoute
