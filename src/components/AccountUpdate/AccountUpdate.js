@@ -58,6 +58,7 @@ class Account extends Component {
                         payload: this.state
                     });
                     this.props.history.push('/account')
+                    window.location.reload();
             }; // end onSubmit
 
   render() {

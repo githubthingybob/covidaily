@@ -26,10 +26,6 @@ class HomeLoggedIn extends Component {
                 <Link to="/accountupdate"><Button startIcon ={<ArrowBackIcon/>}>Update Your Profile</Button></Link>
                 <Link to="/dailylogger"><Button endIcon ={<ArrowForwardIcon/>}>Log Vitals and Symptoms</Button></Link>
                 </p>
-                <p>
-                <Link to="/data"><Button startIcon ={<ArrowBackIcon/>}>Check out your Data</Button></Link>
-                <Link to="/dailylogger"><Button endIcon ={<ArrowForwardIcon/>}>Check out Resources</Button></Link>
-              </p>
             </div>
             <CarouselThing/>
          

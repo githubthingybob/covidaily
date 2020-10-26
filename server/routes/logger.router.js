@@ -8,7 +8,7 @@ const {
 //get all logs from a user
 router.get('/user/:id', rejectUnauthenticated, (req, res) => {
   console.log('req.params.id', req.params.id);
-  const queryText = `SELECT * FROM "daily_log" WHERE "user_id" = $1`;
+  const queryText = `SELECT * FROM "daily_log" WHERE "user_id" = $1 ORDER BY "date"`;
   pool.query(queryText, [req.params.id])
     .then((response) => {
       res.send(response.rows);

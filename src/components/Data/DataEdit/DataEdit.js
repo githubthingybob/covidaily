@@ -46,7 +46,6 @@ class DataEdit extends Component {
               payload: this.state
             })
         this.props.history.push('/data')
-        window.location.reload();
       }
 
       handleInputChangeFor = (propertyName) => (event) => {       

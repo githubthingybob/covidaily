@@ -9,6 +9,9 @@ function* postNewDailyLog(action) {
         url: `/api/dailylogger`,
         data: action.payload
     });
+    yield put ({
+        type: 'FETCH_LOGS'
+    })
 }
 
 //get logs of a specific user
