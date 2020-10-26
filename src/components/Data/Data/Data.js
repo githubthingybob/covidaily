@@ -5,7 +5,7 @@ import mapStoreToProps from '../../../redux/mapStoreToProps';
 import {FormControl, FormControlLabel, Switch} from '@material-ui/core';
 import DataLog from '../DataLog/DataLog';
 import DataGraphs from '../DataGraphs/DataGraphs';
-import {HashRouter, Link} from 'react-router-dom';
+
 
 //styling
 import './Data.css'
@@ -25,7 +25,7 @@ toggle = () =>{
       console.log('STATE.CHECKED', this.state.checked)
       if (this.state.checked === true){
             return (
-                <HashRouter>
+
                 <div id="data-main-container">
                     <div className="switch">
                          <FormControl component="fieldset">
@@ -37,13 +37,11 @@ toggle = () =>{
                     </div>
                     <DataLog/>
                 </div>
-                </HashRouter>
             );
       }
 
       else if (this.state.checked===false){
           return(
-              <HashRouter>
                 <div id="data-main-container">
                     <div className="switch">
                         <FormControl component="fieldset">
@@ -54,9 +52,8 @@ toggle = () =>{
                     </FormControl>
                     </div>
                     <DataGraphs/>
-                    
                 </div>
-                </HashRouter>
+
           )
       }
 

@@ -33,3 +33,8 @@
     margin-top: 30px;
 
 }
+
+
+#registration-btn:hover{
+    background-image: linear-gradient(240deg, #ff00f2, #ff006a);
+}

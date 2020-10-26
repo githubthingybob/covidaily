@@ -415,7 +415,7 @@ class DataEdit extends Component {
 
 </Grid>                        
         <div id="daily-logger-btn-div">
-          <Button id="daily-submit-btn"variant="contained" onClick={this.onSubmitEdit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>      
+          <Button id="data-submit-btn"variant="contained" onClick={this.onSubmitEdit} endIcon ={<ArrowForwardIcon/>}>SUBMIT</Button>      
         </div>
         
 </div>

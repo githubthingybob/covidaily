@@ -150,6 +150,20 @@ class Account extends Component {
                                         </RadioGroup>
                                 </FormControl>
                         </Grid>
+                        <Grid item xs={2}>
+                                <FormControl component="fieldset">
+                                        <FormLabel component="legend">Click on the current type of AC system you have</FormLabel>
+                                        <Select
+                                        native
+                                        onChange={(event)=>this.onChange('AC', event)}
+                                        >
+                                                <option name="AC" value="Central" >Central</option>
+                                                <option name="AC" value="Ductless">Ductless</option>
+                                                <option name="AC" value="Window Unit">Window Unit</option>
+                                                <option name="ac" value="Other">Other</option>
+                                        </Select>
+                                </FormControl>
+                        </Grid>
                 </Grid>
 
                 <Grid container spacing={5} id="row-3">

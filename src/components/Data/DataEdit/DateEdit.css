@@ -10,3 +10,19 @@
     left: 3%;
     background-color: white;
 }
+
+#data-submit-btn{
+       background: #5200d6;
+       box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+       border-radius: 3px;
+       color: white;
+       margin-right: 10px;
+       padding-right: 15px;
+       position: absolute;
+       right: 225px;
+       top: 670px;
+}
+
+#data-submit-btn:hover{
+    background-image: linear-gradient(240deg, #ff00f2, #ff006a);
+}
