@@ -1,6 +1,5 @@
 # COVIDaily
 ![Image of COVIDaily](homepage.png)
-![Using COVIDaily](covidaily.gif)
 ## Description
 **Student Solo Project**
 **Duration:** 2 weeks
@@ -30,7 +29,7 @@ Before you get started, make sure you have the following software installed on y
 - [PostrgeSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
-## Set Up Instructions to Installing
+## Set Up Instructions
 1. Run `npm install`
 2. Create a .env file at the root of the project and paste this line into the file: SERVER_SESSION_SECRET=superDuperSecret
     - While you're in your new .env file, take the time to replace superDuperSecret with some long random string to keep your application secure. [PasswordGenerator](https://passwordsgenerator.net/) 
