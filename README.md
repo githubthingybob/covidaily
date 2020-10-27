@@ -1,5 +1,5 @@
 # COVIDaily
-![Image of COVIDaily](/Users/sa/Documents/Prime/covidaily/covidaily homepage.png)
+![Image of COVIDaily](/Users/sa/Documents/Prime/covidaily/homepage.png)
 ## Description
 **Student Solo Project**
 **Duration:** 2 weeks
