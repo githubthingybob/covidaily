@@ -1,16 +1,26 @@
 # COVIDaily
 
-
 ## Description
 **Student Solo Project**
 **Duration:** 2 weeks
 
-This app is a daily logger that logs vitals and symptoms and graphs out how different demographics, from weight range to AC system, are affected by COVID-19. The goal is to learn more about this virus and why people are affected so differently. Up to [80%](https://www.health.harvard.edu/blog/the-tragedy-of-the-post-covid-long-haulers-2020101521173) of all COVID-positive people are known as long-haulers, where they may suffer months to years and may have permanent internal scarring from this virus from their hearts to their kidneys. By logging their vitals and seeing how they deal with their symptoms, react to medications and treatment, we can then hope to come up with solutions.
+This app is a daily logger that logs vitals and symptoms and graphs out how different demographics, from weight range to AC system, are affected by COVID-19. The goal is to learn more about this virus and why people are affected so differently. The amount of longer-haulers (people who suffer weeks to months and may have permanent internal scarring from this virus from their hearts to their kidneys) is unknown, a UK study says [10%](https://www.bmj.com/content/370/bmj.m3026) of COVID-positive people are long-haulers. Another study says [50% to 80%](https://www.health.harvard.edu/blog/the-tragedy-of-the-post-covid-long-haulers-2020101521173) of COVID-positive people are known as long-haulers. The definition of long-haulers has not been set in stone across countries and therefore, the studies done cannot be compared to each other if they all have different definitions.
 
-This app uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+The point is that these people exist and these people may recover after years or may never recover, the long-term effects of COVID-19 on the population will greatly damage our society as these people may be unable to work for years. The tragedy of this population cannot be understated.
+
+By logging their vitals and seeing how they deal with their symptoms, react to medications and treatment, we can then hope to come up with solutions for COVID-19.
+
+**Skills Practiced:** Full stack integration, Node, PostgresSQL, React, Redux, Sagas, Passport, Express, Chartjs, MaterialUI, COVID Tracking API. Javascript, HTML, remote presentation, public speaking skills
+
+**Hardest Challenges During Student Project:** Time management, Learning Chartjs and React Hooks
+
+**Goal:**Make a compatible mobile version
+
+
 
 ## Prerequisites
 
+This app uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 Before you get started, make sure you have the following software installed on your computer:
 
 - [Node.js](https://nodejs.org/en/)
