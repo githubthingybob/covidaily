@@ -1,5 +1,6 @@
 # COVIDaily
 ![Image of COVIDaily](homepage.png)
+![Using COVIDaily](covidaily.gif)
 ## Description
 **Student Solo Project**
 **Duration:** 2 weeks
