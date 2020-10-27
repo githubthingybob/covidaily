@@ -46,41 +46,20 @@ router.get('/profile/:id', (req, res) => {
 
 
   // update data for a user
-// router.put('/profile/:id', (req, res) => {
-//   console.log('body and params for user/profile PUT', req.body, req.params.id);
-  
-//   const queryText = `UPDATE "user"
-//     SET "email"=$1, "covid"=$2, "covid_symptoms"=$3, "cigarettes"=$4, "vitamins"=$5, 
-//     "insurance"=$6, "children"=$7, "negative"=$8, "personality"=$9, "AC"=$10, "residence"=$11, "water"=$12, 
-//     "race"=$13, "development"=$14, "visits"=$15, "sex"=$16, "age"=$17, "income"=$18, "social"=$19, "weight"=$20
-//     WHERE "id" = $21;`;
-//   const newData = req.body;
-
-//   pool.query(queryText, [
-//     newData.email, newData.covid, newData.covidSymptoms, newData.cigarettes, newData.vitamins, newData.insurance, 
-//     newData.children, newData.negative, newData.personality, newData.AC, newData.residence, newData.water, newData.race, 
-//     newData.development, newData.visits, newData.sex, newData.age, newData.income, newData.social, newData.weight,
-//     newData.userID
-//   ])
-//     .then((response) => {
-//       res.sendStatus(200);
-//     })
-//     .catch((err) => {
-//       console.warn(err);
-//       res.sendStatus(500);
-//     });
-// }); //end PUT
-
-//testing PUT
 router.put('/profile/:id', (req, res) => {
-  console.log('TESTING', req.body, req.params.id);
+  console.log('body and params for user/profile PUT', req.body, req.params.id);
+  
   const queryText = `UPDATE "user"
-    SET "email"=$1 
-    WHERE "id" = $2;`;
+    SET "email"=$1, "covid"=$2, "covid_symptoms"=$3, "cigarettes"=$4, "vitamins"=$5, 
+    "insurance"=$6, "children"=$7, "negative"=$8, "personality"=$9, "AC"=$10, "residence"=$11, "water"=$12, 
+    "race"=$13, "development"=$14, "visits"=$15, "sex"=$16, "age"=$17, "income"=$18, "social"=$19, "weight"=$20
+    WHERE "id" = $21;`;
   const newData = req.body;
 
   pool.query(queryText, [
-    newData.email,
+    newData.email, newData.covid, newData.covidSymptoms, newData.cigarettes, newData.vitamins, newData.insurance, 
+    newData.children, newData.negative, newData.personality, newData.AC, newData.residence, newData.water, newData.race, 
+    newData.development, newData.visits, newData.sex, newData.age, newData.income, newData.social, newData.weight,
     newData.userID
   ])
     .then((response) => {
@@ -90,7 +69,7 @@ router.put('/profile/:id', (req, res) => {
       console.warn(err);
       res.sendStatus(500);
     });
-}); //end TESTING PUT
+}); //end PUT
 
 
 // Handles login form authenticate/login POST
